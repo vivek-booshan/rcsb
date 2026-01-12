@@ -119,6 +119,7 @@ modified_query = (query.clone()
 ```
 The above returns the following query 
 ```python
+"""
 query structure($id: String!) {
   entry(entry_id: $id) {
     polymer_entities {
@@ -143,4 +144,6 @@ query structure($id: String!) {
     }
   }
 }
+"""
 ```
+
