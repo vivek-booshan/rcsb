@@ -1,0 +1,2 @@
+# rcsb
+RCSB utility library
