@@ -1,0 +1,21 @@
+[project]
+name = "rcsb"
+version = "0.1.0"
+description = "RCSB api utility library"
+readme = "README.md"
+authors = [
+    { name = "vivek-booshan", email = "vivek.booshan@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "requests"
+]
+
+[project.optional-dependenies]
+numba = [
+    "numba"
+]
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
