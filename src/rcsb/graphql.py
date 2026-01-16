@@ -1,80 +1,80 @@
-import requests
+from __future__ import annotations
+from typing import Any, List, Dict, Optional, Union, Self, Type
 import textwrap
 from copy import deepcopy
-from .schema import _INTERNAL_SCHEMA
+from rcsb.schema import _INTERNAL_SCHEMA
+import requests
 
 class QueryBuilder:
-    def __init__(self, name=None, parent=None, schema_type=None):
-        """
-        A recursive GraphQL query builder with RCSB schema awareness.
-        
-        Args:
-            name: The name of the GraphQL field (e.g., 'entry', 'rcsb_id').
-            parent: The parent QueryBuilder node.
-            schema_type: The GraphQL type from the schema (e.g., 'CoreEntry').
-                         Defaults to 'Query' (the root entry point).
-        """
+    def __init__(self, name: Optional[str] = None, parent: Optional[QueryBuilder] = None, schema_type: Optional[str] = None):
         self.name = name
         self.parent = parent
-        self.children = []
-        self.arguments = {}
-        # Default to 'Query' root if no context is provided
+        self.children: List[Union[QueryBuilder, str]] = []
+        self.arguments: Dict[str, Any] = {}
+        # Default to root schema type
         self.schema_type = schema_type or _INTERNAL_SCHEMA.query_type
 
-    def clone(self):
-        """Returns a deep copy of the current builder."""
-        return deepcopy(self)
-
-    def __call__(self, **kwargs):
-        """Adds arguments to the current node: qb.entry(entry_id="4HHB")."""
+    def __call__(self, **kwargs) -> Self:
+        """Adds arguments and returns self, maintaining the 'Proxy' type."""
         self.arguments.update(kwargs)
         return self
 
     def __getattr__(self, name):
-        """
-        Enables dot-notation discovery and automatic node creation.
-        If a field is a scalar, it is added; if it is an object, it is entered.
-        """
+        if name.startswith('_'): raise AttributeError(name)
+
         field_def, target_type = _INTERNAL_SCHEMA.get_field(self.schema_type, name)
         
         if field_def:
             target_def = _INTERNAL_SCHEMA.types.get(target_type, {})
-            # If the field is a leaf (Scalar or Enum), just add it to the query
-            if target_def.get("kind") in ("SCALAR", "ENUM"):
-                return self.add(name)
-            # Otherwise, it's a nested object; enter a new QueryBuilder context
-            return self.enter(name, schema_type=target_type)
+            # --- THE FIX ---
+            # We return the node/field WITHOUT adding it to self.children yet.
+            # We only add it when we know for sure it's part of the query.
+            return self._create_temporary_node(name, target_type, target_def)
         
-        raise AttributeError(f"Type '{self.schema_type}' has no attribute '{name}'")
+        raise AttributeError(f"'{self.schema_type}' has no attribute '{name}'")
 
-    def __dir__(self):
-        """Enables tab-completion in IDEs/REPLs based on the current schema context."""
-        return super().__dir__() + _INTERNAL_SCHEMA.list_fields(self.schema_type)
+    def _create_temporary_node(self, name, target_type, target_def):
+        """Creates a node that only attaches itself to the parent when used."""
+        is_scalar = target_def.get("kind") in ("SCALAR", "ENUM")
+        
+        if is_scalar:
+            # For scalars, we add them immediately because the dot access IS the selection
+            if name not in self.children:
+                self.children.append(name)
+            return self 
+        else:
+            # For objects, we create the node but don't append to self.children 
+            # until the user actually does something with it.
+            new_node = QueryBuilder(name, parent=self, schema_type=target_type)
+            self.children.append(new_node)
+            return new_node
 
-    def add(self, *fields):
-        """Explicitly add scalar fields to the current node."""
-        for f in fields:
-            if f not in self.children:
-                self.children.append(f)
-        return self
+    def __dir__(self) -> List[str]:
+        # Merges standard methods with schema-specific fields
+        return list(super().__dir__()) + _INTERNAL_SCHEMA.list_fields(self.schema_type)
 
-    def enter(self, field_name, schema_type=None):
-        """Explicitly enter a nested node. Useful if type cannot be inferred."""
-        node = QueryBuilder(
-            field_name, 
-            parent=self, 
-            schema_type=schema_type or _INTERNAL_SCHEMA.query_type
-        )
+    def _ipython_key_completions_(self):
+        """Specific hook for Jupyter/IPython to force-refresh field lists."""
+        return _INTERNAL_SCHEMA.list_fields(self.schema_type)
+
+    def enter(self, field_name: str, schema_type: Optional[str] = None) -> QueryBuilder:
+        node = QueryBuilder(field_name, parent=self, schema_type=schema_type)
         self.children.append(node)
         return node
 
-    def raw(self, gql: str):
+    def add(self, *fields: str) -> Self:
+        for f in fields:
+            if f not in self.children: self.children.append(f)
+        return self
+
+    def raw(self, gql: str) -> Self:
         """Add a raw GraphQL string block to the current node."""
         clean = textwrap.dedent(gql).strip()
         self.children.append(clean)
         return self
 
-    def end(self):
+    @property
+    def end(self) -> Self:
         """Returns the parent node, or self if at root."""
         return self.parent if self.parent else self
 
@@ -122,12 +122,16 @@ class QueryBuilder:
 
     def render(self, query_name="structure"):
         """Renders the full GraphQL query string."""
+        root = self
+        while root.parent is not None:
+            root = root.parent
+
         fields = self._render_node(indent=2)
         return textwrap.dedent(f"""
-            query {query_name} {{
-            {fields}
-            }}
-        """).strip()
+query {query_name} {{
+{fields}
+}}
+""").strip()
 
 
 def submit_query(query, variables=None):
@@ -141,3 +145,18 @@ def submit_query(query, variables=None):
         raise RuntimeError(f"GraphQL Error: {response['errors']}")
     
     return response.get("data", {})
+
+class SchemaProxy:
+    """
+    A transparent wrapper around QueryBuilder that tricks IDEs into 
+    treating different schema nodes as different 'types' for completion.
+    """
+    @classmethod
+    def create(cls, builder_instance: QueryBuilder) -> Any:
+        # Create a dynamic subclass so the IDE treats each level uniquely
+        class_name = f"QB_{builder_instance.schema_type}"
+        dynamic_type = type(class_name, (QueryBuilder,), {})
+        
+        # Manually wrap the instance into this new dynamic type
+        builder_instance.__class__ = dynamic_type
+        return builder_instance
