@@ -66,7 +66,7 @@ query = (QB().entry(entry_id="$id") # NOTE: kwarg matches entry(entry_id: String
     )
 ```
 
-### Visualing Queries
+### Visualizing Queries
 The `.render()` method returns a string of the final query
 ```python
 print(query.render())
@@ -183,4 +183,5 @@ unwrap_query(result, ["entry", "polymer_entities", "rcsb_target_cofactors", "cof
 
 unwrap_query(result, ["entry", "polymer_entities", "entity_poly", "pdbx_one_seq_letter_code_can"]) # unwraps single item list (entity_poly); returns sequence
 ```
+
 
