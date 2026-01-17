@@ -1,10 +1,13 @@
+import warnings
 from typing import Iterable, Optional
+
 def unwrap_query(
-    query, # graphql query  
+    query: dict[str, dict|list],
     path: Iterable[str], 
     default: Optional[str] = None,
     strict: bool = False
-) -> str:
+) -> Optional[any]:
+    """Unwrap the results from a submitted query (nested dictionary)."""
     current = query
     if current is None:
         return default
@@ -13,11 +16,21 @@ def unwrap_query(
         if isinstance(current, list):
             if len(current) == 1:
                 current = current[0]
-            elif len(current) > 1 and strict:
-                raise ValueError(
-                    f"Ambiguous data at depth {depth}: List contains multiple items "
-                    f"but resolve_unwrapped expected a single object or scalar."
-                )
+            elif len(current) > 1:
+                if strict:
+                    raise ValueError(
+                        f"Ambiguous data at depth {depth}: List contains multiple items "
+                        f"but unwrap_query expected a single object or scalar."
+                    )
+                else:
+                    warnings.warn(
+                        f"Ambiguous data at depth {depth} for key '{key}': "
+                        f"List contains {len(current)} items. Defaulting to the first item. "
+                        f"Set strict=True to raise an error instead.",
+                        UserWarning,
+                        stacklevel=2
+                    )
+                    current = current[0]
             elif len(current) == 0:
                 return default
 
