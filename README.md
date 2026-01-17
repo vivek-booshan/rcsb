@@ -47,12 +47,12 @@ query = (QB().entry(entry_id="$id") # NOTE: kwarg matches entry(entry_id: String
             .end # move back up to polymer_entities
         .uniprots
             .rcsb_id
-            .end
+            .end # move back up to polymer_entities
         .rcsb_polymer_entity_align
             .aligned_regions
                 .entity_beg_seq_id
                 .ref_beg_seq_id
-                .end
+                .end # move back up to rcsb_polymer_entity_align
             .end # move back up to polymer_entities
         .polymer_entity_instances
             .rcsb_polymer_instance_feature
@@ -183,3 +183,4 @@ unwrap_query(result, ["entry", "polymer_entities", "rcsb_target_cofactors", "cof
 
 unwrap_query(result, ["entry", "polymer_entities", "entity_poly", "pdbx_one_seq_letter_code_can"]) # unwraps single item list (entity_poly); returns sequence
 ```
+
