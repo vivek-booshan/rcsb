@@ -8,7 +8,40 @@ OUTPUT_FILE = "data.py"
 # from the old api
 HEADER = """import textwrap
 import requests
-from typing import Any, Optional, List, Union, Self
+from typing import Any, Optional, List, Union
+
+RCSB_ARGUMENT_TYPES = {
+    "polymer_entity_instance": {"asym_id": "String!", "entry_id": "String!"},
+    "chem_comps": {"comp_ids": "[String]!"},
+    "nonpolymer_entity_groups": {"group_ids": "[String]!"},
+    "polymer_entity_groups": {"group_ids": "[String]!"},
+    "interface": {"assembly_id": "String!", "interface_id": "String!", "entry_id": "String!"},
+    "nonpolymer_entities": {"entity_ids": "[String!]!"},
+    "polymer_entities": {"entity_ids": "[String!]!"},
+    "polymer_entity": {"entity_id": "String!", "entry_id": "String!"},
+    "entry_group": {"group_id": "String!"},
+    "pubmed": {"pubmed_id": "Int!"},
+    "assembly": {"assembly_id": "String!", "entry_id": "String!"},
+    "branched_entity_instances": {"instance_ids": "[String]!"},
+    "group_provenance": {"group_provenance_id": "String!"},
+    "polymer_entity_instances": {"instance_ids": "[String]!"},
+    "interfaces": {"interface_ids": "[String!]!"},
+    "nonpolymer_entity_group": {"group_id": "String!"},
+    "assemblies": {"assembly_ids": "[String]!"},
+    "branched_entity": {"entity_id": "String!", "entry_id": "String!"},
+    "polymer_entity_group": {"group_id": "String!"},
+    "branched_entity_instance": {"asym_id": "String!", "entry_id": "String!"},
+    "nonpolymer_entity_instance": {"asym_id": "String!", "entry_id": "String!"},
+    "chem_comp": {"comp_id": "String!"},
+    "entry": {"entry_id": "String!"},
+    "entries": {"entry_ids": "[String!]!"},
+    "entry_groups": {"group_ids": "[String]!"},
+    "branched_entities": {"entity_ids": "[String!]!"},
+    "uniprot": {"uniprot_id": "String!"},
+    "nonpolymer_entity_instances": {"instance_ids": "[String]!"},
+    "nonpolymer_entity": {"entity_id": "String!", "entry_id": "String!"}
+}
+
 
 # --- Query Logic ---
 
@@ -36,33 +69,33 @@ class QueryNode:
         \"\"\"Navigates back to the parent node.\"\"\"
         return self._parent if self._parent else self
 
-    def _get_all_variables(self) -> set:
-	    \"\"\"Recursively finds all variable names (starting with $) in the tree.\"\"\"
-	    vars_found = set()
-	    # Check current node arguments
-	    for val in self._arguments.values():
-	        if isinstance(val, str) and val.startswith("$"):
-	            vars_found.add(val[1:]) # Strip the '$'
-
-	    # Check children
-	    for child in self._children:
-	        vars_found.update(child._get_all_variables())
-	    return vars_found
-
     def render(self, query_name="structure"):
-	    root = self
-	    while root._parent:
-	        root = root._parent
+        root = self
+        while root._parent:
+            root = root._parent
 
-	    variables = root._get_all_variables()
+        variable_map = {}
+        
+        for child in root._children:
+            # Skip if it's just a string/scalar leaf
+            if not hasattr(child, "_name"): 
+                continue
 
-	    var_header = ""
-	    if variables:
-	        v_defs = [f"${v}: String!" for v in sorted(variables)]
-	        var_header = f"({', '.join(v_defs)})"
+            known_args = RCSB_ARGUMENT_TYPES.get(child._name, {})
 
-	    fields = root._render_node(indent=2)
-	    return f"query {query_name}{var_header} {{\\n{fields}\\n}}"
+            for arg_name, arg_value in child._arguments.items():
+                if isinstance(arg_value, str) and arg_value.startswith("$"):
+                    clean_var_name = arg_value[1:] # remove $
+                    gql_type = known_args.get(arg_name, "String!")
+                    variable_map[clean_var_name] = gql_type
+
+        var_header = ""
+        if variable_map:
+            defs = [f"${name}: {type_def}" for name, type_def in sorted(variable_map.items())]
+            var_header = f"({', '.join(defs)})"
+
+        fields = root._render_node(indent=2)
+        return f"query {query_name}{var_header} {{\\n{fields}\\n}}"
 
     def _render_node(self, indent=0):
         pad = " " * indent
