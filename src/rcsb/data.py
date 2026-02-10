@@ -1,5 +1,6 @@
 import textwrap
 import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Optional, List, Union
 
 RCSB_ARGUMENT_TYPES = {
@@ -33,6 +34,7 @@ RCSB_ARGUMENT_TYPES = {
     "nonpolymer_entity_instances": {"instance_ids": "[String]!"},
     "nonpolymer_entity": {"entity_id": "String!", "entry_id": "String!"}
 }
+
 
 # --- Query Logic ---
 
@@ -82,7 +84,6 @@ class QueryNode:
 
         var_header = ""
         if variable_map:
-            # Sort for consistent output
             defs = [f"${name}: {type_def}" for name, type_def in sorted(variable_map.items())]
             var_header = f"({', '.join(defs)})"
 
@@ -140,6 +141,90 @@ class QueryNode:
         """Renders and executes the stored query.
         Use `QueryNode.execute` if running multiple submissions."""
         return self.execute(self.render(), **variables)
+
+    def process(self, inputs: list, func: callable, batch_size: int = None, max_workers: int = None, const_kwargs: dict = {}, iter_kwargs: dict = {}):
+        """Execute batched GraphQL queries with parallelized Network I/O and parsing.
+
+            This function chunks inputs into batches, submits them concurrently to the 
+            GraphQL endpoint, and parses the results using a thread pool. It supports 
+            both single-argument queries and multi-argument (e.g., interface) queries.
+
+            Args:
+                - query: The GraphQL query
+                - inputs: Data to batch. Can be `List[str]` for single variables or 
+                    `List[Dict[str, str]]` for multiple variables (e.g., interface IDs).
+                - func: Callback function to parse each entry. Signature: `func(entry, **kwargs)`.
+                - batch_size: Number of inputs per API request. Defaults to 200 if batch_size = None.
+                - max_workers: Max concurrent threads for I/O and parsing.
+                - const_kwargs: Fixed arguments passed to `func` for every entry.
+                - iter_kwargs: Mapping of names to iterables of size `len(inputs)` for entry-specific metadata.
+
+            Returns:
+                A list of results returned by `func`
+        """
+
+        n_inputs = len(inputs)
+
+        child = self._children[0]
+        result_key = child._name
+        if result_key not in RCSB_ARGUMENT_TYPES.keys():
+            raise ValueError("""Result key could not be determined.
+                             Child is {child._name}. Ensure the query is ".end"ed properly.""")
+
+        batch_vars = []
+        for arg_value in child._arguments.values():
+            if isinstance(arg_value, str) and arg_value.startswith("$"):
+                batch_vars.append(arg_value[1:])  # Strip "$"
+                break
+    
+        if not batch_vars:
+            raise ValueError(
+                f"No GraphQL variable (starting with '$') found in arguments for '{child._name}'. "
+                "Cannot determine which variable to use for batching."
+            )
+    
+        for k, v in iter_kwargs.items():
+            if len(v) != n_inputs:
+                raise ValueError(f"List argument '{k}' len {len(v)} != inputs len {n_inputs}")
+
+        if batch_size is None:
+            batch_size = n_inputs if n_inputs < 200 else 200
+
+        def handle_batch(start_idx: int):
+            end_idx = start_idx + batch_size
+            batch_slice = inputs[start_idx:end_idx]
+
+            submit_kwargs = {}
+            if len(batch_vars) == 1:
+                submit_kwargs[batch_vars[0]] = batch_slice
+            else:
+                for var in batch_vars:
+                    submit_kwargs[var] = [item[var] for item in batch_slice]
+
+            response = self.submit(**submit_kwargs)
+            entries = response.get(result_key, [])
+
+            batch_out = []
+            for idx, entry in enumerate(entries):
+                item_kwargs = {**const_kwargs}
+                for k, v in iter_kwargs.items():
+                    item_kwargs[k] = v[start_idx + idx]
+    
+                batch_out.append(func(entry, **item_kwargs))
+            return batch_out
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            indices = range(0, n_inputs, batch_size)
+            future_to_batch = {executor.submit(handle_batch, i): i for i in indices}
+
+        final_results = []    
+        for future in as_completed(future_to_batch):
+            try:
+                final_results.extend(future.result())
+            except Exception as e:
+                print(f"Error in batch starting at {future_to_batch[future]}: {e}")
+
+        return final_results
 
 # --- Generated Schema Classes ---
 
