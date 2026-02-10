@@ -24,6 +24,78 @@ or
 
 ## Usage
 
+#### Query Argument Types Key
+
+| GraphQL Type | Python Equivalent | Description |
+| :--- | :--- | :--- |
+| `String!` | `str` | A required single string (e.g., "4HHB") |
+| `Int!` | `int` | A required single integer (e.g., 12345) |
+| `[String]!` | `list[str]` | A required list of strings |
+| `[String!]!` | `list[str]` | A required list of strings (elements cannot be null) |
+
+
+#### Core Structural Queries
+Primary entry points for fetching metadata for entries and their chemical components.
+
+| Method | Arguments | Key Mapping |
+| :--- | :--- | :--- |
+| **entry** | `entry_id: String!` | Individual PDB ID |
+| **entries** | `entry_ids: [String!]!` | List of PDB IDs |
+| **chem_comp** | `comp_id: String!` | Chemical component ID (e.g., "HEM") |
+| **chem_comps** | `comp_ids: [String]!` | List of chemical component IDs |
+
+
+#### Polymer & Non-Polymer Entities
+Entities represent the unique chemical molecules in the structure (e.g., a specific protein chain or a ligand type).
+
+| Method | Arguments | Identifier Format |
+| :--- | :--- | :--- |
+| **polymer_entity** | `entry_id: String!`, `entity_id: String!` | `4HHB`, `1` |
+| **polymer_entities** | `entity_ids: [String!]!` | `["4HHB_1", "1AZW_1"]` |
+| **nonpolymer_entity** | `entry_id: String!`, `entity_id: String!` | `4HHB`, `3` |
+| **nonpolymer_entities** | `entity_ids: [String!]!` | `["4HHB_3"]` |
+| **branched_entity** | `entry_id: String!`, `entity_id: String!` | Carbohydrates/Branched polymers |
+| **branched_entities** | `entity_ids: [String!]!` | List of branched entities |
+
+
+#### Instances (Chains)
+Instances represent the specific occurrences of entities in the asymmetric unit (the "chains").
+
+| Method | Arguments | Identifier Format |
+| :--- | :--- | :--- |
+| **polymer_entity_instance** | `entry_id: String!`, `asym_id: String!` | `4HHB`, `A` |
+| **polymer_entity_instances** | `instance_ids: [String]!` | `["4HHB.A", "4HHB.B"]` |
+| **nonpolymer_entity_instance** | `entry_id: String!`, `asym_id: String!` | Ligand chain ID |
+| **nonpolymer_entity_instances** | `instance_ids: [String]!` | List of ligand chain IDs |
+| **branched_entity_instance** | `entry_id: String!`, `asym_id: String!` | Carbohydrate chain ID |
+| **branched_entity_instances** | `instance_ids: [String]!` | List of carbohydrate chain IDs |
+
+
+#### Biological Assemblies & Interfaces
+Queries for the quaternary structure and the contact surfaces between molecules.
+
+| Method | Arguments |
+| :--- | :--- |
+| **assembly** | `entry_id: String!`, `assembly_id: String!` |
+| **assemblies** | `assembly_ids: [String]!` |
+| **interface** | `entry_id: String!`, `assembly_id: String!`, `interface_id: String!` |
+| **interfaces** | `interface_ids: [String!]!` |
+
+
+#### External Mappings & Groups
+Data linked to external databases or grouped by sequence/structural similarity.
+
+| Method | Arguments | Description |
+| :--- | :--- | :--- |
+| **uniprot** | `uniprot_id: String!` | UniProt Accession (e.g., "P68871") |
+| **pubmed** | `pubmed_id: Int!` | PubMed ID for primary citation |
+| **polymer_entity_group** | `group_id: String!` | Entity group ID |
+| **polymer_entity_groups** | `group_ids: [String]!` | List of entity group IDs |
+| **entry_group** | `group_id: String!` | Entry group ID |
+| **entry_groups** | `group_ids: [String]!` | List of entry group IDs |
+| **group_provenance** | `group_provenance_id: String!` | Methodology metadata |
+---
+
 ### Building Custom GraphQL Queries
 Thanks to the code generation script, every relevant class from the official [data_api_search.json](https://github.com/rcsb/py-rcsb-api/blob/83368df13112374643e02c6c04a6fea3a67ad683/rcsbapi/data/resources/data_api_schema.json) is implemented in `data.py`, which provides easy determination of valid options through autocomplete.
 
@@ -187,6 +259,7 @@ unwrap_query(result, ["entry", "polymer_entities", "rcsb_target_cofactors", "cof
 
 unwrap_query(result, ["entry", "polymer_entities", "entity_poly", "pdbx_one_seq_letter_code_can"]) # unwraps single item list (entity_poly); returns sequence
 ```
+
 
 
 
