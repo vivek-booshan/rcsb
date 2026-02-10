@@ -5,8 +5,8 @@ This library provides an alternative to rcsb-api and supports **autocompletion**
 Currently only the data api has been implemented (ie find thing given query).
 
 ## TODO
-- remove "String!" hardcode and handle proper rcsb query inputs
-- implement search api
+- implement search api (in process of merge)
+- implement batch processing
 
 ## Installation
 
@@ -183,6 +183,7 @@ unwrap_query(result, ["entry", "polymer_entities", "rcsb_target_cofactors", "cof
 
 unwrap_query(result, ["entry", "polymer_entities", "entity_poly", "pdbx_one_seq_letter_code_can"]) # unwraps single item list (entity_poly); returns sequence
 ```
+
 
 
 
