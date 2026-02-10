@@ -135,25 +135,29 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
 from rcsb.data import Query
 
-MAX_WORKERS = os.cpu().count()
+rendered_query = query.render()
+target_ids = ["1b38", "6mdr", "5dwy"]
+
 results = []
+MAX_WORKERS = os.cpu_count()
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
     futures = {
         executor.submit(
-            Query.execute, 
-            rendered_query, 
+            Query.execute,
+            rendered_query, # must be rendered outside, as render() modifies self
             **{"id": pdb_id.lower()}
         ): pdb_id.lower() for pdb_id in target_ids
     }
-   
-    for future in as_completed(futures):
-        pdb_id = futures[future]
-        try:
-            data = future.result()
-            results.append(data)
-            print(results)
-        except Exception as e:
-            print(f"{pdb_id} generated an exception: {e}")
+
+for future in as_completed(futures):
+    pdb_id = futures[future]
+    try:
+        data = future.result()
+        results.append(data)
+    except Exception as e:
+        print(f"{pdb_id} generated an exception: {e}")
+
+print(results)
 ```
 ```python
 from joblib import Parallel, delayed
@@ -183,6 +187,7 @@ unwrap_query(result, ["entry", "polymer_entities", "rcsb_target_cofactors", "cof
 
 unwrap_query(result, ["entry", "polymer_entities", "entity_poly", "pdbx_one_seq_letter_code_can"]) # unwraps single item list (entity_poly); returns sequence
 ```
+
 
 
 
