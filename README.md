@@ -260,8 +260,109 @@ unwrap_query(result, ["entry", "polymer_entities", "rcsb_target_cofactors", "cof
 unwrap_query(result, ["entry", "polymer_entities", "entity_poly", "pdbx_one_seq_letter_code_can"]) # unwraps single item list (entity_poly); returns sequence
 ```
 
+## Processing
+
+The `process` method is a high-level orchestrator that combines **automatic batching**, **concurrent Network I/O**, and **parallelized parsing** to fetch and process large volumes of structural data from the RCSB PDB GraphQL API into data ready formats. It takes
+- inputs: inputs of the query (`list[str]` for single inputs and `list[dict[str, str]]` for multiple inputs like the interface query)
+- func: callable function to process the query for a single submission
+- const_kwargs: submission agnostic arguments that remain the same for all queries
+- iter_kwargs: submission specific arguments (eg, the example function takes the pdb_id of each entry as an additional input)
+---
+
+### Advanced Example: Deep Data Extraction
+
+In this example, we fetch polymer sequences, UniProt alignments, ligand interaction sites, and cofactor SMILES with binding affinities. This involves deep nesting and multiple data "unwrapping" steps.
+
+### Define the Query
+```python
+from rcsb.data import QueryBuilder as QB
+query = (QB()
+    .entries(entry_ids="$ids")
+    .polymer_entities
+        .rcsb_id
+        .entity_poly.pdbx_seq_one_letter_code_can.end
+        .rcsb_target_cofactors
+            .binding_assay_value
+            .binding_assay_value_type
+            .cofactor_SMILES
+            .end
+        .uniprots.rcsb_id.end
+        .rcsb_polymer_entity_align
+            .aligned_regions.entity_beg_seq_id.ref_beg_seq_id.end
+            .end
+        .polymer_entity_instances
+            .rcsb_polymer_instance_feature
+                .name
+                .feature_positions.beg_comp_id.beg_seq_id.end
+                .end
+            .end
+        .end
+    .nonpolymer_entities
+        .nonpolymer_comp.chem_comp.id.end.end
+        .nonpolymer_entity_instances
+            .rcsb_nonpolymer_instance_validation_score.is_subject_of_investigation.end
+            .end
+        .end
+    .end
+)
+```
+
+### Define the Processing Function
+```python
+from rcsb import unwrap_query
+def process_single_entry(entry, pdb_id: str, ligand: str = None, filter_affinity_nulls: bool = True):
+    if entry is None:
+        return None
+
+    # Identify 'Subject of Investigation' Ligand
+    subject_of_investigation = ligand
+    if subject_of_investigation is None:
+        for entity in entry.get("nonpolymer_entities") or []:
+            valid_score = unwrap_query(entity, ["nonpolymer_entity_instances", "rcsb_nonpolymer_instance_validation_score"])
+            if valid_score and valid_score[0].get("is_subject_of_investigation") == 'Y':
+                subject_of_investigation = entity.get("nonpolymer_comp", {}).get("chem_comp", {}).get("id")
+
+    # Get Canonical Sequence
+    poly = entry.get("polymer_entities", [{}])[0]
+    canonical_seq = unwrap_query(poly, ["entity_poly", "pdbx_seq_one_letter_code_can"])
+
+    uniprot_offset = None
+    uniprot_idx = None
+    uniprot_id = None
+    try:
+        uniprot_id = unwrap_query(polymer_entity, ["uniprots", "rcsb_id"])
+        aligned_regions = unwrap_query(polymer_entity, ["rcsb_polymer_entity_align", "aligned_regions"])
+        uniprot_offset = unwrap_query(aligned_regions, ["entity_beg_seq_id"]) - 1
+        uniprot_idx = unwrap_query(aligned_regions, ["ref_beg_seq_id"])
+    except Exception as e:
+        print(f"Warning: {pdb_id} uniprot detection failed with {type(e)} {e}")
 
 
+    # Extract Cofactors & Affinities
+    cofactors = poly.get("rcsb_target_cofactors") or []
+    if filter_affinity_nulls:
+        cofactors = [c for c in cofactors if c.get("binding_assay_value") is not None]
 
+    return {
+        "pdb_id": pdb_id,
+        "seq": canonical_seq,
+        "uniprot": (uniprot_id, uniprot_idx, uniprot_offset)
+        "binding_sites": interactions,
+        "smiles": tuple(c["cofactor_SMILES"] for c in cofactors),
+        "affinity": tuple(c["binding_assay_value"] for c in cofactors),
+        "ligand": subject_of_investigation
+    }
+```
+
+### Submit the process
+```python
+pdb_ids = [...]
+results = query.process(
+    inputs=pdb_ids, 
+    func=process_single_entry, 
+    iter_kwargs={"pdb_id": pdb_ids},
+    max_workers=10
+)
+```
 
 
