@@ -269,9 +269,9 @@ The `process` method is a high-level orchestrator that combines **automatic batc
 - iter_kwargs: submission specific arguments (eg, the example function takes the pdb_id of each entry as an additional input)
 ---
 
-### Advanced Example: Deep Data Extraction
+### Advanced Example: Deep Data Extraction for Affinity Prediction. 
 
-In this example, we fetch polymer sequences, UniProt alignments, ligand interaction sites, and cofactor SMILES with binding affinities. This involves deep nesting and multiple data "unwrapping" steps.
+For a simple affinity prediction pipeline, a research often wants pdb sequences, ligands, affinities, and the affinity types (IC50, EC50, Kd, Ki, etc). In this example, we fetch polymer sequences, UniProt alignments, ligand interaction sites, and cofactor SMILES with binding affinities.
 
 ### Define the Query
 ```python
@@ -364,5 +364,6 @@ results = query.process(
     max_workers=10
 )
 ```
+
 
 
