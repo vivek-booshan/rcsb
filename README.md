@@ -13,7 +13,6 @@ Currently only the data api has been implemented (ie find thing given query).
 ### Prerequisites
 * Python >= 3.10
 * `requests`
-* optional: `numba`
 
 ### Setup
 `pip install git+https://github.com/vivek-booshan/rcsb.git`

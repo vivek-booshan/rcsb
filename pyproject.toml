@@ -17,10 +17,6 @@ dev = [
     "jupyter>=1.1.1",
     "marimo",
 ]
-[project.optional-dependenies]
-numba = [
-    "numba"
-]
 
 [build-system]
 requires = ["uv_build"]
