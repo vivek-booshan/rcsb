@@ -41,16 +41,16 @@ class TerminalNode(SearchNode):
             node["label"] = self.label
         return node
 
-    def equals(self, val: Any) -> TerminalNode: return self._op("exact_match", val)
-    def contains(self, val: str) -> TerminalNode: return self._op("contains_phrase", val)
-    def contains_words(self, val: str) -> TerminalNode: return self._op("contains_words", val)
-    def greater_than(self, val: Union[int, float]) -> TerminalNode: return self._op("greater", val)
-    def greater_or_equal(self, val: Union[int, float]) -> TerminalNode: return self._op("greater_or_equal", val)
-    def less_than(self, val: Union[int, float]) -> TerminalNode: return self._op("less", val)
-    def less_or_equal(self, val: Union[int, float]) -> TerminalNode: return self._op("less_or_equal", val)
-    def range(self, min_val: Any, max_val: Any) -> TerminalNode: return self._op("range", [min_val, max_val])
-    def in_set(self, val_list: List[Any]) -> TerminalNode: return self._op("in", val_list)
-    def exists(self) -> TerminalNode: return self._op("exists")
+    def equals(self, val: Any): return self._op("exact_match", val)
+    def contains(self, val: str): return self._op("contains_phrase", val)
+    def contains_words(self, val: str): return self._op("contains_words", val)
+    def greater_than(self, val: Union[int, float]): return self._op("greater", val)
+    def greater_or_equal(self, val: Union[int, float]): return self._op("greater_or_equal", val)
+    def less_than(self, val: Union[int, float]): return self._op("less", val)
+    def less_or_equal(self, val: Union[int, float]): return self._op("less_or_equal", val)
+    def range(self, min_val: Any, max_val: Any): return self._op("range", [min_val, max_val])
+    def in_set(self, val_list: List[Any]): return self._op("in", val_list)
+    def exists(self): return self._op("exists")
 
 def FullTextQuery(value: str) -> TerminalNode:
     """

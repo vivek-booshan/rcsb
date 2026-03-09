@@ -41,16 +41,16 @@ class TerminalNode(SearchNode):
             node["label"] = self.label
         return node
 
-    def equals(self, val: Any) -> TerminalNode: return self._op("exact_match", val)
-    def contains(self, val: str) -> TerminalNode: return self._op("contains_phrase", val)
-    def contains_words(self, val: str) -> TerminalNode: return self._op("contains_words", val)
-    def greater_than(self, val: Union[int, float]) -> TerminalNode: return self._op("greater", val)
-    def greater_or_equal(self, val: Union[int, float]) -> TerminalNode: return self._op("greater_or_equal", val)
-    def less_than(self, val: Union[int, float]) -> TerminalNode: return self._op("less", val)
-    def less_or_equal(self, val: Union[int, float]) -> TerminalNode: return self._op("less_or_equal", val)
-    def range(self, min_val: Any, max_val: Any) -> TerminalNode: return self._op("range", [min_val, max_val])
-    def in_set(self, val_list: List[Any]) -> TerminalNode: return self._op("in", val_list)
-    def exists(self) -> TerminalNode: return self._op("exists")
+    def equals(self, val: Any): return self._op("exact_match", val)
+    def contains(self, val: str): return self._op("contains_phrase", val)
+    def contains_words(self, val: str): return self._op("contains_words", val)
+    def greater_than(self, val: Union[int, float]): return self._op("greater", val)
+    def greater_or_equal(self, val: Union[int, float]): return self._op("greater_or_equal", val)
+    def less_than(self, val: Union[int, float]): return self._op("less", val)
+    def less_or_equal(self, val: Union[int, float]): return self._op("less_or_equal", val)
+    def range(self, min_val: Any, max_val: Any): return self._op("range", [min_val, max_val])
+    def in_set(self, val_list: List[Any]): return self._op("in", val_list)
+    def exists(self): return self._op("exists")
 
 def FullTextQuery(value: str) -> TerminalNode:
     """
@@ -143,7 +143,7 @@ class SearchRequest:
 
 
 
-class Attr_PdbxEntityNonpoly_7363933103479639183:
+class Attr_PdbxEntityNonpoly_6779816884240027285:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -162,7 +162,7 @@ class Attr_PdbxEntityNonpoly_7363933103479639183:
         """For non-polymer BIRD molecules the BIRD identifier for the entity."""
         return Attribute('pdbx_entity_nonpoly.rcsb_prd_id')
 
-class Attr_RcsbLatestRevision_8909449392049380872:
+class Attr_RcsbLatestRevision_1354422838042480325:
     """"""
     @property
     def major_revision(self) -> Attribute:
@@ -177,7 +177,7 @@ class Attr_RcsbLatestRevision_8909449392049380872:
         """The release date of the latest revision item."""
         return Attribute('rcsb_latest_revision.revision_date')
 
-class Attr_RcsbNonpolymerEntity_464737390775537507:
+class Attr_RcsbNonpolymerEntity_8075943135319096297:
     """"""
     @property
     def details(self) -> Attribute:
@@ -196,7 +196,7 @@ class Attr_RcsbNonpolymerEntity_464737390775537507:
         """The number of molecules of the nonpolymer entity in the entry."""
         return Attribute('rcsb_nonpolymer_entity.pdbx_number_of_molecules')
 
-class Attr_AnnotationLineage_6604990547727785057:
+class Attr_AnnotationLineage_5298418939008293190:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -211,7 +211,7 @@ class Attr_AnnotationLineage_6604990547727785057:
         """Members of the annotation lineage as parent class names."""
         return Attribute('rcsb_nonpolymer_entity_annotation.annotation_lineage.name')
 
-class Attr_RcsbNonpolymerEntityAnnotation_35343855506502691:
+class Attr_RcsbNonpolymerEntityAnnotation_4311464861575858938:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -242,11 +242,11 @@ class Attr_RcsbNonpolymerEntityAnnotation_35343855506502691:
         """A type or category of the annotation."""
         return Attribute('rcsb_nonpolymer_entity_annotation.type')
     @property
-    def annotation_lineage(self) -> 'Attr_AnnotationLineage_6604990547727785057':
+    def annotation_lineage(self) -> 'Attr_AnnotationLineage_5298418939008293190':
         """"""
-        return Attr_AnnotationLineage_6604990547727785057()
+        return Attr_AnnotationLineage_5298418939008293190()
 
-class Attr_RcsbNonpolymerEntityContainerIdentifiers_8701957760733183095:
+class Attr_RcsbNonpolymerEntityContainerIdentifiers_3683091105972402548:
     """"""
     @property
     def asym_ids(self) -> Attribute:
@@ -293,7 +293,7 @@ class Attr_RcsbNonpolymerEntityContainerIdentifiers_8701957760733183095:
         """"""
         return Attribute('rcsb_nonpolymer_entity_container_identifiers.reference_chemical_identifiers_resource_name')
 
-class Attr_AdditionalProperties_5428815748640899388:
+class Attr_AdditionalProperties_5749523936285499244:
     """"""
     @property
     def name(self) -> Attribute:
@@ -304,7 +304,7 @@ class Attr_AdditionalProperties_5428815748640899388:
         """"""
         return Attribute('rcsb_nonpolymer_entity_feature.additional_properties.values')
 
-class Attr_RcsbNonpolymerEntityFeature_3927617744599411171:
+class Attr_RcsbNonpolymerEntityFeature_1952188747840821710:
     """"""
     @property
     def assignment_version(self) -> Attribute:
@@ -339,11 +339,11 @@ class Attr_RcsbNonpolymerEntityFeature_3927617744599411171:
         """The feature value."""
         return Attribute('rcsb_nonpolymer_entity_feature.value')
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_5428815748640899388':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_5749523936285499244':
         """"""
-        return Attr_AdditionalProperties_5428815748640899388()
+        return Attr_AdditionalProperties_5749523936285499244()
 
-class Attr_RcsbNonpolymerEntityFeatureSummary_1027622194691485777:
+class Attr_RcsbNonpolymerEntityFeatureSummary_6102056074951347711:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -374,21 +374,21 @@ class Attr_RcsbNonpolymerEntityFeatureSummary_1027622194691485777:
         """Type or category of the feature."""
         return Attribute('rcsb_nonpolymer_entity_feature_summary.type')
 
-class Attr_RcsbNonpolymerEntityKeywords_1083774927594463997:
+class Attr_RcsbNonpolymerEntityKeywords_1152634004132496583:
     """"""
     @property
     def text(self) -> Attribute:
         """Keywords describing this non-polymer entity."""
         return Attribute('rcsb_nonpolymer_entity_keywords.text')
 
-class Attr_RcsbNonpolymerEntityNameCom_7720253826008103170:
+class Attr_RcsbNonpolymerEntityNameCom_5768887118896432495:
     """"""
     @property
     def name(self) -> Attribute:
         """A common name for the nonpolymer entity."""
         return Attribute('rcsb_nonpolymer_entity_name_com.name')
 
-class Attr_ChemComp_1200112540679781327:
+class Attr_ChemComp_7057205645088625700:
     """"""
     @property
     def formula(self) -> Attribute:
@@ -459,7 +459,7 @@ class Attr_ChemComp_1200112540679781327:
         """For standard polymer components, the type of the monomer.  Note that monomers that will form polymers are of three types:  linking monomers, monomers with some type of N-terminal (or 5')  cap and monomers with some type of C-terminal (or 3') cap."""
         return Attribute('chem_comp.type')
 
-class Attr_PdbxChemCompAudit_6712032872356022995:
+class Attr_PdbxChemCompAudit_12424779236652634:
     """"""
     @property
     def action_type(self) -> Attribute:
@@ -482,7 +482,7 @@ class Attr_PdbxChemCompAudit_6712032872356022995:
         """This data item is an ordinal index for the  PDBX_CHEM_COMP_AUDIT category."""
         return Attribute('pdbx_chem_comp_audit.ordinal')
 
-class Attr_PdbxChemCompDescriptor_561968059088889144:
+class Attr_PdbxChemCompDescriptor_8165333350008740223:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -505,7 +505,7 @@ class Attr_PdbxChemCompDescriptor_561968059088889144:
         """This data item contains the descriptor type."""
         return Attribute('pdbx_chem_comp_descriptor.type')
 
-class Attr_PdbxChemCompFeature_8190614938889523287:
+class Attr_PdbxChemCompFeature_7212566043513887794:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -524,7 +524,7 @@ class Attr_PdbxChemCompFeature_8190614938889523287:
         """The component feature value."""
         return Attribute('pdbx_chem_comp_feature.value')
 
-class Attr_PdbxChemCompIdentifier_2221885877439484747:
+class Attr_PdbxChemCompIdentifier_899124100260098404:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -547,7 +547,7 @@ class Attr_PdbxChemCompIdentifier_2221885877439484747:
         """This data item contains the identifier type."""
         return Attribute('pdbx_chem_comp_identifier.type')
 
-class Attr_PdbxFamilyPrdAudit_9192156797841897546:
+class Attr_PdbxFamilyPrdAudit_7217292151427414505:
     """"""
     @property
     def action_type(self) -> Attribute:
@@ -574,7 +574,7 @@ class Attr_PdbxFamilyPrdAudit_9192156797841897546:
         """An identifier for the wwPDB site creating or modifying the family."""
         return Attribute('pdbx_family_prd_audit.processing_site')
 
-class Attr_PdbxPrdAudit_4074847995810896437:
+class Attr_PdbxPrdAudit_8792137596015765379:
     """"""
     @property
     def action_type(self) -> Attribute:
@@ -601,7 +601,7 @@ class Attr_PdbxPrdAudit_4074847995810896437:
         """An identifier for the wwPDB site creating or modifying the molecule."""
         return Attribute('pdbx_prd_audit.processing_site')
 
-class Attr_PdbxReferenceEntityList_3912494578848647478:
+class Attr_PdbxReferenceEntityList_204311540709620984:
     """"""
     @property
     def component_id(self) -> Attribute:
@@ -624,7 +624,7 @@ class Attr_PdbxReferenceEntityList_3912494578848647478:
         """Defines the polymer characteristic of the entity."""
         return Attribute('pdbx_reference_entity_list.type')
 
-class Attr_PdbxReferenceEntityPoly_2945400928924381514:
+class Attr_PdbxReferenceEntityPoly_7169098066816192460:
     """"""
     @property
     def db_code(self) -> Attribute:
@@ -647,7 +647,7 @@ class Attr_PdbxReferenceEntityPoly_2945400928924381514:
         """The type of the polymer."""
         return Attribute('pdbx_reference_entity_poly.type')
 
-class Attr_PdbxReferenceEntityPolyLink_2718219065170821373:
+class Attr_PdbxReferenceEntityPolyLink_224431813990159269:
     """"""
     @property
     def atom_id_1(self) -> Attribute:
@@ -694,7 +694,7 @@ class Attr_PdbxReferenceEntityPolyLink_2718219065170821373:
         """The bond order target for the non-standard linkage."""
         return Attribute('pdbx_reference_entity_poly_link.value_order')
 
-class Attr_PdbxReferenceEntityPolySeq_7250323542279612639:
+class Attr_PdbxReferenceEntityPolySeq_7656942134377437473:
     """"""
     @property
     def hetero(self) -> Attribute:
@@ -725,7 +725,7 @@ class Attr_PdbxReferenceEntityPolySeq_7250323542279612639:
         """The value of _pdbx_reference_entity_poly_seq.ref_entity_id is a reference  to _pdbx_reference_entity_poly.ref_entity_id in PDBX_REFERENCE_ENTITY_POLY category."""
         return Attribute('pdbx_reference_entity_poly_seq.ref_entity_id')
 
-class Attr_PdbxReferenceEntitySequence_6357391234383324290:
+class Attr_PdbxReferenceEntitySequence_258663462686844112:
     """"""
     @property
     def NRP_flag(self) -> Attribute:
@@ -748,7 +748,7 @@ class Attr_PdbxReferenceEntitySequence_6357391234383324290:
         """The monomer type for the sequence."""
         return Attribute('pdbx_reference_entity_sequence.type')
 
-class Attr_PdbxReferenceEntitySrcNat_2876680985424041018:
+class Attr_PdbxReferenceEntitySrcNat_9197777232563711267:
     """"""
     @property
     def atcc(self) -> Attribute:
@@ -791,7 +791,7 @@ class Attr_PdbxReferenceEntitySrcNat_2876680985424041018:
         """The NCBI TaxId of the organism from which the entity was isolated."""
         return Attribute('pdbx_reference_entity_src_nat.taxid')
 
-class Attr_PdbxReferenceMolecule_4912259896275957427:
+class Attr_PdbxReferenceMolecule_3348805787539486343:
     """"""
     @property
     def chem_comp_id(self) -> Attribute:
@@ -858,7 +858,7 @@ class Attr_PdbxReferenceMolecule_4912259896275957427:
         """Evidence for the assignment of _pdbx_reference_molecule.type"""
         return Attribute('pdbx_reference_molecule.type_evidence_code')
 
-class Attr_PdbxReferenceMoleculeAnnotation_2020513831202979017:
+class Attr_PdbxReferenceMoleculeAnnotation_6861830127688493087:
     """"""
     @property
     def family_prd_id(self) -> Attribute:
@@ -885,7 +885,7 @@ class Attr_PdbxReferenceMoleculeAnnotation_2020513831202979017:
         """Type of annotation for this entity."""
         return Attribute('pdbx_reference_molecule_annotation.type')
 
-class Attr_PdbxReferenceMoleculeDetails_807372167071801516:
+class Attr_PdbxReferenceMoleculeDetails_3289963089318396564:
     """"""
     @property
     def family_prd_id(self) -> Attribute:
@@ -908,7 +908,7 @@ class Attr_PdbxReferenceMoleculeDetails_807372167071801516:
         """The text of the description of special aspects of the entity."""
         return Attribute('pdbx_reference_molecule_details.text')
 
-class Attr_PdbxReferenceMoleculeFamily_7124280782306243342:
+class Attr_PdbxReferenceMoleculeFamily_7157449831430123821:
     """"""
     @property
     def family_prd_id(self) -> Attribute:
@@ -931,7 +931,7 @@ class Attr_PdbxReferenceMoleculeFamily_7124280782306243342:
         """Assigns the identifier for the family which have been replaced by this family.  Multiple family identifier codes should be separated by commas."""
         return Attribute('pdbx_reference_molecule_family.replaces')
 
-class Attr_PdbxReferenceMoleculeFeatures_1239061918715910306:
+class Attr_PdbxReferenceMoleculeFeatures_5296501186132973139:
     """"""
     @property
     def family_prd_id(self) -> Attribute:
@@ -962,7 +962,7 @@ class Attr_PdbxReferenceMoleculeFeatures_1239061918715910306:
         """The entity feature value."""
         return Attribute('pdbx_reference_molecule_features.value')
 
-class Attr_PdbxReferenceMoleculeList_3692725220274837356:
+class Attr_PdbxReferenceMoleculeList_2277510819959982360:
     """"""
     @property
     def family_prd_id(self) -> Attribute:
@@ -973,7 +973,7 @@ class Attr_PdbxReferenceMoleculeList_3692725220274837356:
         """The value of _pdbx_reference_molecule_list.prd_id is the unique identifier  for the reference molecule in this family.   By convention this ID uniquely identifies the reference molecule in  in the PDB reference dictionary.   The ID has the template form PRD_dddddd (e.g. PRD_000001)"""
         return Attribute('pdbx_reference_molecule_list.prd_id')
 
-class Attr_PdbxReferenceMoleculeRelatedStructures_7247307662272204701:
+class Attr_PdbxReferenceMoleculeRelatedStructures_9073505792247736227:
     """"""
     @property
     def citation_id(self) -> Attribute:
@@ -1008,7 +1008,7 @@ class Attr_PdbxReferenceMoleculeRelatedStructures_7247307662272204701:
         """The value of _pdbx_reference_molecule_related_structures.ordinal distinguishes  related structural data for each entity."""
         return Attribute('pdbx_reference_molecule_related_structures.ordinal')
 
-class Attr_PdbxReferenceMoleculeSynonyms_8329023609879337615:
+class Attr_PdbxReferenceMoleculeSynonyms_6274343213998229299:
     """"""
     @property
     def family_prd_id(self) -> Attribute:
@@ -1031,7 +1031,7 @@ class Attr_PdbxReferenceMoleculeSynonyms_8329023609879337615:
         """The source of this synonym name for the entity."""
         return Attribute('pdbx_reference_molecule_synonyms.source')
 
-class Attr_RcsbBirdCitation_3082875522391372230:
+class Attr_RcsbBirdCitation_8833900631817255721:
     """"""
     @property
     def id(self) -> Attribute:
@@ -1074,7 +1074,7 @@ class Attr_RcsbBirdCitation_3082875522391372230:
         """The year of the rcsb_bird_citation; relevant for journal articles, books  and book chapters."""
         return Attribute('rcsb_bird_citation.year')
 
-class Attr_AnnotationLineage_2388260506128440426:
+class Attr_AnnotationLineage_4600922626814969974:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -1089,7 +1089,7 @@ class Attr_AnnotationLineage_2388260506128440426:
         """Members of the annotation lineage as parent class names."""
         return Attribute('rcsb_chem_comp_annotation.annotation_lineage.name')
 
-class Attr_RcsbChemCompAnnotation_1785513099937289401:
+class Attr_RcsbChemCompAnnotation_269053631677586994:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -1116,11 +1116,11 @@ class Attr_RcsbChemCompAnnotation_1785513099937289401:
         """A type or category of the annotation."""
         return Attribute('rcsb_chem_comp_annotation.type')
     @property
-    def annotation_lineage(self) -> 'Attr_AnnotationLineage_2388260506128440426':
+    def annotation_lineage(self) -> 'Attr_AnnotationLineage_4600922626814969974':
         """"""
-        return Attr_AnnotationLineage_2388260506128440426()
+        return Attr_AnnotationLineage_4600922626814969974()
 
-class Attr_RcsbChemCompContainerIdentifiers_7516196247036509009:
+class Attr_RcsbChemCompContainerIdentifiers_837129368622060180:
     """"""
     @property
     def atc_codes(self) -> Attribute:
@@ -1147,7 +1147,7 @@ class Attr_RcsbChemCompContainerIdentifiers_7516196247036509009:
         """"""
         return Attribute('rcsb_chem_comp_container_identifiers.subcomponent_ids')
 
-class Attr_RcsbChemCompDescriptor_6889313453460966309:
+class Attr_RcsbChemCompDescriptor_3654501847416307440:
     """"""
     @property
     def InChI(self) -> Attribute:
@@ -1170,7 +1170,7 @@ class Attr_RcsbChemCompDescriptor_6889313453460966309:
         """The chemical component identifier."""
         return Attribute('rcsb_chem_comp_descriptor.comp_id')
 
-class Attr_RcsbChemCompInfo_1744261852316425743:
+class Attr_RcsbChemCompInfo_5203675968611806049:
     """"""
     @property
     def atom_count(self) -> Attribute:
@@ -1213,7 +1213,7 @@ class Attr_RcsbChemCompInfo_1744261852316425743:
         """The date of last revision of the chemical definition."""
         return Attribute('rcsb_chem_comp_info.revision_date')
 
-class Attr_RcsbChemCompRelated_2786406660131289156:
+class Attr_RcsbChemCompRelated_5191047975564710578:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -1236,7 +1236,7 @@ class Attr_RcsbChemCompRelated_2786406660131289156:
         """The resource name for the related chemical reference."""
         return Attribute('rcsb_chem_comp_related.resource_name')
 
-class Attr_RcsbChemCompSynonyms_4947219619584882965:
+class Attr_RcsbChemCompSynonyms_3578776482846477893:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -1259,7 +1259,7 @@ class Attr_RcsbChemCompSynonyms_4947219619584882965:
         """This data item contains the synonym type."""
         return Attribute('rcsb_chem_comp_synonyms.type')
 
-class Attr_RcsbChemCompTarget_2581811362766048879:
+class Attr_RcsbChemCompTarget_3222058763920425965:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -1294,7 +1294,7 @@ class Attr_RcsbChemCompTarget_2581811362766048879:
         """"""
         return Attribute('rcsb_chem_comp_target.target_actions')
 
-class Attr_RcsbSchemaContainerIdentifiers_844393008111346727:
+class Attr_RcsbSchemaContainerIdentifiers_5641603716241949274:
     """"""
     @property
     def collection_name(self) -> Attribute:
@@ -1309,7 +1309,7 @@ class Attr_RcsbSchemaContainerIdentifiers_844393008111346727:
         """Schema name associated with the data in the container."""
         return Attribute('rcsb_schema_container_identifiers.schema_name')
 
-class Attr_PdbxStructAssembly_2381645677990954548:
+class Attr_PdbxStructAssembly_703564290223986309:
     """"""
     @property
     def details(self) -> Attribute:
@@ -1340,7 +1340,7 @@ class Attr_PdbxStructAssembly_2381645677990954548:
         """A filtered description of the macromolecular assembly."""
         return Attribute('pdbx_struct_assembly.rcsb_details')
 
-class Attr_PdbxStructAssemblyAuthEvidence_7913503673973608827:
+class Attr_PdbxStructAssemblyAuthEvidence_5061756690102684975:
     """"""
     @property
     def assembly_id(self) -> Attribute:
@@ -1359,7 +1359,7 @@ class Attr_PdbxStructAssemblyAuthEvidence_7913503673973608827:
         """Identifies a unique record in pdbx_struct_assembly_auth_evidence."""
         return Attribute('pdbx_struct_assembly_auth_evidence.id')
 
-class Attr_PdbxStructAssemblyGen_6470401641335724751:
+class Attr_PdbxStructAssemblyGen_4272902833996845268:
     """"""
     @property
     def assembly_id(self) -> Attribute:
@@ -1378,7 +1378,7 @@ class Attr_PdbxStructAssemblyGen_6470401641335724751:
         """This data item is an ordinal index for the  PDBX_STRUCT_ASSEMBLY category."""
         return Attribute('pdbx_struct_assembly_gen.ordinal')
 
-class Attr_PdbxStructAssemblyProp_3993174094418456771:
+class Attr_PdbxStructAssemblyProp_3154725563526501713:
     """"""
     @property
     def assembly_id(self) -> Attribute:
@@ -1397,7 +1397,7 @@ class Attr_PdbxStructAssemblyProp_3993174094418456771:
         """The value of the assembly property."""
         return Attribute('pdbx_struct_assembly_prop.value')
 
-class Attr_PdbxStructOperList_4844878683754627088:
+class Attr_PdbxStructOperList_7035933640400315999:
     """"""
     @property
     def id(self) -> Attribute:
@@ -1464,7 +1464,7 @@ class Attr_PdbxStructOperList_4844878683754627088:
         """The [3] element of the three-element vector component of the  transformation operation."""
         return Attribute('pdbx_struct_oper_list.vector_3')
 
-class Attr_AdditionalProperties_7590450282207637926:
+class Attr_AdditionalProperties_2690755427239562157:
     """"""
     @property
     def name(self) -> Attribute:
@@ -1475,7 +1475,7 @@ class Attr_AdditionalProperties_7590450282207637926:
         """"""
         return Attribute('rcsb_assembly_annotation.additional_properties.values')
 
-class Attr_RcsbAssemblyAnnotation_7954324389823569616:
+class Attr_RcsbAssemblyAnnotation_9053785517176427790:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -1502,11 +1502,11 @@ class Attr_RcsbAssemblyAnnotation_7954324389823569616:
         """A type or category of the annotation."""
         return Attribute('rcsb_assembly_annotation.type')
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_7590450282207637926':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_2690755427239562157':
         """"""
-        return Attr_AdditionalProperties_7590450282207637926()
+        return Attr_AdditionalProperties_2690755427239562157()
 
-class Attr_RcsbAssemblyContainerIdentifiers_982132704003139265:
+class Attr_RcsbAssemblyContainerIdentifiers_9054065776222651931:
     """"""
     @property
     def assembly_id(self) -> Attribute:
@@ -1525,7 +1525,7 @@ class Attr_RcsbAssemblyContainerIdentifiers_982132704003139265:
         """A unique identifier for each object in this assembly container formed by  a dash separated concatenation of entry and assembly identifiers."""
         return Attribute('rcsb_assembly_container_identifiers.rcsb_id')
 
-class Attr_AdditionalProperties_8205186096563019948:
+class Attr_AdditionalProperties_2097240858839384211:
     """"""
     @property
     def name(self) -> Attribute:
@@ -1536,7 +1536,7 @@ class Attr_AdditionalProperties_8205186096563019948:
         """"""
         return Attribute('rcsb_assembly_feature.additional_properties.values')
 
-class Attr_FeaturePositions_2739137679895398296:
+class Attr_FeaturePositions_5622614803489605813:
     """"""
     @property
     def asym_id(self) -> Attribute:
@@ -1559,7 +1559,7 @@ class Attr_FeaturePositions_2739137679895398296:
         """"""
         return Attribute('rcsb_assembly_feature.feature_positions.values')
 
-class Attr_RcsbAssemblyFeature_4965543272494843277:
+class Attr_RcsbAssemblyFeature_4749503318323216510:
     """"""
     @property
     def assignment_version(self) -> Attribute:
@@ -1586,15 +1586,15 @@ class Attr_RcsbAssemblyFeature_4965543272494843277:
         """A type or category of the feature."""
         return Attribute('rcsb_assembly_feature.type')
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_8205186096563019948':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_2097240858839384211':
         """"""
-        return Attr_AdditionalProperties_8205186096563019948()
+        return Attr_AdditionalProperties_2097240858839384211()
     @property
-    def feature_positions(self) -> 'Attr_FeaturePositions_2739137679895398296':
+    def feature_positions(self) -> 'Attr_FeaturePositions_5622614803489605813':
         """"""
-        return Attr_FeaturePositions_2739137679895398296()
+        return Attr_FeaturePositions_5622614803489605813()
 
-class Attr_RcsbAssemblyInfo_7946652866867479068:
+class Attr_RcsbAssemblyInfo_4544557843341229985:
     """"""
     @property
     def assembly_id(self) -> Attribute:
@@ -1773,7 +1773,7 @@ class Attr_RcsbAssemblyInfo_7946652866867479068:
         """The number of unmodeled polymer monomers in the assembly coordinate data. This is  the total count of monomers with unreported coordinate data for all polymer  entity instances in the generated assembly coordinate data."""
         return Attribute('rcsb_assembly_info.unmodeled_polymer_monomer_count')
 
-class Attr_RotationAxes_2155986585044639203:
+class Attr_RotationAxes_7945491953601423355:
     """Specifies a single or multiple rotation axes through the same point."""
     @property
     def end(self) -> Attribute:
@@ -1788,7 +1788,7 @@ class Attr_RotationAxes_2155986585044639203:
         """Describes x,y,z coordinates of the start point of the symmetry axis."""
         return Attribute('rcsb_struct_symmetry.rotation_axes.start')
 
-class Attr_Members_2473619798916743454:
+class Attr_Members_4775643909208952026:
     """"""
     @property
     def asym_id(self) -> Attribute:
@@ -1799,18 +1799,18 @@ class Attr_Members_2473619798916743454:
         """Optional list of operator ids (pdbx_struct_oper_list.id) as appears in pdbx_struct_assembly_gen.oper_expression."""
         return Attribute('rcsb_struct_symmetry.clusters.members.pdbx_struct_oper_list_ids')
 
-class Attr_Clusters_3520339075187420964:
+class Attr_Clusters_1552142377539975801:
     """Clusters describe grouping of identical subunits."""
     @property
-    def members(self) -> 'Attr_Members_2473619798916743454':
+    def members(self) -> 'Attr_Members_4775643909208952026':
         """"""
-        return Attr_Members_2473619798916743454()
+        return Attr_Members_4775643909208952026()
     @property
     def avg_rmsd(self) -> Attribute:
         """Average RMSD between members of a given cluster."""
         return Attribute('rcsb_struct_symmetry.clusters.avg_rmsd')
 
-class Attr_RcsbStructSymmetry_480717809273166659:
+class Attr_RcsbStructSymmetry_2193396356615419313:
     """"""
     @property
     def kind(self) -> Attribute:
@@ -1833,15 +1833,15 @@ class Attr_RcsbStructSymmetry_480717809273166659:
         """Symmetry type refers to point group or helical symmetry of identical polymeric subunits.  Contains point group types (e.g. Cyclic, Dihedral) or Helical for helical symmetry."""
         return Attribute('rcsb_struct_symmetry.type')
     @property
-    def rotation_axes(self) -> 'Attr_RotationAxes_2155986585044639203':
+    def rotation_axes(self) -> 'Attr_RotationAxes_7945491953601423355':
         """Specifies a single or multiple rotation axes through the same point."""
-        return Attr_RotationAxes_2155986585044639203()
+        return Attr_RotationAxes_7945491953601423355()
     @property
-    def clusters(self) -> 'Attr_Clusters_3520339075187420964':
+    def clusters(self) -> 'Attr_Clusters_1552142377539975801':
         """Clusters describe grouping of identical subunits."""
-        return Attr_Clusters_3520339075187420964()
+        return Attr_Clusters_1552142377539975801()
 
-class Attr_RcsbStructSymmetryLineage_5233526057982287321:
+class Attr_RcsbStructSymmetryLineage_4624568028408236038:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -1856,14 +1856,14 @@ class Attr_RcsbStructSymmetryLineage_5233526057982287321:
         """A human-readable term describing protein symmetry."""
         return Attribute('rcsb_struct_symmetry_lineage.name')
 
-class Attr_RcsbRepositoryHoldingsCurrent_6224735890330439763:
+class Attr_RcsbRepositoryHoldingsCurrent_3329757381338026847:
     """"""
     @property
     def repository_content_types(self) -> Attribute:
         """"""
         return Attribute('rcsb_repository_holdings_current.repository_content_types')
 
-class Attr_RcsbRepositoryHoldingsCurrentEntryContainerIdentifiers_4771463229172293332:
+class Attr_RcsbRepositoryHoldingsCurrentEntryContainerIdentifiers_1898297126802180291:
     """"""
     @property
     def assembly_ids(self) -> Attribute:
@@ -1882,7 +1882,7 @@ class Attr_RcsbRepositoryHoldingsCurrentEntryContainerIdentifiers_47714632291722
         """Identifier for the current data exchange status record."""
         return Attribute('rcsb_repository_holdings_current_entry_container_identifiers.update_id')
 
-class Attr_PdbxStructSpecialSymmetry_4505405662830501930:
+class Attr_PdbxStructSpecialSymmetry_6087921664744743229:
     """"""
     @property
     def PDB_model_num(self) -> Attribute:
@@ -1905,7 +1905,7 @@ class Attr_PdbxStructSpecialSymmetry_4505405662830501930:
         """Part of the identifier for the molecular component.   This data item is a pointer to _atom_site.label_comp_id in the  ATOM_SITE category."""
         return Attribute('pdbx_struct_special_symmetry.label_comp_id')
 
-class Attr_PdbxVrptSummaryEntityFitToMap_3524667515874290:
+class Attr_PdbxVrptSummaryEntityFitToMap_5562603566507373917:
     """"""
     @property
     def PDB_model_num(self) -> Attribute:
@@ -1920,7 +1920,7 @@ class Attr_PdbxVrptSummaryEntityFitToMap_3524667515874290:
         """The average of the residue inclusions for all residues in this instance"""
         return Attribute('pdbx_vrpt_summary_entity_fit_to_map.average_residue_inclusion')
 
-class Attr_PdbxVrptSummaryEntityGeometry_5453465947742705650:
+class Attr_PdbxVrptSummaryEntityGeometry_8970685578449791126:
     """"""
     @property
     def PDB_model_num(self) -> Attribute:
@@ -1947,7 +1947,7 @@ class Attr_PdbxVrptSummaryEntityGeometry_5453465947742705650:
         """The number of bond lengths compared to 'standard geometry' made using the MolProbity dangle program. Standard geometry parameters are taken from Engh and Huber (2001) and Parkinson et al. (1996)."""
         return Attribute('pdbx_vrpt_summary_entity_geometry.num_bonds_RMSZ')
 
-class Attr_RcsbNonpolymerEntityInstanceContainerIdentifiers_6808155340922085051:
+class Attr_RcsbNonpolymerEntityInstanceContainerIdentifiers_8612523117560488692:
     """"""
     @property
     def asym_id(self) -> Attribute:
@@ -1978,7 +1978,7 @@ class Attr_RcsbNonpolymerEntityInstanceContainerIdentifiers_6808155340922085051:
         """A unique identifier for each object in this entity instance container formed by  an 'dot' (.) separated concatenation of entry and entity instance identifiers."""
         return Attribute('rcsb_nonpolymer_entity_instance_container_identifiers.rcsb_id')
 
-class Attr_AnnotationLineage_9003366100951672429:
+class Attr_AnnotationLineage_2944820205078501927:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -1993,7 +1993,7 @@ class Attr_AnnotationLineage_9003366100951672429:
         """Members of the annotation lineage as parent class names."""
         return Attribute('rcsb_nonpolymer_instance_annotation.annotation_lineage.name')
 
-class Attr_RcsbNonpolymerInstanceAnnotation_9076118420185218144:
+class Attr_RcsbNonpolymerInstanceAnnotation_4087821495222919068:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -2028,11 +2028,11 @@ class Attr_RcsbNonpolymerInstanceAnnotation_9076118420185218144:
         """A type or category of the annotation."""
         return Attribute('rcsb_nonpolymer_instance_annotation.type')
     @property
-    def annotation_lineage(self) -> 'Attr_AnnotationLineage_9003366100951672429':
+    def annotation_lineage(self) -> 'Attr_AnnotationLineage_2944820205078501927':
         """"""
-        return Attr_AnnotationLineage_9003366100951672429()
+        return Attr_AnnotationLineage_2944820205078501927()
 
-class Attr_FeatureValue_4938116724520980252:
+class Attr_FeatureValue_4343760663887980086:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -2059,7 +2059,7 @@ class Attr_FeatureValue_4938116724520980252:
         """The type of estimated uncertainty for the reported feature value."""
         return Attribute('rcsb_nonpolymer_instance_feature.feature_value.uncertainty_estimate_type')
 
-class Attr_AdditionalProperties_8548391712720643508:
+class Attr_AdditionalProperties_8782972947069212109:
     """"""
     @property
     def name(self) -> Attribute:
@@ -2070,7 +2070,7 @@ class Attr_AdditionalProperties_8548391712720643508:
         """"""
         return Attribute('rcsb_nonpolymer_instance_feature.additional_properties.values')
 
-class Attr_RcsbNonpolymerInstanceFeature_5106011960417871022:
+class Attr_RcsbNonpolymerInstanceFeature_292752362579250494:
     """"""
     @property
     def assignment_version(self) -> Attribute:
@@ -2105,15 +2105,15 @@ class Attr_RcsbNonpolymerInstanceFeature_5106011960417871022:
         """A type or category of the feature."""
         return Attribute('rcsb_nonpolymer_instance_feature.type')
     @property
-    def feature_value(self) -> 'Attr_FeatureValue_4938116724520980252':
+    def feature_value(self) -> 'Attr_FeatureValue_4343760663887980086':
         """"""
-        return Attr_FeatureValue_4938116724520980252()
+        return Attr_FeatureValue_4343760663887980086()
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_8548391712720643508':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_8782972947069212109':
         """"""
-        return Attr_AdditionalProperties_8548391712720643508()
+        return Attr_AdditionalProperties_8782972947069212109()
 
-class Attr_RcsbNonpolymerInstanceFeatureSummary_7917053153818383854:
+class Attr_RcsbNonpolymerInstanceFeatureSummary_1490783941311560859:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -2148,7 +2148,7 @@ class Attr_RcsbNonpolymerInstanceFeatureSummary_7917053153818383854:
         """Type or category of the feature."""
         return Attribute('rcsb_nonpolymer_instance_feature_summary.type')
 
-class Attr_RcsbNonpolymerInstanceValidationScore_258037444227706434:
+class Attr_RcsbNonpolymerInstanceValidationScore_8082392368989342376:
     """"""
     @property
     def RSCC(self) -> Attribute:
@@ -2239,7 +2239,7 @@ class Attr_RcsbNonpolymerInstanceValidationScore_258037444227706434:
         """Score type."""
         return Attribute('rcsb_nonpolymer_instance_validation_score.type')
 
-class Attr_ConnectTarget_5586523029870335082:
+class Attr_ConnectTarget_3253404940291151321:
     """"""
     @property
     def auth_asym_id(self) -> Attribute:
@@ -2274,7 +2274,7 @@ class Attr_ConnectTarget_5586523029870335082:
         """Describes the symmetry operation that should be applied to the  atom set specified by _rcsb_nonpolymer_struct_conn.label* to generate the  target of the structure connection."""
         return Attribute('rcsb_nonpolymer_struct_conn.connect_target.symmetry')
 
-class Attr_ConnectPartner_2444712255656192346:
+class Attr_ConnectPartner_1848144764904364461:
     """"""
     @property
     def label_alt_id(self) -> Attribute:
@@ -2301,7 +2301,7 @@ class Attr_ConnectPartner_2444712255656192346:
         """Describes the symmetry operation that should be applied to the  atom set specified by _rcsb_nonpolymer_struct_conn.connect_partner_label* to generate the  partner in the structure connection."""
         return Attribute('rcsb_nonpolymer_struct_conn.connect_partner.symmetry')
 
-class Attr_RcsbNonpolymerStructConn_2620109448886716225:
+class Attr_RcsbNonpolymerStructConn_641919607703277397:
     """"""
     @property
     def connect_type(self) -> Attribute:
@@ -2332,15 +2332,15 @@ class Attr_RcsbNonpolymerStructConn_2620109448886716225:
         """The chemical bond order associated with the specified atoms in  this contact."""
         return Attribute('rcsb_nonpolymer_struct_conn.value_order')
     @property
-    def connect_target(self) -> 'Attr_ConnectTarget_5586523029870335082':
+    def connect_target(self) -> 'Attr_ConnectTarget_3253404940291151321':
         """"""
-        return Attr_ConnectTarget_5586523029870335082()
+        return Attr_ConnectTarget_3253404940291151321()
     @property
-    def connect_partner(self) -> 'Attr_ConnectPartner_2444712255656192346':
+    def connect_partner(self) -> 'Attr_ConnectPartner_1848144764904364461':
         """"""
-        return Attr_ConnectPartner_2444712255656192346()
+        return Attr_ConnectPartner_1848144764904364461()
 
-class Attr_RcsbTargetNeighbors_2644649369999586502:
+class Attr_RcsbTargetNeighbors_6737179543503453423:
     """"""
     @property
     def alt_id(self) -> Attribute:
@@ -2391,7 +2391,7 @@ class Attr_RcsbTargetNeighbors_2644649369999586502:
         """The sequence position for the target of interaction."""
         return Attribute('rcsb_target_neighbors.target_seq_id')
 
-class Attr_StructAsym_3719344311517918061:
+class Attr_StructAsym_761177677697118704:
     """"""
     @property
     def pdbx_PDB_id(self) -> Attribute:
@@ -2410,7 +2410,7 @@ class Attr_StructAsym_3719344311517918061:
         """This data item describes the general type of the structural elements  in the ATOM_SITE category."""
         return Attribute('struct_asym.pdbx_type')
 
-class Attr_ReferenceSequenceIdentifiers_3844826785830840107:
+class Attr_ReferenceSequenceIdentifiers_7076912677764577808:
     """"""
     @property
     def database_accession(self) -> Attribute:
@@ -2429,18 +2429,18 @@ class Attr_ReferenceSequenceIdentifiers_3844826785830840107:
         """Source of the reference database assignment"""
         return Attribute('rcsb_uniprot_container_identifiers.reference_sequence_identifiers.provenance_source')
 
-class Attr_RcsbUniprotContainerIdentifiers_1874709646992285474:
+class Attr_RcsbUniprotContainerIdentifiers_7215950315951267989:
     """"""
     @property
     def uniprot_id(self) -> Attribute:
         """Primary accession number of a given UniProtKB entry."""
         return Attribute('rcsb_uniprot_container_identifiers.uniprot_id')
     @property
-    def reference_sequence_identifiers(self) -> 'Attr_ReferenceSequenceIdentifiers_3844826785830840107':
+    def reference_sequence_identifiers(self) -> 'Attr_ReferenceSequenceIdentifiers_7076912677764577808':
         """"""
-        return Attr_ReferenceSequenceIdentifiers_3844826785830840107()
+        return Attr_ReferenceSequenceIdentifiers_7076912677764577808()
 
-class Attr_RcsbUniprotKeyword_5072613036028656313:
+class Attr_RcsbUniprotKeyword_4083104558730868246:
     """Keywords constitute a controlled vocabulary that summarises the content of a UniProtKB entry."""
     @property
     def id(self) -> Attribute:
@@ -2451,7 +2451,7 @@ class Attr_RcsbUniprotKeyword_5072613036028656313:
         """Human-readable keyword term."""
         return Attribute('rcsb_uniprot_keyword.value')
 
-class Attr_Name_2716239880714464652:
+class Attr_Name_7607138858906106902:
     """"""
     @property
     def value(self) -> Attribute:
@@ -2462,7 +2462,7 @@ class Attr_Name_2716239880714464652:
         """Historical record of the data attribute."""
         return Attribute('rcsb_uniprot_protein.name.provenance_code')
 
-class Attr_Function_2350748509016612830:
+class Attr_Function_5130996518817190632:
     """"""
     @property
     def details(self) -> Attribute:
@@ -2473,7 +2473,7 @@ class Attr_Function_2350748509016612830:
         """Historical record of the data attribute."""
         return Attribute('rcsb_uniprot_protein.function.provenance_code')
 
-class Attr_Name_7726075781586966056:
+class Attr_Name_2767910851326653101:
     """"""
     @property
     def type(self) -> Attribute:
@@ -2484,14 +2484,14 @@ class Attr_Name_7726075781586966056:
         """"""
         return Attribute('rcsb_uniprot_protein.gene.name.value')
 
-class Attr_Gene_4204734552021129013:
+class Attr_Gene_7816939870371901405:
     """"""
     @property
-    def name(self) -> 'Attr_Name_7726075781586966056':
+    def name(self) -> 'Attr_Name_2767910851326653101':
         """"""
-        return Attr_Name_7726075781586966056()
+        return Attr_Name_2767910851326653101()
 
-class Attr_SourceOrganism_5240871509321877066:
+class Attr_SourceOrganism_1684013036765344659:
     """Taxonomy information on the organism that is the source of the protein sequence."""
     @property
     def scientific_name(self) -> Attribute:
@@ -2506,7 +2506,7 @@ class Attr_SourceOrganism_5240871509321877066:
         """Historical record of the data attribute."""
         return Attribute('rcsb_uniprot_protein.source_organism.provenance_code')
 
-class Attr_Ec_9006010946226990613:
+class Attr_Ec_7761120728337329470:
     """"""
     @property
     def number(self) -> Attribute:
@@ -2517,34 +2517,34 @@ class Attr_Ec_9006010946226990613:
         """Historical record of the data attribute."""
         return Attribute('rcsb_uniprot_protein.ec.provenance_code')
 
-class Attr_RcsbUniprotProtein_942395084172911206:
+class Attr_RcsbUniprotProtein_712376359387944200:
     """"""
     @property
     def sequence(self) -> Attribute:
         """Protein sequence data for canonical protein sequence."""
         return Attribute('rcsb_uniprot_protein.sequence')
     @property
-    def name(self) -> 'Attr_Name_2716239880714464652':
+    def name(self) -> 'Attr_Name_7607138858906106902':
         """"""
-        return Attr_Name_2716239880714464652()
+        return Attr_Name_7607138858906106902()
     @property
-    def function(self) -> 'Attr_Function_2350748509016612830':
+    def function(self) -> 'Attr_Function_5130996518817190632':
         """"""
-        return Attr_Function_2350748509016612830()
+        return Attr_Function_5130996518817190632()
     @property
-    def gene(self) -> 'Attr_Gene_4204734552021129013':
+    def gene(self) -> 'Attr_Gene_7816939870371901405':
         """"""
-        return Attr_Gene_4204734552021129013()
+        return Attr_Gene_7816939870371901405()
     @property
-    def source_organism(self) -> 'Attr_SourceOrganism_5240871509321877066':
+    def source_organism(self) -> 'Attr_SourceOrganism_1684013036765344659':
         """Taxonomy information on the organism that is the source of the protein sequence."""
-        return Attr_SourceOrganism_5240871509321877066()
+        return Attr_SourceOrganism_1684013036765344659()
     @property
-    def ec(self) -> 'Attr_Ec_9006010946226990613':
+    def ec(self) -> 'Attr_Ec_7761120728337329470':
         """"""
-        return Attr_Ec_9006010946226990613()
+        return Attr_Ec_7761120728337329470()
 
-class Attr_FeaturePositions_519125168233863173:
+class Attr_FeaturePositions_4751304838242877613:
     """"""
     @property
     def beg_comp_id(self) -> Attribute:
@@ -2567,7 +2567,7 @@ class Attr_FeaturePositions_519125168233863173:
         """"""
         return Attribute('rcsb_uniprot_feature.feature_positions.values')
 
-class Attr_RcsbUniprotFeature_922620791709686828:
+class Attr_RcsbUniprotFeature_8229504720380640115:
     """"""
     @property
     def assignment_version(self) -> Attribute:
@@ -2598,11 +2598,11 @@ class Attr_RcsbUniprotFeature_922620791709686828:
         """A type or category of the feature."""
         return Attribute('rcsb_uniprot_feature.type')
     @property
-    def feature_positions(self) -> 'Attr_FeaturePositions_519125168233863173':
+    def feature_positions(self) -> 'Attr_FeaturePositions_4751304838242877613':
         """"""
-        return Attr_FeaturePositions_519125168233863173()
+        return Attr_FeaturePositions_4751304838242877613()
 
-class Attr_AnnotationLineage_5202821087154427823:
+class Attr_AnnotationLineage_8137071868086046885:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -2617,7 +2617,7 @@ class Attr_AnnotationLineage_5202821087154427823:
         """Members of the annotation lineage as parent class names."""
         return Attribute('rcsb_uniprot_annotation.annotation_lineage.name')
 
-class Attr_AdditionalProperties_1014337218610809965:
+class Attr_AdditionalProperties_6479278979927216443:
     """"""
     @property
     def name(self) -> Attribute:
@@ -2628,7 +2628,7 @@ class Attr_AdditionalProperties_1014337218610809965:
         """"""
         return Attribute('rcsb_uniprot_annotation.additional_properties.values')
 
-class Attr_RcsbUniprotAnnotation_7864982906956526686:
+class Attr_RcsbUniprotAnnotation_1120806278942873227:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -2655,15 +2655,15 @@ class Attr_RcsbUniprotAnnotation_7864982906956526686:
         """A type or category of the annotation."""
         return Attribute('rcsb_uniprot_annotation.type')
     @property
-    def annotation_lineage(self) -> 'Attr_AnnotationLineage_5202821087154427823':
+    def annotation_lineage(self) -> 'Attr_AnnotationLineage_8137071868086046885':
         """"""
-        return Attr_AnnotationLineage_5202821087154427823()
+        return Attr_AnnotationLineage_8137071868086046885()
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_1014337218610809965':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_6479278979927216443':
         """"""
-        return Attr_AdditionalProperties_1014337218610809965()
+        return Attr_AdditionalProperties_6479278979927216443()
 
-class Attr_RcsbUniprotExternalReference_3995150960325609862:
+class Attr_RcsbUniprotExternalReference_6350468129366082366:
     """"""
     @property
     def reference_id(self) -> Attribute:
@@ -2678,7 +2678,7 @@ class Attr_RcsbUniprotExternalReference_3995150960325609862:
         """"""
         return Attribute('rcsb_uniprot_external_reference.provenance_source')
 
-class Attr_Scores_6432012338000626595:
+class Attr_Scores_2387415418549061637:
     """Alignment scores"""
     @property
     def target_coverage(self) -> Attribute:
@@ -2697,7 +2697,7 @@ class Attr_Scores_6432012338000626595:
         """"""
         return Attribute('rcsb_uniprot_alignments.core_entity_alignments.scores.query_length')
 
-class Attr_AlignedRegions_2730010207478583669:
+class Attr_AlignedRegions_8868010886774333471:
     """Aligned sequence regions"""
     @property
     def target_begin(self) -> Attribute:
@@ -2712,7 +2712,7 @@ class Attr_AlignedRegions_2730010207478583669:
         """Aligned region length"""
         return Attribute('rcsb_uniprot_alignments.core_entity_alignments.aligned_regions.length')
 
-class Attr_CoreEntityIdentifiers_8077912153433949497:
+class Attr_CoreEntityIdentifiers_8767245535386324942:
     """core_entity identifiers"""
     @property
     def entry_id(self) -> Attribute:
@@ -2723,29 +2723,29 @@ class Attr_CoreEntityIdentifiers_8077912153433949497:
         """"""
         return Attribute('rcsb_uniprot_alignments.core_entity_alignments.core_entity_identifiers.entity_id')
 
-class Attr_CoreEntityAlignments_3371823329018891553:
+class Attr_CoreEntityAlignments_611606601777893664:
     """List of alignments with core_entity canonical sequences"""
     @property
-    def scores(self) -> 'Attr_Scores_6432012338000626595':
+    def scores(self) -> 'Attr_Scores_2387415418549061637':
         """Alignment scores"""
-        return Attr_Scores_6432012338000626595()
+        return Attr_Scores_2387415418549061637()
     @property
-    def aligned_regions(self) -> 'Attr_AlignedRegions_2730010207478583669':
+    def aligned_regions(self) -> 'Attr_AlignedRegions_8868010886774333471':
         """Aligned sequence regions"""
-        return Attr_AlignedRegions_2730010207478583669()
+        return Attr_AlignedRegions_8868010886774333471()
     @property
-    def core_entity_identifiers(self) -> 'Attr_CoreEntityIdentifiers_8077912153433949497':
+    def core_entity_identifiers(self) -> 'Attr_CoreEntityIdentifiers_8767245535386324942':
         """core_entity identifiers"""
-        return Attr_CoreEntityIdentifiers_8077912153433949497()
+        return Attr_CoreEntityIdentifiers_8767245535386324942()
 
-class Attr_RcsbUniprotAlignments_2287199412576271378:
+class Attr_RcsbUniprotAlignments_1598308639055843450:
     """UniProt pairwise sequence alignments."""
     @property
-    def core_entity_alignments(self) -> 'Attr_CoreEntityAlignments_3371823329018891553':
+    def core_entity_alignments(self) -> 'Attr_CoreEntityAlignments_611606601777893664':
         """List of alignments with core_entity canonical sequences"""
-        return Attr_CoreEntityAlignments_3371823329018891553()
+        return Attr_CoreEntityAlignments_611606601777893664()
 
-class Attr_RcsbBranchedEntityInstanceContainerIdentifiers_1088925439055323321:
+class Attr_RcsbBranchedEntityInstanceContainerIdentifiers_1012785612807861268:
     """"""
     @property
     def asym_id(self) -> Attribute:
@@ -2768,7 +2768,7 @@ class Attr_RcsbBranchedEntityInstanceContainerIdentifiers_1088925439055323321:
         """A unique identifier for each object in this entity instance container formed by  an 'dot' (.) separated concatenation of entry and entity instance identifiers."""
         return Attribute('rcsb_branched_entity_instance_container_identifiers.rcsb_id')
 
-class Attr_AnnotationLineage_7561855244184869956:
+class Attr_AnnotationLineage_4513106133832412899:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -2783,7 +2783,7 @@ class Attr_AnnotationLineage_7561855244184869956:
         """Members of the annotation lineage as parent class names."""
         return Attribute('rcsb_branched_instance_annotation.annotation_lineage.name')
 
-class Attr_RcsbBranchedInstanceAnnotation_655963564198702346:
+class Attr_RcsbBranchedInstanceAnnotation_6935516299445140427:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -2818,11 +2818,11 @@ class Attr_RcsbBranchedInstanceAnnotation_655963564198702346:
         """A type or category of the annotation."""
         return Attribute('rcsb_branched_instance_annotation.type')
     @property
-    def annotation_lineage(self) -> 'Attr_AnnotationLineage_7561855244184869956':
+    def annotation_lineage(self) -> 'Attr_AnnotationLineage_4513106133832412899':
         """"""
-        return Attr_AnnotationLineage_7561855244184869956()
+        return Attr_AnnotationLineage_4513106133832412899()
 
-class Attr_FeaturePositions_6318452481821901528:
+class Attr_FeaturePositions_8178067508719502039:
     """"""
     @property
     def beg_comp_id(self) -> Attribute:
@@ -2845,7 +2845,7 @@ class Attr_FeaturePositions_6318452481821901528:
         """"""
         return Attribute('rcsb_branched_instance_feature.feature_positions.values')
 
-class Attr_FeatureValue_6108663798872734803:
+class Attr_FeatureValue_8977882619598483709:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -2872,7 +2872,7 @@ class Attr_FeatureValue_6108663798872734803:
         """The type of estimated uncertainty for the reported feature value."""
         return Attribute('rcsb_branched_instance_feature.feature_value.uncertainty_estimate_type')
 
-class Attr_AdditionalProperties_4626988983477346912:
+class Attr_AdditionalProperties_6077534166037864312:
     """"""
     @property
     def name(self) -> Attribute:
@@ -2883,7 +2883,7 @@ class Attr_AdditionalProperties_4626988983477346912:
         """"""
         return Attribute('rcsb_branched_instance_feature.additional_properties.values')
 
-class Attr_RcsbBranchedInstanceFeature_677288135180205825:
+class Attr_RcsbBranchedInstanceFeature_7687961882648588041:
     """"""
     @property
     def assignment_version(self) -> Attribute:
@@ -2918,19 +2918,19 @@ class Attr_RcsbBranchedInstanceFeature_677288135180205825:
         """A type or category of the feature."""
         return Attribute('rcsb_branched_instance_feature.type')
     @property
-    def feature_positions(self) -> 'Attr_FeaturePositions_6318452481821901528':
+    def feature_positions(self) -> 'Attr_FeaturePositions_8178067508719502039':
         """"""
-        return Attr_FeaturePositions_6318452481821901528()
+        return Attr_FeaturePositions_8178067508719502039()
     @property
-    def feature_value(self) -> 'Attr_FeatureValue_6108663798872734803':
+    def feature_value(self) -> 'Attr_FeatureValue_8977882619598483709':
         """"""
-        return Attr_FeatureValue_6108663798872734803()
+        return Attr_FeatureValue_8977882619598483709()
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_4626988983477346912':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_6077534166037864312':
         """"""
-        return Attr_AdditionalProperties_4626988983477346912()
+        return Attr_AdditionalProperties_6077534166037864312()
 
-class Attr_RcsbBranchedInstanceFeatureSummary_5461018462382448863:
+class Attr_RcsbBranchedInstanceFeatureSummary_6959582486731508466:
     """"""
     @property
     def count(self) -> Attribute:
@@ -2961,7 +2961,7 @@ class Attr_RcsbBranchedInstanceFeatureSummary_5461018462382448863:
         """Type or category of the feature."""
         return Attribute('rcsb_branched_instance_feature_summary.type')
 
-class Attr_ConnectTarget_2525357423766463624:
+class Attr_ConnectTarget_2972255999729943258:
     """"""
     @property
     def auth_asym_id(self) -> Attribute:
@@ -2996,7 +2996,7 @@ class Attr_ConnectTarget_2525357423766463624:
         """Describes the symmetry operation that should be applied to the  atom set specified by _rcsb_branched_struct_conn.label* to generate the  target of the structure connection."""
         return Attribute('rcsb_branched_struct_conn.connect_target.symmetry')
 
-class Attr_ConnectPartner_2379241220005561731:
+class Attr_ConnectPartner_3189780554035415948:
     """"""
     @property
     def label_alt_id(self) -> Attribute:
@@ -3023,7 +3023,7 @@ class Attr_ConnectPartner_2379241220005561731:
         """Describes the symmetry operation that should be applied to the  atom set specified by _rcsb_branched_struct_conn.connect_partner_label* to generate the  partner in the structure connection."""
         return Attribute('rcsb_branched_struct_conn.connect_partner.symmetry')
 
-class Attr_RcsbBranchedStructConn_242678123995734240:
+class Attr_RcsbBranchedStructConn_7060155313320707976:
     """"""
     @property
     def connect_type(self) -> Attribute:
@@ -3054,15 +3054,15 @@ class Attr_RcsbBranchedStructConn_242678123995734240:
         """The chemical bond order associated with the specified atoms in  this contact."""
         return Attribute('rcsb_branched_struct_conn.value_order')
     @property
-    def connect_target(self) -> 'Attr_ConnectTarget_2525357423766463624':
+    def connect_target(self) -> 'Attr_ConnectTarget_2972255999729943258':
         """"""
-        return Attr_ConnectTarget_2525357423766463624()
+        return Attr_ConnectTarget_2972255999729943258()
     @property
-    def connect_partner(self) -> 'Attr_ConnectPartner_2379241220005561731':
+    def connect_partner(self) -> 'Attr_ConnectPartner_3189780554035415948':
         """"""
-        return Attr_ConnectPartner_2379241220005561731()
+        return Attr_ConnectPartner_3189780554035415948()
 
-class Attr_RcsbLigandNeighbors_8985162696604088994:
+class Attr_RcsbLigandNeighbors_571556483140723556:
     """"""
     @property
     def alt_id(self) -> Attribute:
@@ -3117,7 +3117,7 @@ class Attr_RcsbLigandNeighbors_8985162696604088994:
         """The sequence position for the target instance."""
         return Attribute('rcsb_ligand_neighbors.seq_id')
 
-class Attr_PdbxEntityBranch_2760054082613238023:
+class Attr_PdbxEntityBranch_8830568513783890182:
     """"""
     @property
     def rcsb_branched_component_count(self) -> Attribute:
@@ -3128,7 +3128,7 @@ class Attr_PdbxEntityBranch_2760054082613238023:
         """The type of this branched oligosaccharide."""
         return Attribute('pdbx_entity_branch.type')
 
-class Attr_PdbxEntityBranchDescriptor_1625757948179387454:
+class Attr_PdbxEntityBranchDescriptor_2768978210527465682:
     """"""
     @property
     def descriptor(self) -> Attribute:
@@ -3147,7 +3147,7 @@ class Attr_PdbxEntityBranchDescriptor_1625757948179387454:
         """This data item contains the descriptor type."""
         return Attribute('pdbx_entity_branch_descriptor.type')
 
-class Attr_RcsbBranchedEntity_1949550517724702782:
+class Attr_RcsbBranchedEntity_1818803414812355310:
     """"""
     @property
     def details(self) -> Attribute:
@@ -3166,7 +3166,7 @@ class Attr_RcsbBranchedEntity_1949550517724702782:
         """The number of molecules of the branched entity in the entry."""
         return Attribute('rcsb_branched_entity.pdbx_number_of_molecules')
 
-class Attr_AnnotationLineage_6459603852724753089:
+class Attr_AnnotationLineage_8764848861918880895:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -3181,7 +3181,7 @@ class Attr_AnnotationLineage_6459603852724753089:
         """Members of the annotation lineage as parent class names."""
         return Attribute('rcsb_branched_entity_annotation.annotation_lineage.name')
 
-class Attr_RcsbBranchedEntityAnnotation_4525198682484869588:
+class Attr_RcsbBranchedEntityAnnotation_432089665275081375:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -3208,11 +3208,11 @@ class Attr_RcsbBranchedEntityAnnotation_4525198682484869588:
         """A type or category of the annotation."""
         return Attribute('rcsb_branched_entity_annotation.type')
     @property
-    def annotation_lineage(self) -> 'Attr_AnnotationLineage_6459603852724753089':
+    def annotation_lineage(self) -> 'Attr_AnnotationLineage_8764848861918880895':
         """"""
-        return Attr_AnnotationLineage_6459603852724753089()
+        return Attr_AnnotationLineage_8764848861918880895()
 
-class Attr_ReferenceIdentifiers_5089753145926196822:
+class Attr_ReferenceIdentifiers_6290020236300729275:
     """"""
     @property
     def provenance_source(self) -> Attribute:
@@ -3227,7 +3227,7 @@ class Attr_ReferenceIdentifiers_5089753145926196822:
         """Reference resource name"""
         return Attribute('rcsb_branched_entity_container_identifiers.reference_identifiers.resource_name')
 
-class Attr_RcsbBranchedEntityContainerIdentifiers_3695924230236651680:
+class Attr_RcsbBranchedEntityContainerIdentifiers_7281915781068144509:
     """"""
     @property
     def asym_ids(self) -> Attribute:
@@ -3262,11 +3262,11 @@ class Attr_RcsbBranchedEntityContainerIdentifiers_3695924230236651680:
         """A unique identifier for each object in this entity container formed by  an underscore separated concatenation of entry and entity identifiers."""
         return Attribute('rcsb_branched_entity_container_identifiers.rcsb_id')
     @property
-    def reference_identifiers(self) -> 'Attr_ReferenceIdentifiers_5089753145926196822':
+    def reference_identifiers(self) -> 'Attr_ReferenceIdentifiers_6290020236300729275':
         """"""
-        return Attr_ReferenceIdentifiers_5089753145926196822()
+        return Attr_ReferenceIdentifiers_6290020236300729275()
 
-class Attr_FeaturePositions_8027009500129027311:
+class Attr_FeaturePositions_1472371003051016791:
     """"""
     @property
     def beg_comp_id(self) -> Attribute:
@@ -3285,7 +3285,7 @@ class Attr_FeaturePositions_8027009500129027311:
         """The value for the feature at this monomer."""
         return Attribute('rcsb_branched_entity_feature.feature_positions.value')
 
-class Attr_AdditionalProperties_7696483390422692409:
+class Attr_AdditionalProperties_4378371228790579890:
     """"""
     @property
     def name(self) -> Attribute:
@@ -3296,7 +3296,7 @@ class Attr_AdditionalProperties_7696483390422692409:
         """"""
         return Attribute('rcsb_branched_entity_feature.additional_properties.values')
 
-class Attr_RcsbBranchedEntityFeature_2906918833558014934:
+class Attr_RcsbBranchedEntityFeature_3403605832502688234:
     """"""
     @property
     def assignment_version(self) -> Attribute:
@@ -3327,15 +3327,15 @@ class Attr_RcsbBranchedEntityFeature_2906918833558014934:
         """A type or category of the feature."""
         return Attribute('rcsb_branched_entity_feature.type')
     @property
-    def feature_positions(self) -> 'Attr_FeaturePositions_8027009500129027311':
+    def feature_positions(self) -> 'Attr_FeaturePositions_1472371003051016791':
         """"""
-        return Attr_FeaturePositions_8027009500129027311()
+        return Attr_FeaturePositions_1472371003051016791()
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_7696483390422692409':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_4378371228790579890':
         """"""
-        return Attr_AdditionalProperties_7696483390422692409()
+        return Attr_AdditionalProperties_4378371228790579890()
 
-class Attr_RcsbBranchedEntityFeatureSummary_1341187641879165565:
+class Attr_RcsbBranchedEntityFeatureSummary_2538627494425573003:
     """"""
     @property
     def count(self) -> Attribute:
@@ -3366,21 +3366,21 @@ class Attr_RcsbBranchedEntityFeatureSummary_1341187641879165565:
         """Type or category of the feature."""
         return Attribute('rcsb_branched_entity_feature_summary.type')
 
-class Attr_RcsbBranchedEntityKeywords_70545455072425985:
+class Attr_RcsbBranchedEntityKeywords_7919927991720842502:
     """"""
     @property
     def text(self) -> Attribute:
         """Keywords describing this branched entity."""
         return Attribute('rcsb_branched_entity_keywords.text')
 
-class Attr_RcsbBranchedEntityNameCom_4728984605819421436:
+class Attr_RcsbBranchedEntityNameCom_8094746212063114520:
     """"""
     @property
     def name(self) -> Attribute:
         """A common name for the branched entity."""
         return Attribute('rcsb_branched_entity_name_com.name')
 
-class Attr_RcsbBranchedEntityNameSys_2435328334044629541:
+class Attr_RcsbBranchedEntityNameSys_7406705464748206371:
     """"""
     @property
     def name(self) -> Attribute:
@@ -3391,7 +3391,7 @@ class Attr_RcsbBranchedEntityNameSys_2435328334044629541:
         """The system used to generate the systematic name of the branched entity."""
         return Attribute('rcsb_branched_entity_name_sys.system')
 
-class Attr_RcsbPolymerEntityInstanceContainerIdentifiers_8002464718805964039:
+class Attr_RcsbPolymerEntityInstanceContainerIdentifiers_3932774019959730111:
     """"""
     @property
     def asym_id(self) -> Attribute:
@@ -3418,7 +3418,7 @@ class Attr_RcsbPolymerEntityInstanceContainerIdentifiers_8002464718805964039:
         """A unique identifier for each object in this entity instance container formed by  an 'dot' (.) separated concatenation of entry and entity instance identifiers."""
         return Attribute('rcsb_polymer_entity_instance_container_identifiers.rcsb_id')
 
-class Attr_AnnotationLineage_4128277530807315344:
+class Attr_AnnotationLineage_7221842595878955371:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -3433,7 +3433,7 @@ class Attr_AnnotationLineage_4128277530807315344:
         """Members of the annotation lineage as parent class names."""
         return Attribute('rcsb_polymer_instance_annotation.annotation_lineage.name')
 
-class Attr_RcsbPolymerInstanceAnnotation_7331669832188828985:
+class Attr_RcsbPolymerInstanceAnnotation_5610514455392018610:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -3464,11 +3464,11 @@ class Attr_RcsbPolymerInstanceAnnotation_7331669832188828985:
         """A type or category of the annotation."""
         return Attribute('rcsb_polymer_instance_annotation.type')
     @property
-    def annotation_lineage(self) -> 'Attr_AnnotationLineage_4128277530807315344':
+    def annotation_lineage(self) -> 'Attr_AnnotationLineage_7221842595878955371':
         """"""
-        return Attr_AnnotationLineage_4128277530807315344()
+        return Attr_AnnotationLineage_7221842595878955371()
 
-class Attr_FeaturePositions_8768933518473931223:
+class Attr_FeaturePositions_7551089273167403979:
     """"""
     @property
     def beg_comp_id(self) -> Attribute:
@@ -3491,7 +3491,7 @@ class Attr_FeaturePositions_8768933518473931223:
         """"""
         return Attribute('rcsb_polymer_instance_feature.feature_positions.values')
 
-class Attr_AdditionalProperties_82559038273669763:
+class Attr_AdditionalProperties_5362144041772159867:
     """"""
     @property
     def name(self) -> Attribute:
@@ -3502,7 +3502,7 @@ class Attr_AdditionalProperties_82559038273669763:
         """"""
         return Attribute('rcsb_polymer_instance_feature.additional_properties.values')
 
-class Attr_RcsbPolymerInstanceFeature_2247806877419020795:
+class Attr_RcsbPolymerInstanceFeature_402373187293303688:
     """"""
     @property
     def assignment_version(self) -> Attribute:
@@ -3537,15 +3537,15 @@ class Attr_RcsbPolymerInstanceFeature_2247806877419020795:
         """A type or category of the feature."""
         return Attribute('rcsb_polymer_instance_feature.type')
     @property
-    def feature_positions(self) -> 'Attr_FeaturePositions_8768933518473931223':
+    def feature_positions(self) -> 'Attr_FeaturePositions_7551089273167403979':
         """"""
-        return Attr_FeaturePositions_8768933518473931223()
+        return Attr_FeaturePositions_7551089273167403979()
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_82559038273669763':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_5362144041772159867':
         """"""
-        return Attr_AdditionalProperties_82559038273669763()
+        return Attr_AdditionalProperties_5362144041772159867()
 
-class Attr_RcsbPolymerInstanceFeatureSummary_4145198667231587096:
+class Attr_RcsbPolymerInstanceFeatureSummary_8584421886405298320:
     """"""
     @property
     def count(self) -> Attribute:
@@ -3576,14 +3576,14 @@ class Attr_RcsbPolymerInstanceFeatureSummary_4145198667231587096:
         """Type or category of the feature."""
         return Attribute('rcsb_polymer_instance_feature_summary.type')
 
-class Attr_RcsbPolymerInstanceInfo_541826668490189617:
+class Attr_RcsbPolymerInstanceInfo_7514771769707903990:
     """"""
     @property
     def modeled_residue_count(self) -> Attribute:
         """The number of modeled residues in the polymer instance."""
         return Attribute('rcsb_polymer_instance_info.modeled_residue_count')
 
-class Attr_ConnectTarget_2676683706212693615:
+class Attr_ConnectTarget_3079714003040182345:
     """"""
     @property
     def auth_asym_id(self) -> Attribute:
@@ -3618,7 +3618,7 @@ class Attr_ConnectTarget_2676683706212693615:
         """Describes the symmetry operation that should be applied to the  atom set specified by _rcsb_polymer_struct_conn.label* to generate the  target of the structure connection."""
         return Attribute('rcsb_polymer_struct_conn.connect_target.symmetry')
 
-class Attr_ConnectPartner_7353623789460738741:
+class Attr_ConnectPartner_157008874204460475:
     """"""
     @property
     def label_alt_id(self) -> Attribute:
@@ -3645,7 +3645,7 @@ class Attr_ConnectPartner_7353623789460738741:
         """Describes the symmetry operation that should be applied to the  atom set specified by _rcsb_polymer_struct_conn.connect_partner_label* to generate the  partner in the structure connection."""
         return Attribute('rcsb_polymer_struct_conn.connect_partner.symmetry')
 
-class Attr_RcsbPolymerStructConn_5495524305308370256:
+class Attr_RcsbPolymerStructConn_5653146273978122279:
     """"""
     @property
     def connect_type(self) -> Attribute:
@@ -3676,15 +3676,15 @@ class Attr_RcsbPolymerStructConn_5495524305308370256:
         """The chemical bond order associated with the specified atoms in  this contact."""
         return Attribute('rcsb_polymer_struct_conn.value_order')
     @property
-    def connect_target(self) -> 'Attr_ConnectTarget_2676683706212693615':
+    def connect_target(self) -> 'Attr_ConnectTarget_3079714003040182345':
         """"""
-        return Attr_ConnectTarget_2676683706212693615()
+        return Attr_ConnectTarget_3079714003040182345()
     @property
-    def connect_partner(self) -> 'Attr_ConnectPartner_7353623789460738741':
+    def connect_partner(self) -> 'Attr_ConnectPartner_157008874204460475':
         """"""
-        return Attr_ConnectPartner_7353623789460738741()
+        return Attr_ConnectPartner_157008874204460475()
 
-class Attr_AuditAuthor_63722436409328871:
+class Attr_AuditAuthor_3056663480409571195:
     """"""
     @property
     def identifier_ORCID(self) -> Attribute:
@@ -3699,7 +3699,7 @@ class Attr_AuditAuthor_63722436409328871:
         """This data item defines the order of the author's name in the  list of audit authors."""
         return Attribute('audit_author.pdbx_ordinal')
 
-class Attr_Cell_3351400556800308213:
+class Attr_Cell_6887224620345939199:
     """"""
     @property
     def Z_PDB(self) -> Attribute:
@@ -3742,7 +3742,7 @@ class Attr_Cell_3351400556800308213:
         """Cell volume V in angstroms cubed.   V = a b c (1 - cos^2^~alpha~ - cos^2^~beta~ - cos^2^~gamma~             + 2 cos~alpha~ cos~beta~ cos~gamma~)^1/2^   a     = _cell.length_a  b     = _cell.length_b  c     = _cell.length_c  alpha = _cell.angle_alpha  beta  = _cell.angle_beta  gamma = _cell.angle_gamma"""
         return Attribute('cell.volume')
 
-class Attr_Citation_8420317153486285983:
+class Attr_Citation_1164976226442513674:
     """"""
     @property
     def book_id_ISBN(self) -> Attribute:
@@ -3845,7 +3845,7 @@ class Attr_Citation_8420317153486285983:
         """The year of the citation; relevant for journal articles, books  and book chapters."""
         return Attribute('citation.year')
 
-class Attr_Database2_6727259016000648739:
+class Attr_Database2_3084565995207687571:
     """"""
     @property
     def database_code(self) -> Attribute:
@@ -3864,7 +3864,7 @@ class Attr_Database2_6727259016000648739:
         """Extended accession code issued for for _database_2.database_code assigned by the database identified in  _database_2.database_id."""
         return Attribute('database_2.pdbx_database_accession')
 
-class Attr_Diffrn_8756492336276331415:
+class Attr_Diffrn_5629305596746318891:
     """"""
     @property
     def ambient_pressure(self) -> Attribute:
@@ -3899,7 +3899,7 @@ class Attr_Diffrn_8756492336276331415:
         """Y/N if using serial crystallography experiment in which multiple crystals contribute to each diffraction frame in the experiment."""
         return Attribute('diffrn.pdbx_serial_crystal_experiment')
 
-class Attr_DiffrnDetector_4867092093861873244:
+class Attr_DiffrnDetector_6806478461283951806:
     """"""
     @property
     def details(self) -> Attribute:
@@ -3926,7 +3926,7 @@ class Attr_DiffrnDetector_4867092093861873244:
         """The make, model or name of the detector device used."""
         return Attribute('diffrn_detector.type')
 
-class Attr_DiffrnRadiation_5523608241699150468:
+class Attr_DiffrnRadiation_6162708843445927207:
     """"""
     @property
     def collimation(self) -> Attribute:
@@ -3969,7 +3969,7 @@ class Attr_DiffrnRadiation_5523608241699150468:
         """This data item is a pointer to _diffrn_radiation_wavelength.id  in the DIFFRN_RADIATION_WAVELENGTH category."""
         return Attribute('diffrn_radiation.wavelength_id')
 
-class Attr_DiffrnSource_5599640620259479535:
+class Attr_DiffrnSource_1176446210877166441:
     """"""
     @property
     def details(self) -> Attribute:
@@ -4004,7 +4004,7 @@ class Attr_DiffrnSource_5599640620259479535:
         """The make, model or name of the source of radiation."""
         return Attribute('diffrn_source.type')
 
-class Attr_Em2dCrystalEntity_8097955435067972619:
+class Attr_Em2dCrystalEntity_4058685056711295543:
     """"""
     @property
     def angle_gamma(self) -> Attribute:
@@ -4039,7 +4039,7 @@ class Attr_Em2dCrystalEntity_8097955435067972619:
         """There are 17 plane groups classified as oblique, rectangular, square, and hexagonal.  To describe the symmetry of 2D crystals of biological molecules,  plane groups are expanded to equivalent noncentrosymmetric space groups.  The 2D crystal plane corresponds to the 'ab' plane of the space group.   Enumerated space group descriptions include the plane group number in parentheses,  the H-M plane group symbol, and the plane group class."""
         return Attribute('em_2d_crystal_entity.space_group_name_H_M')
 
-class Attr_Em3dCrystalEntity_8433693029710381941:
+class Attr_Em3dCrystalEntity_8597290932712966093:
     """"""
     @property
     def angle_alpha(self) -> Attribute:
@@ -4082,7 +4082,7 @@ class Attr_Em3dCrystalEntity_8433693029710381941:
         """Space group number."""
         return Attribute('em_3d_crystal_entity.space_group_num')
 
-class Attr_Em3dFitting_2513420153760158456:
+class Attr_Em3dFitting_2952920837309131989:
     """"""
     @property
     def details(self) -> Attribute:
@@ -4113,7 +4113,7 @@ class Attr_Em3dFitting_2513420153760158456:
         """The measure used to assess quality of fit of the atomic coordinates in the  3DEM map volume."""
         return Attribute('em_3d_fitting.target_criteria')
 
-class Attr_Em3dFittingList_8851000138926155448:
+class Attr_Em3dFittingList_4906268258637101592:
     """"""
     @property
     def em_3d_fitting_id(self) -> Attribute:
@@ -4140,7 +4140,7 @@ class Attr_Em3dFittingList_8851000138926155448:
         """The PDB code for the entry used in fitting."""
         return Attribute('em_3d_fitting_list.pdb_entry_id')
 
-class Attr_Em3dReconstruction_588265537487966435:
+class Attr_Em3dReconstruction_3923949401804268329:
     """"""
     @property
     def actual_pixel_size(self) -> Attribute:
@@ -4199,7 +4199,7 @@ class Attr_Em3dReconstruction_588265537487966435:
         """The type of symmetry applied to the reconstruction"""
         return Attribute('em_3d_reconstruction.symmetry_type')
 
-class Attr_EmCtfCorrection_4130729762737365440:
+class Attr_EmCtfCorrection_6234616916682996051:
     """"""
     @property
     def details(self) -> Attribute:
@@ -4218,7 +4218,7 @@ class Attr_EmCtfCorrection_4130729762737365440:
         """Type of CTF correction applied"""
         return Attribute('em_ctf_correction.type')
 
-class Attr_EmDiffraction_4986023670877978194:
+class Attr_EmDiffraction_204203166905746388:
     """"""
     @property
     def camera_length(self) -> Attribute:
@@ -4237,7 +4237,7 @@ class Attr_EmDiffraction_4986023670877978194:
         """Comma-separated list of tilt angles (in degrees) used in the electron diffraction experiment."""
         return Attribute('em_diffraction.tilt_angle_list')
 
-class Attr_EmDiffractionShell_7925876586921583036:
+class Attr_EmDiffractionShell_9168447502094461557:
     """"""
     @property
     def em_diffraction_stats_id(self) -> Attribute:
@@ -4272,7 +4272,7 @@ class Attr_EmDiffractionShell_7925876586921583036:
         """Phase residual for this resolution shell, in degrees"""
         return Attribute('em_diffraction_shell.phase_residual')
 
-class Attr_EmDiffractionStats_4098070371349062730:
+class Attr_EmDiffractionStats_7090834112870589391:
     """"""
     @property
     def details(self) -> Attribute:
@@ -4323,7 +4323,7 @@ class Attr_EmDiffractionStats_4098070371349062730:
         """Rsym value (percent)"""
         return Attribute('em_diffraction_stats.r_sym')
 
-class Attr_EmEmbedding_8927504212148225961:
+class Attr_EmEmbedding_8815723620964716955:
     """"""
     @property
     def details(self) -> Attribute:
@@ -4342,7 +4342,7 @@ class Attr_EmEmbedding_8927504212148225961:
         """Foreign key relationship to the EM SPECIMEN category"""
         return Attribute('em_embedding.specimen_id')
 
-class Attr_EmEntityAssembly_8074739511142292930:
+class Attr_EmEntityAssembly_3078979783533241970:
     """"""
     @property
     def details(self) -> Attribute:
@@ -4381,7 +4381,7 @@ class Attr_EmEntityAssembly_8074739511142292930:
         """The general type of the sample or sample subcomponent."""
         return Attribute('em_entity_assembly.type')
 
-class Attr_EmExperiment_5426263616668936392:
+class Attr_EmExperiment_4015586154885282807:
     """"""
     @property
     def aggregation_state(self) -> Attribute:
@@ -4400,7 +4400,7 @@ class Attr_EmExperiment_5426263616668936392:
         """The reconstruction method used in the EM experiment."""
         return Attribute('em_experiment.reconstruction_method')
 
-class Attr_EmHelicalEntity_7668494486474232598:
+class Attr_EmHelicalEntity_8899148380282082496:
     """"""
     @property
     def angular_rotation_per_subunit(self) -> Attribute:
@@ -4427,7 +4427,7 @@ class Attr_EmHelicalEntity_7668494486474232598:
         """This data item is a pointer to _em_image_processing.id."""
         return Attribute('em_helical_entity.image_processing_id')
 
-class Attr_EmImageRecording_633092020661328079:
+class Attr_EmImageRecording_4831875945020634420:
     """"""
     @property
     def average_exposure_time(self) -> Attribute:
@@ -4470,7 +4470,7 @@ class Attr_EmImageRecording_633092020661328079:
         """The number of micrograph images collected."""
         return Attribute('em_image_recording.num_real_images')
 
-class Attr_EmImaging_4200062910022697388:
+class Attr_EmImaging_7865016832518639188:
     """"""
     @property
     def accelerating_voltage(self) -> Attribute:
@@ -4593,7 +4593,7 @@ class Attr_EmImaging_4200062910022697388:
         """The minimum angle at which the specimen was tilted to obtain  recorded images."""
         return Attribute('em_imaging.tilt_angle_min')
 
-class Attr_EmParticleSelection_3761487756813915266:
+class Attr_EmParticleSelection_7816965957874680359:
     """"""
     @property
     def details(self) -> Attribute:
@@ -4612,7 +4612,7 @@ class Attr_EmParticleSelection_3761487756813915266:
         """The number of particles selected from the projection set of images."""
         return Attribute('em_particle_selection.num_particles_selected')
 
-class Attr_EmSingleParticleEntity_4098908020413115628:
+class Attr_EmSingleParticleEntity_3566910682910487708:
     """"""
     @property
     def id(self) -> Attribute:
@@ -4627,7 +4627,7 @@ class Attr_EmSingleParticleEntity_4098908020413115628:
         """Point symmetry symbol, either Cn, Dn, T, O, or I"""
         return Attribute('em_single_particle_entity.point_symmetry')
 
-class Attr_EmSoftware_2960513041248834289:
+class Attr_EmSoftware_7163900376409465999:
     """"""
     @property
     def category(self) -> Attribute:
@@ -4662,7 +4662,7 @@ class Attr_EmSoftware_2960513041248834289:
         """The version of the software."""
         return Attribute('em_software.version')
 
-class Attr_EmSpecimen_2783360130929211224:
+class Attr_EmSpecimen_8966591325912657395:
     """"""
     @property
     def concentration(self) -> Attribute:
@@ -4697,7 +4697,7 @@ class Attr_EmSpecimen_2783360130929211224:
         """'YES' indicates that the specimen was vitrified by cryopreservation."""
         return Attribute('em_specimen.vitrification_applied')
 
-class Attr_EmStaining_8821517721788522148:
+class Attr_EmStaining_5323773765966123041:
     """"""
     @property
     def details(self) -> Attribute:
@@ -4720,7 +4720,7 @@ class Attr_EmStaining_8821517721788522148:
         """type of staining"""
         return Attribute('em_staining.type')
 
-class Attr_EmVitrification_7230092428944675988:
+class Attr_EmVitrification_8552823616079487652:
     """"""
     @property
     def chamber_temperature(self) -> Attribute:
@@ -4763,7 +4763,7 @@ class Attr_EmVitrification_7230092428944675988:
         """The length of time after an event effecting the sample that  vitrification was induced and a description of the event."""
         return Attribute('em_vitrification.time_resolved_state')
 
-class Attr_Entry_249313201875189282:
+class Attr_Entry_187364646265366243:
     """"""
     @property
     def id(self) -> Attribute:
@@ -4774,7 +4774,7 @@ class Attr_Entry_249313201875189282:
         """An identifier for the model collection associated with the entry."""
         return Attribute('entry.ma_collection_id')
 
-class Attr_Exptl_2577994854232257417:
+class Attr_Exptl_1743988733070483860:
     """"""
     @property
     def crystals_number(self) -> Attribute:
@@ -4793,7 +4793,7 @@ class Attr_Exptl_2577994854232257417:
         """A description of special aspects of the experimental method."""
         return Attribute('exptl.method_details')
 
-class Attr_ExptlCrystal_2492601876769177010:
+class Attr_ExptlCrystal_6047932736014032469:
     """"""
     @property
     def colour(self) -> Attribute:
@@ -4832,7 +4832,7 @@ class Attr_ExptlCrystal_2492601876769177010:
         """Details of crystal growth and preparation of the crystal (e.g.  mounting) prior to the intensity measurements."""
         return Attribute('exptl_crystal.preparation')
 
-class Attr_ExptlCrystalGrow_24055614248573572:
+class Attr_ExptlCrystalGrow_500284744151992417:
     """"""
     @property
     def crystal_id(self) -> Attribute:
@@ -4867,14 +4867,14 @@ class Attr_ExptlCrystalGrow_24055614248573572:
         """A description of special aspects of temperature control during  crystal growth."""
         return Attribute('exptl_crystal_grow.temp_details')
 
-class Attr_IhmEntryCollectionMapping_1196474109113488933:
+class Attr_IhmEntryCollectionMapping_7737360100215193647:
     """"""
     @property
     def collection_id(self) -> Attribute:
         """Identifier for the entry collection.   This data item is a pointer to _ihm_entry_collection.id in the   IHM_ENTRY_COLLECTION category."""
         return Attribute('ihm_entry_collection_mapping.collection_id')
 
-class Attr_IhmExternalReferenceInfo_4400232963713642743:
+class Attr_IhmExternalReferenceInfo_594089794853559570:
     """"""
     @property
     def associated_url(self) -> Attribute:
@@ -4889,7 +4889,7 @@ class Attr_IhmExternalReferenceInfo_4400232963713642743:
         """The name of the reference provider."""
         return Attribute('ihm_external_reference_info.reference_provider')
 
-class Attr_MaData_5067041056157757073:
+class Attr_MaData_8276884892940562163:
     """"""
     @property
     def content_type(self) -> Attribute:
@@ -4908,7 +4908,7 @@ class Attr_MaData_5067041056157757073:
         """An author-given name for the content held in the dataset."""
         return Attribute('ma_data.name')
 
-class Attr_PdbxSgProject_615833800478860367:
+class Attr_PdbxSgProject_7882781496751297744:
     """"""
     @property
     def full_name_of_center(self) -> Attribute:
@@ -4927,7 +4927,7 @@ class Attr_PdbxSgProject_615833800478860367:
         """The value identifies the Structural Genomics project."""
         return Attribute('pdbx_SG_project.project_name')
 
-class Attr_PdbxAuditRevisionCategory_9200246221093572489:
+class Attr_PdbxAuditRevisionCategory_4295164898291872093:
     """"""
     @property
     def category(self) -> Attribute:
@@ -4946,7 +4946,7 @@ class Attr_PdbxAuditRevisionCategory_9200246221093572489:
         """A pointer to  _pdbx_audit_revision_history.ordinal"""
         return Attribute('pdbx_audit_revision_category.revision_ordinal')
 
-class Attr_PdbxAuditRevisionDetails_2778996470369263751:
+class Attr_PdbxAuditRevisionDetails_2543399536317023909:
     """"""
     @property
     def data_content_type(self) -> Attribute:
@@ -4977,7 +4977,7 @@ class Attr_PdbxAuditRevisionDetails_2778996470369263751:
         """A type classification of the revision"""
         return Attribute('pdbx_audit_revision_details.type')
 
-class Attr_PdbxAuditRevisionGroup_8435143480492072231:
+class Attr_PdbxAuditRevisionGroup_8813241038383338302:
     """"""
     @property
     def data_content_type(self) -> Attribute:
@@ -4996,7 +4996,7 @@ class Attr_PdbxAuditRevisionGroup_8435143480492072231:
         """A pointer to  _pdbx_audit_revision_history.ordinal"""
         return Attribute('pdbx_audit_revision_group.revision_ordinal')
 
-class Attr_PdbxAuditRevisionHistory_4106018200925450655:
+class Attr_PdbxAuditRevisionHistory_3721319971401938837:
     """"""
     @property
     def data_content_type(self) -> Attribute:
@@ -5019,7 +5019,7 @@ class Attr_PdbxAuditRevisionHistory_4106018200925450655:
         """The release date of the revision"""
         return Attribute('pdbx_audit_revision_history.revision_date')
 
-class Attr_PdbxAuditRevisionItem_8756855347603551834:
+class Attr_PdbxAuditRevisionItem_2078477589686360674:
     """"""
     @property
     def data_content_type(self) -> Attribute:
@@ -5038,7 +5038,7 @@ class Attr_PdbxAuditRevisionItem_8756855347603551834:
         """A pointer to  _pdbx_audit_revision_history.ordinal"""
         return Attribute('pdbx_audit_revision_item.revision_ordinal')
 
-class Attr_PdbxAuditSupport_7236908831126071533:
+class Attr_PdbxAuditSupport_5826118427556082364:
     """"""
     @property
     def country(self) -> Attribute:
@@ -5057,7 +5057,7 @@ class Attr_PdbxAuditSupport_7236908831126071533:
         """A unique sequential integer identifier for each source of support for this entry."""
         return Attribute('pdbx_audit_support.ordinal')
 
-class Attr_PdbxDatabasePdbObsSpr_3078505969471866877:
+class Attr_PdbxDatabasePdbObsSpr_4920913424878324324:
     """"""
     @property
     def date(self) -> Attribute:
@@ -5080,7 +5080,7 @@ class Attr_PdbxDatabasePdbObsSpr_3078505969471866877:
         """The PDB identifier for the replaced (OLD) entry/entries."""
         return Attribute('pdbx_database_PDB_obs_spr.replace_pdb_id')
 
-class Attr_PdbxDatabaseRelated_7270692482929859897:
+class Attr_PdbxDatabaseRelated_5853697772193198670:
     """"""
     @property
     def content_type(self) -> Attribute:
@@ -5099,7 +5099,7 @@ class Attr_PdbxDatabaseRelated_7270692482929859897:
         """A description of the related entry."""
         return Attribute('pdbx_database_related.details')
 
-class Attr_PdbxDatabaseStatus_7708797135404904486:
+class Attr_PdbxDatabaseStatus_6248353506742585334:
     """"""
     @property
     def SG_entry(self) -> Attribute:
@@ -5142,7 +5142,7 @@ class Attr_PdbxDatabaseStatus_7708797135404904486:
         """Code for status of structure factor file."""
         return Attribute('pdbx_database_status.status_code_sf')
 
-class Attr_PdbxDepositGroup_8918272729051789535:
+class Attr_PdbxDepositGroup_7316454735873834530:
     """"""
     @property
     def group_description(self) -> Attribute:
@@ -5161,7 +5161,7 @@ class Attr_PdbxDepositGroup_8918272729051789535:
         """Text to describe a grouping of entries in multiple collections"""
         return Attribute('pdbx_deposit_group.group_type')
 
-class Attr_PdbxInitialRefinementModel_3050577672082287174:
+class Attr_PdbxInitialRefinementModel_8485509901477860672:
     """"""
     @property
     def accession_code(self) -> Attribute:
@@ -5188,7 +5188,7 @@ class Attr_PdbxInitialRefinementModel_3050577672082287174:
         """This item describes the type of the initial model was generated"""
         return Attribute('pdbx_initial_refinement_model.type')
 
-class Attr_PdbxMoleculeFeatures_3788044988414527016:
+class Attr_PdbxMoleculeFeatures_7554931741704576331:
     """"""
     @property
     def class_(self) -> Attribute:
@@ -5211,14 +5211,14 @@ class Attr_PdbxMoleculeFeatures_3788044988414527016:
         """Defines the structural classification of the molecule."""
         return Attribute('pdbx_molecule_features.type')
 
-class Attr_PdbxNmrDetails_7402216008610390392:
+class Attr_PdbxNmrDetails_7347076114960152227:
     """"""
     @property
     def text(self) -> Attribute:
         """Additional details describing the NMR experiment."""
         return Attribute('pdbx_nmr_details.text')
 
-class Attr_PdbxNmrEnsemble_7257573293688150377:
+class Attr_PdbxNmrEnsemble_2030315065343878121:
     """"""
     @property
     def average_constraint_violations_per_residue(self) -> Attribute:
@@ -5277,7 +5277,7 @@ class Attr_PdbxNmrEnsemble_7257573293688150377:
         """This item describes the method used to calculate the torsion angle constraint violation statistics. i.e. are the entered values based on all torsion angle or calculated for violations only?"""
         return Attribute('pdbx_nmr_ensemble.torsion_angle_constraint_violation_method')
 
-class Attr_PdbxNmrExptl_6844054667631134669:
+class Attr_PdbxNmrExptl_7915527056814715523:
     """"""
     @property
     def conditions_id(self) -> Attribute:
@@ -5304,7 +5304,7 @@ class Attr_PdbxNmrExptl_6844054667631134669:
         """The type of NMR experiment."""
         return Attribute('pdbx_nmr_exptl.type')
 
-class Attr_PdbxNmrExptlSampleConditions_236548912813021886:
+class Attr_PdbxNmrExptlSampleConditions_139546370674424550:
     """"""
     @property
     def conditions_id(self) -> Attribute:
@@ -5367,7 +5367,7 @@ class Attr_PdbxNmrExptlSampleConditions_236548912813021886:
         """Units for the value of the sample condition temperature."""
         return Attribute('pdbx_nmr_exptl_sample_conditions.temperature_units')
 
-class Attr_PdbxNmrRefine_7835203930382094838:
+class Attr_PdbxNmrRefine_2363544443195592659:
     """"""
     @property
     def details(self) -> Attribute:
@@ -5382,7 +5382,7 @@ class Attr_PdbxNmrRefine_7835203930382094838:
         """Pointer to _software.ordinal"""
         return Attribute('pdbx_nmr_refine.software_ordinal')
 
-class Attr_PdbxNmrRepresentative_2528152134631145175:
+class Attr_PdbxNmrRepresentative_2227918216658776118:
     """"""
     @property
     def conformer_id(self) -> Attribute:
@@ -5393,7 +5393,7 @@ class Attr_PdbxNmrRepresentative_2528152134631145175:
         """By highlighting the appropriate choice(s), describe the criteria used to select this structure as a representative structure, or if an average structure has been calculated describe how this was done."""
         return Attribute('pdbx_nmr_representative.selection_criteria')
 
-class Attr_PdbxNmrSampleDetails_7067737795432304503:
+class Attr_PdbxNmrSampleDetails_3863624502773822582:
     """"""
     @property
     def contents(self) -> Attribute:
@@ -5420,7 +5420,7 @@ class Attr_PdbxNmrSampleDetails_7067737795432304503:
         """A descriptive term for the sample that defines the general physical properties of the sample."""
         return Attribute('pdbx_nmr_sample_details.type')
 
-class Attr_PdbxNmrSoftware_7550527801390781357:
+class Attr_PdbxNmrSoftware_1959928567996197734:
     """"""
     @property
     def authors(self) -> Attribute:
@@ -5443,7 +5443,7 @@ class Attr_PdbxNmrSoftware_7550527801390781357:
         """The version of the software."""
         return Attribute('pdbx_nmr_software.version')
 
-class Attr_PdbxNmrSpectrometer_8757743467572467663:
+class Attr_PdbxNmrSpectrometer_5458489887174802748:
     """"""
     @property
     def details(self) -> Attribute:
@@ -5470,7 +5470,7 @@ class Attr_PdbxNmrSpectrometer_8757743467572467663:
         """Select the instrument manufacturer(s) and the model(s) of the NMR(s) used for this work."""
         return Attribute('pdbx_nmr_spectrometer.type')
 
-class Attr_PdbxReflnsTwin_8328635900780687457:
+class Attr_PdbxReflnsTwin_4037752409029675986:
     """"""
     @property
     def crystal_id(self) -> Attribute:
@@ -5497,7 +5497,7 @@ class Attr_PdbxReflnsTwin_8328635900780687457:
         """There are two types of twinning: merohedral or hemihedral                                  non-merohedral or epitaxial  For merohedral twinning the diffraction patterns from the different domains are completely superimposable.   Hemihedral twinning is a special case of merohedral twinning. It only involves two distinct domains.  Pseudo-merohedral twinning is a subclass merohedral twinning in which lattice is coincidentally superimposable.  In the case of non-merohedral or epitaxial twinning  the reciprocal lattices do not superimpose exactly. In this case the  diffraction pattern consists of two (or more) interpenetrating lattices, which can in principle be separated."""
         return Attribute('pdbx_reflns_twin.type')
 
-class Attr_PdbxRelatedExpDataSet_2211793775679300391:
+class Attr_PdbxRelatedExpDataSet_7917067086386007233:
     """"""
     @property
     def data_reference(self) -> Attribute:
@@ -5516,7 +5516,7 @@ class Attr_PdbxRelatedExpDataSet_2211793775679300391:
         """A DOI reference to the metadata decribing the related data set."""
         return Attribute('pdbx_related_exp_data_set.metadata_reference')
 
-class Attr_PdbxSerialCrystallographyDataReduction_8349433284770910571:
+class Attr_PdbxSerialCrystallographyDataReduction_7878553571290629474:
     """"""
     @property
     def crystal_hits(self) -> Attribute:
@@ -5563,7 +5563,7 @@ class Attr_PdbxSerialCrystallographyDataReduction_8349433284770910571:
         """For FEL experiments, in which data collection was performed 	       in batches, indicates which subset of the data collected                were used in producing this dataset."""
         return Attribute('pdbx_serial_crystallography_data_reduction.xfel_run_numbers')
 
-class Attr_PdbxSerialCrystallographyMeasurement_7699881008694967590:
+class Attr_PdbxSerialCrystallographyMeasurement_754944129397010777:
     """"""
     @property
     def collection_time_total(self) -> Attribute:
@@ -5610,7 +5610,7 @@ class Attr_PdbxSerialCrystallographyMeasurement_7699881008694967590:
         """For FEL experiments, the pulse repetition rate measured in cycles per seconds."""
         return Attribute('pdbx_serial_crystallography_measurement.xfel_pulse_repetition_rate')
 
-class Attr_PdbxSerialCrystallographySampleDelivery_4130556062886871314:
+class Attr_PdbxSerialCrystallographySampleDelivery_8108543925829297757:
     """"""
     @property
     def description(self) -> Attribute:
@@ -5625,7 +5625,7 @@ class Attr_PdbxSerialCrystallographySampleDelivery_4130556062886871314:
         """The description of the mechanism by which the specimen in placed in the path  of the source."""
         return Attribute('pdbx_serial_crystallography_sample_delivery.method')
 
-class Attr_PdbxSerialCrystallographySampleDeliveryFixedTarget_839165532902339679:
+class Attr_PdbxSerialCrystallographySampleDeliveryFixedTarget_5531139374288099551:
     """"""
     @property
     def crystals_per_unit(self) -> Attribute:
@@ -5676,7 +5676,7 @@ class Attr_PdbxSerialCrystallographySampleDeliveryFixedTarget_839165532902339679
         """Velocity of sample vertically relative to a perpendicular beam in millimetres/second"""
         return Attribute('pdbx_serial_crystallography_sample_delivery_fixed_target.velocity_vertical')
 
-class Attr_PdbxSerialCrystallographySampleDeliveryInjection_3006012783879424058:
+class Attr_PdbxSerialCrystallographySampleDeliveryInjection_1829405205823216092:
     """"""
     @property
     def carrier_solvent(self) -> Attribute:
@@ -5731,7 +5731,7 @@ class Attr_PdbxSerialCrystallographySampleDeliveryInjection_3006012783879424058:
         """Details of crystal growth and preparation of the crystals"""
         return Attribute('pdbx_serial_crystallography_sample_delivery_injection.preparation')
 
-class Attr_PdbxSolnScatter_7245722276953617459:
+class Attr_PdbxSolnScatter_6317071013510243568:
     """"""
     @property
     def buffer_name(self) -> Attribute:
@@ -5822,7 +5822,7 @@ class Attr_PdbxSolnScatter_7245722276953617459:
         """The type of solution scattering experiment carried out"""
         return Attribute('pdbx_soln_scatter.type')
 
-class Attr_PdbxSolnScatterModel_8197817684443298122:
+class Attr_PdbxSolnScatterModel_607788190178462496:
     """"""
     @property
     def conformer_selection_criteria(self) -> Attribute:
@@ -5869,7 +5869,7 @@ class Attr_PdbxSolnScatterModel_8197817684443298122:
         """A list of the software used in the modeeling"""
         return Attribute('pdbx_soln_scatter_model.software_list')
 
-class Attr_PdbxVrptSummary_2050827109889505606:
+class Attr_PdbxVrptSummary_1162852109722710037:
     """"""
     @property
     def RNA_suiteness(self) -> Attribute:
@@ -5892,7 +5892,7 @@ class Attr_PdbxVrptSummary_2050827109889505606:
         """"""
         return Attribute('pdbx_vrpt_summary.restypes_notchecked_for_bond_angle_geometry')
 
-class Attr_PdbxVrptSummaryDiffraction_5194791084085302813:
+class Attr_PdbxVrptSummaryDiffraction_5327416310012881293:
     """"""
     @property
     def B_factor_type(self) -> Attribute:
@@ -6023,7 +6023,7 @@ class Attr_PdbxVrptSummaryDiffraction_5194791084085302813:
         """Estimated twinning fraction for operators as identified by Xtriage. A semicolon separated list of operators with fractions is givens  X-ray entry specific, obtained from the Xtriage program."""
         return Attribute('pdbx_vrpt_summary_diffraction.twin_fraction')
 
-class Attr_PdbxVrptSummaryEm_758391848767787623:
+class Attr_PdbxVrptSummaryEm_7471504669843550707:
     """"""
     @property
     def Q_score(self) -> Attribute:
@@ -6094,7 +6094,7 @@ class Attr_PdbxVrptSummaryEm_758391848767787623:
         """Experimental method for statistics"""
         return Attribute('pdbx_vrpt_summary_em.exp_method')
 
-class Attr_PdbxVrptSummaryGeometry_3826771082827238154:
+class Attr_PdbxVrptSummaryGeometry_3619245359311038647:
     """"""
     @property
     def angles_RMSZ(self) -> Attribute:
@@ -6141,7 +6141,7 @@ class Attr_PdbxVrptSummaryGeometry_3826771082827238154:
         """Only given for structures determined by NMR. The MolProbity sidechain outlier score for all atoms in the structure rather than just the well-defined (core) residues."""
         return Attribute('pdbx_vrpt_summary_geometry.percent_rotamer_outliers_full_length')
 
-class Attr_PdbxVrptSummaryNmr_6006387455028530532:
+class Attr_PdbxVrptSummaryNmr_5548859660119909229:
     """"""
     @property
     def chemical_shift_completeness(self) -> Attribute:
@@ -6192,7 +6192,7 @@ class Attr_PdbxVrptSummaryNmr_6006387455028530532:
         """Overall representative PDB_model_num of the NMR ensemble as identified by NMRClust."""
         return Attribute('pdbx_vrpt_summary_nmr.nmrclust_representative_model')
 
-class Attr_RcsbAccessionInfo_2718500272268289627:
+class Attr_RcsbAccessionInfo_8293747943403471078:
     """"""
     @property
     def deposit_date(self) -> Attribute:
@@ -6223,7 +6223,7 @@ class Attr_RcsbAccessionInfo_2718500272268289627:
         """The release status for the entry."""
         return Attribute('rcsb_accession_info.status_code')
 
-class Attr_RcsbBindingAffinity_850876627997830094:
+class Attr_RcsbBindingAffinity_7300011394941616615:
     """"""
     @property
     def comp_id(self) -> Attribute:
@@ -6258,7 +6258,7 @@ class Attr_RcsbBindingAffinity_850876627997830094:
         """Binding affinity value between a ligand and its target molecule."""
         return Attribute('rcsb_binding_affinity.value')
 
-class Attr_RcsbCompModelProvenance_1066267955885468439:
+class Attr_RcsbCompModelProvenance_8964249889294855174:
     """"""
     @property
     def entry_id(self) -> Attribute:
@@ -6281,7 +6281,7 @@ class Attr_RcsbCompModelProvenance_1066267955885468439:
         """Source URL for computed structure model file."""
         return Attribute('rcsb_comp_model_provenance.source_url')
 
-class Attr_RcsbEntryContainerIdentifiers_3549125678328229786:
+class Attr_RcsbEntryContainerIdentifiers_4360046728253197277:
     """"""
     @property
     def assembly_ids(self) -> Attribute:
@@ -6332,7 +6332,7 @@ class Attr_RcsbEntryContainerIdentifiers_3549125678328229786:
         """"""
         return Attribute('rcsb_entry_container_identifiers.water_entity_ids')
 
-class Attr_RcsbEntryGroupMembership_480705922285483136:
+class Attr_RcsbEntryGroupMembership_5845487141021122936:
     """"""
     @property
     def aggregation_method(self) -> Attribute:
@@ -6343,7 +6343,7 @@ class Attr_RcsbEntryGroupMembership_480705922285483136:
         """A unique identifier for a group of entries"""
         return Attribute('rcsb_entry_group_membership.group_id')
 
-class Attr_DiffrnResolutionHigh_3834244314674227336:
+class Attr_DiffrnResolutionHigh_3238110796718225166:
     """"""
     @property
     def provenance_source(self) -> Attribute:
@@ -6354,7 +6354,7 @@ class Attr_DiffrnResolutionHigh_3834244314674227336:
         """The high resolution limit of data collection."""
         return Attribute('rcsb_entry_info.diffrn_resolution_high.value')
 
-class Attr_RcsbEntryInfo_3072208414852637683:
+class Attr_RcsbEntryInfo_7518889686398166852:
     """"""
     @property
     def assembly_count(self) -> Attribute:
@@ -6569,11 +6569,11 @@ class Attr_RcsbEntryInfo_3072208414852637683:
         """Indicates the priority of the value in _rcsb_entry_info.structure_determination_methodology.  The lower the number the higher the priority.  Priority values for 'experimental' structures is currently set to 10 and  the values for 'computational' structures is set to 100."""
         return Attribute('rcsb_entry_info.structure_determination_methodology_priority')
     @property
-    def diffrn_resolution_high(self) -> 'Attr_DiffrnResolutionHigh_3834244314674227336':
+    def diffrn_resolution_high(self) -> 'Attr_DiffrnResolutionHigh_3238110796718225166':
         """"""
-        return Attr_DiffrnResolutionHigh_3834244314674227336()
+        return Attr_DiffrnResolutionHigh_3238110796718225166()
 
-class Attr_RcsbExternalReferences_123611509675646232:
+class Attr_RcsbExternalReferences_3592345202349904700:
     """"""
     @property
     def id(self) -> Attribute:
@@ -6588,7 +6588,7 @@ class Attr_RcsbExternalReferences_123611509675646232:
         """Internal identifier for external resources"""
         return Attribute('rcsb_external_references.type')
 
-class Attr_RcsbIhmDatasetList_8727223721002288469:
+class Attr_RcsbIhmDatasetList_8639441134678106674:
     """"""
     @property
     def count(self) -> Attribute:
@@ -6603,7 +6603,7 @@ class Attr_RcsbIhmDatasetList_8727223721002288469:
         """Type of input dataset used in integrative modeling."""
         return Attribute('rcsb_ihm_dataset_list.type')
 
-class Attr_RcsbIhmDatasetSourceDbReference_6446994308069145877:
+class Attr_RcsbIhmDatasetSourceDbReference_7806803460585758270:
     """"""
     @property
     def accession_code(self) -> Attribute:
@@ -6614,7 +6614,7 @@ class Attr_RcsbIhmDatasetSourceDbReference_6446994308069145877:
         """Name of the source database for the input dataset."""
         return Attribute('rcsb_ihm_dataset_source_db_reference.db_name')
 
-class Attr_MaQaMetricGlobal_6473207825002358666:
+class Attr_MaQaMetricGlobal_5407214932272872648:
     """"""
     @property
     def description(self) -> Attribute:
@@ -6637,18 +6637,18 @@ class Attr_MaQaMetricGlobal_6473207825002358666:
         """Value of the global QA metric."""
         return Attribute('rcsb_ma_qa_metric_global.ma_qa_metric_global.value')
 
-class Attr_RcsbMaQaMetricGlobal_677615718054456792:
+class Attr_RcsbMaQaMetricGlobal_5024249783086438496:
     """"""
     @property
     def model_id(self) -> Attribute:
         """The model identifier."""
         return Attribute('rcsb_ma_qa_metric_global.model_id')
     @property
-    def ma_qa_metric_global(self) -> 'Attr_MaQaMetricGlobal_6473207825002358666':
+    def ma_qa_metric_global(self) -> 'Attr_MaQaMetricGlobal_5407214932272872648':
         """"""
-        return Attr_MaQaMetricGlobal_6473207825002358666()
+        return Attr_MaQaMetricGlobal_5407214932272872648()
 
-class Attr_RcsbPrimaryCitation_2589138073379635388:
+class Attr_RcsbPrimaryCitation_8495689730730368988:
     """"""
     @property
     def book_id_ISBN(self) -> Attribute:
@@ -6743,7 +6743,7 @@ class Attr_RcsbPrimaryCitation_2589138073379635388:
         """The year of the citation; relevant for journal articles, books  and book chapters."""
         return Attribute('rcsb_primary_citation.year')
 
-class Attr_Refine_7744573669119126847:
+class Attr_Refine_2227893954863511976:
     """"""
     @property
     def B_iso_max(self) -> Attribute:
@@ -7034,7 +7034,7 @@ class Attr_Refine_7744573669119126847:
         """The value of the KSOL solvent-model parameter describing  the ratio of the electron density in the bulk solvent to the  electron density in the molecular solute.   This is one of the two parameters (the other is  _refine.solvent_model_param_bsol) in Tronrud's method of  modelling the contribution of bulk solvent to the  scattering. The standard scale factor is modified according  to the expression       k0 exp(-B0 * s^2^)[1-KSOL * exp(-BSOL * s^2^)]   where k0 and B0 are the scale factors for the protein.   Ref: Tronrud, D. E. (1997). Methods Enzymol. 277, 243-268."""
         return Attribute('refine.solvent_model_param_ksol')
 
-class Attr_RefineAnalyze_9211571284388423736:
+class Attr_RefineAnalyze_7241750505646267335:
     """"""
     @property
     def Luzzati_coordinate_error_free(self) -> Attribute:
@@ -7081,7 +7081,7 @@ class Attr_RefineAnalyze_9211571284388423736:
         """This data item uniquely identifies a refinement within an entry.  _refine_analyze.pdbx_refine_id can be used to distinguish the results  of joint refinements."""
         return Attribute('refine_analyze.pdbx_refine_id')
 
-class Attr_RefineHist_9221191576897128552:
+class Attr_RefineHist_8989851675911188851:
     """"""
     @property
     def cycle_id(self) -> Attribute:
@@ -7132,7 +7132,7 @@ class Attr_RefineHist_9221191576897128552:
         """This data item uniquely identifies a refinement within an entry.  _refine_hist.pdbx_refine_id can be used to distinguish the results  of joint refinements."""
         return Attribute('refine_hist.pdbx_refine_id')
 
-class Attr_RefineLsRestr_8001991327589565592:
+class Attr_RefineLsRestr_5323145829563317396:
     """"""
     @property
     def dev_ideal(self) -> Attribute:
@@ -7163,7 +7163,7 @@ class Attr_RefineLsRestr_8001991327589565592:
         """The weighting value applied to this type of restraint in  the least-squares refinement."""
         return Attribute('refine_ls_restr.weight')
 
-class Attr_Reflns_7607562281695705022:
+class Attr_Reflns_6603085111978238979:
     """"""
     @property
     def B_iso_Wilson_estimate(self) -> Attribute:
@@ -7326,7 +7326,7 @@ class Attr_Reflns_7607562281695705022:
         """The value of _reflns.phase_calculation_details describes a  special details about calculation of phases in _refln.phase_calc."""
         return Attribute('reflns.phase_calculation_details')
 
-class Attr_ReflnsShell_2486530081492852863:
+class Attr_ReflnsShell_8517297791264857244:
     """"""
     @property
     def Rmerge_F_all(self) -> Attribute:
@@ -7441,7 +7441,7 @@ class Attr_ReflnsShell_2486530081492852863:
         """The percentage of geometrically possible reflections represented  by reflections classified as 'observed' (see  _reflns.observed_criterion) for this shell."""
         return Attribute('reflns_shell.percent_possible_obs')
 
-class Attr_Software_6137019163352523818:
+class Attr_Software_7104985068564282590:
     """"""
     @property
     def citation_id(self) -> Attribute:
@@ -7496,7 +7496,7 @@ class Attr_Software_6137019163352523818:
         """The version of the software."""
         return Attribute('software.version')
 
-class Attr_Struct_4911620606329260224:
+class Attr_Struct_2974294429352065371:
     """"""
     @property
     def pdbx_CASP_flag(self) -> Attribute:
@@ -7519,7 +7519,7 @@ class Attr_Struct_4911620606329260224:
         """A title for the data block. The author should attempt to convey  the essence of the structure archived in the CIF in the title,  and to distinguish this structural result from others."""
         return Attribute('struct.title')
 
-class Attr_StructKeywords_6309694326895381884:
+class Attr_StructKeywords_463349466143378259:
     """"""
     @property
     def pdbx_keywords(self) -> Attribute:
@@ -7530,7 +7530,7 @@ class Attr_StructKeywords_6309694326895381884:
         """Keywords describing this structure."""
         return Attribute('struct_keywords.text')
 
-class Attr_Symmetry_7008832039493893094:
+class Attr_Symmetry_5827422838062099858:
     """"""
     @property
     def Int_Tables_number(self) -> Attribute:
@@ -7553,14 +7553,14 @@ class Attr_Symmetry_7008832039493893094:
         """Space-group symbol as described by Hall (1981). This symbol  gives the space-group setting explicitly. Leave spaces between  the separate components of the symbol.   Ref: Hall, S. R. (1981). Acta Cryst. A37, 517-525; erratum  (1981) A37, 921."""
         return Attribute('symmetry.space_group_name_Hall')
 
-class Attr_RcsbPubmedContainerIdentifiers_6375516999502798455:
+class Attr_RcsbPubmedContainerIdentifiers_2702543507289998750:
     """"""
     @property
     def pubmed_id(self) -> Attribute:
         """UID assigned to each PubMed record."""
         return Attribute('rcsb_pubmed_container_identifiers.pubmed_id')
 
-class Attr_RcsbPubmedMeshDescriptorsLineage_1229728351658163987:
+class Attr_RcsbPubmedMeshDescriptorsLineage_935951856577311310:
     """Members of the MeSH classification lineage."""
     @property
     def id(self) -> Attribute:
@@ -7575,7 +7575,7 @@ class Attr_RcsbPubmedMeshDescriptorsLineage_1229728351658163987:
         """Hierarchy depth."""
         return Attribute('rcsb_pubmed_mesh_descriptors_lineage.depth')
 
-class Attr_EntityPoly_367486388453993374:
+class Attr_EntityPoly_8458098235097303839:
     """"""
     @property
     def nstd_linkage(self) -> Attribute:
@@ -7650,7 +7650,7 @@ class Attr_EntityPoly_367486388453993374:
         """The type of the polymer."""
         return Attribute('entity_poly.type')
 
-class Attr_EntitySrcGen_3837151472797219853:
+class Attr_EntitySrcGen_1075413165040704262:
     """"""
     @property
     def expression_system_id(self) -> Attribute:
@@ -7841,7 +7841,7 @@ class Attr_EntitySrcGen_3837151472797219853:
         """The name of the plasmid that produced the entity in the host  organism. Where full details of the protein production are available  it would be expected that this item would be derived from  _pdbx_construct.name of the construct pointed to from  _entity_src_gen_express.plasmid_id."""
         return Attribute('entity_src_gen.plasmid_name')
 
-class Attr_EntitySrcNat_8246145195750866030:
+class Attr_EntitySrcNat_4260064998081523498:
     """"""
     @property
     def common_name(self) -> Attribute:
@@ -7940,7 +7940,7 @@ class Attr_EntitySrcNat_8246145195750866030:
         """The subcellular fraction of the tissue of the organism from  which the entity was isolated."""
         return Attribute('entity_src_nat.tissue_fraction')
 
-class Attr_PdbxEntitySrcSyn_6767574882184091706:
+class Attr_PdbxEntitySrcSyn_850297309431665874:
     """"""
     @property
     def details(self) -> Attribute:
@@ -7975,7 +7975,7 @@ class Attr_PdbxEntitySrcSyn_6767574882184091706:
         """This data item is an ordinal identifier for pdbx_entity_src_syn data records."""
         return Attribute('pdbx_entity_src_syn.pdbx_src_id')
 
-class Attr_RcsbClusterFlexibility_5414743780810502444:
+class Attr_RcsbClusterFlexibility_8512278110429840217:
     """"""
     @property
     def avg_rmsd(self) -> Attribute:
@@ -7998,7 +7998,7 @@ class Attr_RcsbClusterFlexibility_5414743780810502444:
         """Provenance code indicating the origin of the flexibility data."""
         return Attribute('rcsb_cluster_flexibility.provenance_code')
 
-class Attr_RcsbClusterMembership_9054129751047273071:
+class Attr_RcsbClusterMembership_6866817333537718053:
     """"""
     @property
     def cluster_id(self) -> Attribute:
@@ -8009,7 +8009,7 @@ class Attr_RcsbClusterMembership_9054129751047273071:
         """Sequence identity expressed as an integer percent value."""
         return Attribute('rcsb_cluster_membership.identity')
 
-class Attr_TaxonomyLineage_5882641778664304386:
+class Attr_TaxonomyLineage_7857104446720387965:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -8024,7 +8024,7 @@ class Attr_TaxonomyLineage_5882641778664304386:
         """Members of the NCBI Taxonomy lineage as parent taxonomy names."""
         return Attribute('rcsb_entity_host_organism.taxonomy_lineage.name')
 
-class Attr_RcsbEntityHostOrganism_1000425279408396532:
+class Attr_RcsbEntityHostOrganism_1423724622558094168:
     """"""
     @property
     def beg_seq_num(self) -> Attribute:
@@ -8067,11 +8067,11 @@ class Attr_RcsbEntityHostOrganism_1000425279408396532:
         """The scientific name of the host organism"""
         return Attribute('rcsb_entity_host_organism.scientific_name')
     @property
-    def taxonomy_lineage(self) -> 'Attr_TaxonomyLineage_5882641778664304386':
+    def taxonomy_lineage(self) -> 'Attr_TaxonomyLineage_7857104446720387965':
         """"""
-        return Attr_TaxonomyLineage_5882641778664304386()
+        return Attr_TaxonomyLineage_7857104446720387965()
 
-class Attr_TaxonomyLineage_730706051010970530:
+class Attr_TaxonomyLineage_7490241263768129593:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -8086,7 +8086,7 @@ class Attr_TaxonomyLineage_730706051010970530:
         """Memebers of the NCBI Taxonomy lineage as parent taxonomy names."""
         return Attribute('rcsb_entity_source_organism.taxonomy_lineage.name')
 
-class Attr_RcsbGeneName_1685918600000269018:
+class Attr_RcsbGeneName_8458629811458016579:
     """"""
     @property
     def provenance_source(self) -> Attribute:
@@ -8097,7 +8097,7 @@ class Attr_RcsbGeneName_1685918600000269018:
         """Gene name."""
         return Attribute('rcsb_entity_source_organism.rcsb_gene_name.value')
 
-class Attr_RcsbEntitySourceOrganism_1178090087809967221:
+class Attr_RcsbEntitySourceOrganism_9001017777981291379:
     """"""
     @property
     def beg_seq_num(self) -> Attribute:
@@ -8144,15 +8144,15 @@ class Attr_RcsbEntitySourceOrganism_1178090087809967221:
         """The source type for the entity"""
         return Attribute('rcsb_entity_source_organism.source_type')
     @property
-    def taxonomy_lineage(self) -> 'Attr_TaxonomyLineage_730706051010970530':
+    def taxonomy_lineage(self) -> 'Attr_TaxonomyLineage_7490241263768129593':
         """"""
-        return Attr_TaxonomyLineage_730706051010970530()
+        return Attr_TaxonomyLineage_7490241263768129593()
     @property
-    def rcsb_gene_name(self) -> 'Attr_RcsbGeneName_1685918600000269018':
+    def rcsb_gene_name(self) -> 'Attr_RcsbGeneName_8458629811458016579':
         """"""
-        return Attr_RcsbGeneName_1685918600000269018()
+        return Attr_RcsbGeneName_8458629811458016579()
 
-class Attr_RcsbGenomicLineage_8808136628837431243:
+class Attr_RcsbGenomicLineage_8175647432274520119:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -8167,7 +8167,7 @@ class Attr_RcsbGenomicLineage_8808136628837431243:
         """A human-readable term name."""
         return Attribute('rcsb_genomic_lineage.name')
 
-class Attr_RcsbMembraneLineage_8402111703242425966:
+class Attr_RcsbMembraneLineage_3790024343364131394:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -8182,7 +8182,7 @@ class Attr_RcsbMembraneLineage_8402111703242425966:
         """Membrane protein classification term."""
         return Attribute('rcsb_membrane_lineage.name')
 
-class Attr_RcsbEcLineage_5853755703083143898:
+class Attr_RcsbEcLineage_1442303727140284693:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -8197,7 +8197,7 @@ class Attr_RcsbEcLineage_5853755703083143898:
         """Members of the enzyme classification lineage as parent classification names."""
         return Attribute('rcsb_polymer_entity.rcsb_ec_lineage.name')
 
-class Attr_RcsbMacromolecularNamesCombined_1309066473898979041:
+class Attr_RcsbMacromolecularNamesCombined_7823917653017529725:
     """"""
     @property
     def name(self) -> Attribute:
@@ -8212,7 +8212,7 @@ class Attr_RcsbMacromolecularNamesCombined_1309066473898979041:
         """Combined list of macromolecular names associated name source."""
         return Attribute('rcsb_polymer_entity.rcsb_macromolecular_names_combined.provenance_source')
 
-class Attr_RcsbEnzymeClassCombined_1706535153558234709:
+class Attr_RcsbEnzymeClassCombined_3620486145162960525:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -8227,7 +8227,7 @@ class Attr_RcsbEnzymeClassCombined_1706535153558234709:
         """Combined list of enzyme class associated provenance sources."""
         return Attribute('rcsb_polymer_entity.rcsb_enzyme_class_combined.provenance_source')
 
-class Attr_RcsbPolymerNameCombined_1697562881615312899:
+class Attr_RcsbPolymerNameCombined_2220271797785741539:
     """"""
     @property
     def names(self) -> Attribute:
@@ -8238,7 +8238,7 @@ class Attr_RcsbPolymerNameCombined_1697562881615312899:
         """Provenance source for the combined protein names."""
         return Attribute('rcsb_polymer_entity.rcsb_polymer_name_combined.provenance_source')
 
-class Attr_RcsbPolymerEntity_5421152956106328687:
+class Attr_RcsbPolymerEntity_7194034502569526187:
     """"""
     @property
     def details(self) -> Attribute:
@@ -8285,23 +8285,23 @@ class Attr_RcsbPolymerEntity_5421152956106328687:
         """The method by which the sample for the polymer entity was produced.  Entities isolated directly from natural sources (tissues, soil  samples etc.) are expected to have further information in the  ENTITY_SRC_NAT category. Entities isolated from genetically  manipulated sources are expected to have further information in  the ENTITY_SRC_GEN category."""
         return Attribute('rcsb_polymer_entity.src_method')
     @property
-    def rcsb_ec_lineage(self) -> 'Attr_RcsbEcLineage_5853755703083143898':
+    def rcsb_ec_lineage(self) -> 'Attr_RcsbEcLineage_1442303727140284693':
         """"""
-        return Attr_RcsbEcLineage_5853755703083143898()
+        return Attr_RcsbEcLineage_1442303727140284693()
     @property
-    def rcsb_macromolecular_names_combined(self) -> 'Attr_RcsbMacromolecularNamesCombined_1309066473898979041':
+    def rcsb_macromolecular_names_combined(self) -> 'Attr_RcsbMacromolecularNamesCombined_7823917653017529725':
         """"""
-        return Attr_RcsbMacromolecularNamesCombined_1309066473898979041()
+        return Attr_RcsbMacromolecularNamesCombined_7823917653017529725()
     @property
-    def rcsb_enzyme_class_combined(self) -> 'Attr_RcsbEnzymeClassCombined_1706535153558234709':
+    def rcsb_enzyme_class_combined(self) -> 'Attr_RcsbEnzymeClassCombined_3620486145162960525':
         """"""
-        return Attr_RcsbEnzymeClassCombined_1706535153558234709()
+        return Attr_RcsbEnzymeClassCombined_3620486145162960525()
     @property
-    def rcsb_polymer_name_combined(self) -> 'Attr_RcsbPolymerNameCombined_1697562881615312899':
+    def rcsb_polymer_name_combined(self) -> 'Attr_RcsbPolymerNameCombined_2220271797785741539':
         """"""
-        return Attr_RcsbPolymerNameCombined_1697562881615312899()
+        return Attr_RcsbPolymerNameCombined_2220271797785741539()
 
-class Attr_AlignedRegions_4934814484411800088:
+class Attr_AlignedRegions_50454321287686298:
     """"""
     @property
     def entity_beg_seq_id(self) -> Attribute:
@@ -8316,7 +8316,7 @@ class Attr_AlignedRegions_4934814484411800088:
         """An identifier for the monomer in the reference sequence at which this segment of the alignment begins."""
         return Attribute('rcsb_polymer_entity_align.aligned_regions.ref_beg_seq_id')
 
-class Attr_RcsbPolymerEntityAlign_5963234002480728832:
+class Attr_RcsbPolymerEntityAlign_7206211704046071894:
     """"""
     @property
     def provenance_source(self) -> Attribute:
@@ -8335,11 +8335,11 @@ class Attr_RcsbPolymerEntityAlign_5963234002480728832:
         """Reference sequence database name."""
         return Attribute('rcsb_polymer_entity_align.reference_database_name')
     @property
-    def aligned_regions(self) -> 'Attr_AlignedRegions_4934814484411800088':
+    def aligned_regions(self) -> 'Attr_AlignedRegions_50454321287686298':
         """"""
-        return Attr_AlignedRegions_4934814484411800088()
+        return Attr_AlignedRegions_50454321287686298()
 
-class Attr_AnnotationLineage_1347272792769783667:
+class Attr_AnnotationLineage_3076604656609984435:
     """"""
     @property
     def depth(self) -> Attribute:
@@ -8354,7 +8354,7 @@ class Attr_AnnotationLineage_1347272792769783667:
         """Members of the annotation lineage as parent class names."""
         return Attribute('rcsb_polymer_entity_annotation.annotation_lineage.name')
 
-class Attr_AdditionalProperties_6832673224967608512:
+class Attr_AdditionalProperties_2150009927698405817:
     """"""
     @property
     def name(self) -> Attribute:
@@ -8365,7 +8365,7 @@ class Attr_AdditionalProperties_6832673224967608512:
         """"""
         return Attribute('rcsb_polymer_entity_annotation.additional_properties.values')
 
-class Attr_RcsbPolymerEntityAnnotation_5980044332760432062:
+class Attr_RcsbPolymerEntityAnnotation_644964178023672671:
     """"""
     @property
     def annotation_id(self) -> Attribute:
@@ -8392,15 +8392,15 @@ class Attr_RcsbPolymerEntityAnnotation_5980044332760432062:
         """A type or category of the annotation."""
         return Attribute('rcsb_polymer_entity_annotation.type')
     @property
-    def annotation_lineage(self) -> 'Attr_AnnotationLineage_1347272792769783667':
+    def annotation_lineage(self) -> 'Attr_AnnotationLineage_3076604656609984435':
         """"""
-        return Attr_AnnotationLineage_1347272792769783667()
+        return Attr_AnnotationLineage_3076604656609984435()
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_6832673224967608512':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_2150009927698405817':
         """"""
-        return Attr_AdditionalProperties_6832673224967608512()
+        return Attr_AdditionalProperties_2150009927698405817()
 
-class Attr_ReferenceSequenceIdentifiers_300170744127071512:
+class Attr_ReferenceSequenceIdentifiers_5350001554533888085:
     """"""
     @property
     def database_accession(self) -> Attribute:
@@ -8427,7 +8427,7 @@ class Attr_ReferenceSequenceIdentifiers_300170744127071512:
         """Indicates what fraction of the reference sequence is covered by this polymer entity sequence."""
         return Attribute('rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.reference_sequence_coverage')
 
-class Attr_RcsbPolymerEntityContainerIdentifiers_9068062384755872854:
+class Attr_RcsbPolymerEntityContainerIdentifiers_5678289769802624529:
     """"""
     @property
     def asym_ids(self) -> Attribute:
@@ -8470,11 +8470,11 @@ class Attr_RcsbPolymerEntityContainerIdentifiers_9068062384755872854:
         """"""
         return Attribute('rcsb_polymer_entity_container_identifiers.uniprot_ids')
     @property
-    def reference_sequence_identifiers(self) -> 'Attr_ReferenceSequenceIdentifiers_300170744127071512':
+    def reference_sequence_identifiers(self) -> 'Attr_ReferenceSequenceIdentifiers_5350001554533888085':
         """"""
-        return Attr_ReferenceSequenceIdentifiers_300170744127071512()
+        return Attr_ReferenceSequenceIdentifiers_5350001554533888085()
 
-class Attr_FeaturePositions_5607404162024733071:
+class Attr_FeaturePositions_9112618673715848444:
     """"""
     @property
     def beg_comp_id(self) -> Attribute:
@@ -8497,7 +8497,7 @@ class Attr_FeaturePositions_5607404162024733071:
         """"""
         return Attribute('rcsb_polymer_entity_feature.feature_positions.values')
 
-class Attr_AdditionalProperties_8350862464725297203:
+class Attr_AdditionalProperties_8480758816819333791:
     """"""
     @property
     def name(self) -> Attribute:
@@ -8508,7 +8508,7 @@ class Attr_AdditionalProperties_8350862464725297203:
         """"""
         return Attribute('rcsb_polymer_entity_feature.additional_properties.values')
 
-class Attr_RcsbPolymerEntityFeature_8243252581169715439:
+class Attr_RcsbPolymerEntityFeature_3650419600679477204:
     """"""
     @property
     def assignment_version(self) -> Attribute:
@@ -8539,15 +8539,15 @@ class Attr_RcsbPolymerEntityFeature_8243252581169715439:
         """A type or category of the feature."""
         return Attribute('rcsb_polymer_entity_feature.type')
     @property
-    def feature_positions(self) -> 'Attr_FeaturePositions_5607404162024733071':
+    def feature_positions(self) -> 'Attr_FeaturePositions_9112618673715848444':
         """"""
-        return Attr_FeaturePositions_5607404162024733071()
+        return Attr_FeaturePositions_9112618673715848444()
     @property
-    def additional_properties(self) -> 'Attr_AdditionalProperties_8350862464725297203':
+    def additional_properties(self) -> 'Attr_AdditionalProperties_8480758816819333791':
         """"""
-        return Attr_AdditionalProperties_8350862464725297203()
+        return Attr_AdditionalProperties_8480758816819333791()
 
-class Attr_RcsbPolymerEntityFeatureSummary_7444095901013901317:
+class Attr_RcsbPolymerEntityFeatureSummary_9187527300679702617:
     """"""
     @property
     def count(self) -> Attribute:
@@ -8578,7 +8578,7 @@ class Attr_RcsbPolymerEntityFeatureSummary_7444095901013901317:
         """Type or category of the feature."""
         return Attribute('rcsb_polymer_entity_feature_summary.type')
 
-class Attr_AlignedRegions_4411450430037223306:
+class Attr_AlignedRegions_8251211663536758414:
     """"""
     @property
     def entity_beg_seq_id(self) -> Attribute:
@@ -8593,7 +8593,7 @@ class Attr_AlignedRegions_4411450430037223306:
         """An identifier for the monomer in the reference sequence at which this segment of the alignment begins."""
         return Attribute('rcsb_polymer_entity_group_membership.aligned_regions.ref_beg_seq_id')
 
-class Attr_RcsbPolymerEntityGroupMembership_3729216098428661129:
+class Attr_RcsbPolymerEntityGroupMembership_7938195433105953246:
     """"""
     @property
     def aggregation_method(self) -> Attribute:
@@ -8608,25 +8608,25 @@ class Attr_RcsbPolymerEntityGroupMembership_3729216098428661129:
         """Degree of similarity expressed as a floating-point number"""
         return Attribute('rcsb_polymer_entity_group_membership.similarity_cutoff')
     @property
-    def aligned_regions(self) -> 'Attr_AlignedRegions_4411450430037223306':
+    def aligned_regions(self) -> 'Attr_AlignedRegions_8251211663536758414':
         """"""
-        return Attr_AlignedRegions_4411450430037223306()
+        return Attr_AlignedRegions_8251211663536758414()
 
-class Attr_RcsbPolymerEntityKeywords_1714974568738106594:
+class Attr_RcsbPolymerEntityKeywords_3161332854173536742:
     """"""
     @property
     def text(self) -> Attribute:
         """Keywords describing this polymer entity."""
         return Attribute('rcsb_polymer_entity_keywords.text')
 
-class Attr_RcsbPolymerEntityNameCom_917101132350903206:
+class Attr_RcsbPolymerEntityNameCom_3842076325708154092:
     """"""
     @property
     def name(self) -> Attribute:
         """A common name for the polymer entity."""
         return Attribute('rcsb_polymer_entity_name_com.name')
 
-class Attr_RcsbPolymerEntityNameSys_7669584117686705920:
+class Attr_RcsbPolymerEntityNameSys_7480085878278364382:
     """"""
     @property
     def name(self) -> Attribute:
@@ -8637,7 +8637,7 @@ class Attr_RcsbPolymerEntityNameSys_7669584117686705920:
         """The system used to generate the systematic name of the polymer entity."""
         return Attribute('rcsb_polymer_entity_name_sys.system')
 
-class Attr_AlignedTarget_1628076285684690195:
+class Attr_AlignedTarget_389159714050999763:
     """"""
     @property
     def entity_beg_seq_id(self) -> Attribute:
@@ -8652,7 +8652,7 @@ class Attr_AlignedTarget_1628076285684690195:
         """The position of the monomer in the target sequence at which the alignment begins."""
         return Attribute('rcsb_related_target_references.aligned_target.target_beg_seq_id')
 
-class Attr_RcsbRelatedTargetReferences_6236053491568576839:
+class Attr_RcsbRelatedTargetReferences_5881875290868236752:
     """"""
     @property
     def related_resource_name(self) -> Attribute:
@@ -8671,11 +8671,11 @@ class Attr_RcsbRelatedTargetReferences_6236053491568576839:
         """NCBI Taxonomy identifier for the target organism.   Reference:   Wheeler DL, Chappey C, Lash AE, Leipe DD, Madden TL, Schuler GD,  Tatusova TA, Rapp BA (2000). Database resources of the National  Center for Biotechnology Information. Nucleic Acids Res 2000 Jan  1;28(1):10-4   Benson DA, Karsch-Mizrachi I, Lipman DJ, Ostell J, Rapp BA,  Wheeler DL (2000). GenBank. Nucleic Acids Res 2000 Jan 1;28(1):15-18."""
         return Attribute('rcsb_related_target_references.target_taxonomy_id')
     @property
-    def aligned_target(self) -> 'Attr_AlignedTarget_1628076285684690195':
+    def aligned_target(self) -> 'Attr_AlignedTarget_389159714050999763':
         """"""
-        return Attr_AlignedTarget_1628076285684690195()
+        return Attr_AlignedTarget_389159714050999763()
 
-class Attr_RcsbTargetCofactors_3310181653869243849:
+class Attr_RcsbTargetCofactors_8472537642467997329:
     """"""
     @property
     def binding_assay_value(self) -> Attribute:
@@ -8742,14 +8742,14 @@ class Attr_RcsbTargetCofactors_3310181653869243849:
         """Identifier for the target assigned by the resource."""
         return Attribute('rcsb_target_cofactors.target_resource_id')
 
-class Attr_DrugbankContainerIdentifiers_9173243926554205325:
+class Attr_DrugbankContainerIdentifiers_6385510197979959444:
     """"""
     @property
     def drugbank_id(self) -> Attribute:
         """The DrugBank accession code"""
         return Attribute('drugbank_container_identifiers.drugbank_id')
 
-class Attr_DrugProducts_7659210947708562942:
+class Attr_DrugProducts_7953796742676234250:
     """"""
     @property
     def approved(self) -> Attribute:
@@ -8776,7 +8776,7 @@ class Attr_DrugProducts_7659210947708562942:
         """The starting date for market approval."""
         return Attribute('drugbank_info.drug_products.started_marketing_on')
 
-class Attr_DrugbankInfo_4994912303796727713:
+class Attr_DrugbankInfo_8686328852938542459:
     """"""
     @property
     def affected_organisms(self) -> Attribute:
@@ -8831,11 +8831,11 @@ class Attr_DrugbankInfo_4994912303796727713:
         """"""
         return Attribute('drugbank_info.synonyms')
     @property
-    def drug_products(self) -> 'Attr_DrugProducts_7659210947708562942':
+    def drug_products(self) -> 'Attr_DrugProducts_7953796742676234250':
         """"""
-        return Attr_DrugProducts_7659210947708562942()
+        return Attr_DrugProducts_7953796742676234250()
 
-class Attr_DrugbankTarget_4863314656293444378:
+class Attr_DrugbankTarget_8247844805210609329:
     """"""
     @property
     def interaction_type(self) -> Attribute:
@@ -8873,269 +8873,269 @@ class Attr_DrugbankTarget_4863314656293444378:
 class AttributesRoot_0:
     """"""
     @property
-    def pdbx_entity_nonpoly(self) -> 'Attr_PdbxEntityNonpoly_7363933103479639183':
+    def pdbx_entity_nonpoly(self) -> 'Attr_PdbxEntityNonpoly_6779816884240027285':
         """"""
-        return Attr_PdbxEntityNonpoly_7363933103479639183()
+        return Attr_PdbxEntityNonpoly_6779816884240027285()
     @property
-    def rcsb_latest_revision(self) -> 'Attr_RcsbLatestRevision_8909449392049380872':
+    def rcsb_latest_revision(self) -> 'Attr_RcsbLatestRevision_1354422838042480325':
         """"""
-        return Attr_RcsbLatestRevision_8909449392049380872()
+        return Attr_RcsbLatestRevision_1354422838042480325()
     @property
-    def rcsb_nonpolymer_entity(self) -> 'Attr_RcsbNonpolymerEntity_464737390775537507':
+    def rcsb_nonpolymer_entity(self) -> 'Attr_RcsbNonpolymerEntity_8075943135319096297':
         """"""
-        return Attr_RcsbNonpolymerEntity_464737390775537507()
+        return Attr_RcsbNonpolymerEntity_8075943135319096297()
     @property
-    def rcsb_nonpolymer_entity_annotation(self) -> 'Attr_RcsbNonpolymerEntityAnnotation_35343855506502691':
+    def rcsb_nonpolymer_entity_annotation(self) -> 'Attr_RcsbNonpolymerEntityAnnotation_4311464861575858938':
         """"""
-        return Attr_RcsbNonpolymerEntityAnnotation_35343855506502691()
+        return Attr_RcsbNonpolymerEntityAnnotation_4311464861575858938()
     @property
-    def rcsb_nonpolymer_entity_container_identifiers(self) -> 'Attr_RcsbNonpolymerEntityContainerIdentifiers_8701957760733183095':
+    def rcsb_nonpolymer_entity_container_identifiers(self) -> 'Attr_RcsbNonpolymerEntityContainerIdentifiers_3683091105972402548':
         """"""
-        return Attr_RcsbNonpolymerEntityContainerIdentifiers_8701957760733183095()
+        return Attr_RcsbNonpolymerEntityContainerIdentifiers_3683091105972402548()
     @property
-    def rcsb_nonpolymer_entity_feature(self) -> 'Attr_RcsbNonpolymerEntityFeature_3927617744599411171':
+    def rcsb_nonpolymer_entity_feature(self) -> 'Attr_RcsbNonpolymerEntityFeature_1952188747840821710':
         """"""
-        return Attr_RcsbNonpolymerEntityFeature_3927617744599411171()
+        return Attr_RcsbNonpolymerEntityFeature_1952188747840821710()
     @property
-    def rcsb_nonpolymer_entity_feature_summary(self) -> 'Attr_RcsbNonpolymerEntityFeatureSummary_1027622194691485777':
+    def rcsb_nonpolymer_entity_feature_summary(self) -> 'Attr_RcsbNonpolymerEntityFeatureSummary_6102056074951347711':
         """"""
-        return Attr_RcsbNonpolymerEntityFeatureSummary_1027622194691485777()
+        return Attr_RcsbNonpolymerEntityFeatureSummary_6102056074951347711()
     @property
-    def rcsb_nonpolymer_entity_keywords(self) -> 'Attr_RcsbNonpolymerEntityKeywords_1083774927594463997':
+    def rcsb_nonpolymer_entity_keywords(self) -> 'Attr_RcsbNonpolymerEntityKeywords_1152634004132496583':
         """"""
-        return Attr_RcsbNonpolymerEntityKeywords_1083774927594463997()
+        return Attr_RcsbNonpolymerEntityKeywords_1152634004132496583()
     @property
-    def rcsb_nonpolymer_entity_name_com(self) -> 'Attr_RcsbNonpolymerEntityNameCom_7720253826008103170':
+    def rcsb_nonpolymer_entity_name_com(self) -> 'Attr_RcsbNonpolymerEntityNameCom_5768887118896432495':
         """"""
-        return Attr_RcsbNonpolymerEntityNameCom_7720253826008103170()
+        return Attr_RcsbNonpolymerEntityNameCom_5768887118896432495()
     @property
     def rcsb_id(self) -> Attribute:
         """A unique identifier for each object in this entity container formed by  an underscore separated concatenation of entry and entity identifiers."""
         return Attribute('rcsb_id')
     @property
-    def chem_comp(self) -> 'Attr_ChemComp_1200112540679781327':
+    def chem_comp(self) -> 'Attr_ChemComp_7057205645088625700':
         """"""
-        return Attr_ChemComp_1200112540679781327()
+        return Attr_ChemComp_7057205645088625700()
     @property
-    def pdbx_chem_comp_audit(self) -> 'Attr_PdbxChemCompAudit_6712032872356022995':
+    def pdbx_chem_comp_audit(self) -> 'Attr_PdbxChemCompAudit_12424779236652634':
         """"""
-        return Attr_PdbxChemCompAudit_6712032872356022995()
+        return Attr_PdbxChemCompAudit_12424779236652634()
     @property
-    def pdbx_chem_comp_descriptor(self) -> 'Attr_PdbxChemCompDescriptor_561968059088889144':
+    def pdbx_chem_comp_descriptor(self) -> 'Attr_PdbxChemCompDescriptor_8165333350008740223':
         """"""
-        return Attr_PdbxChemCompDescriptor_561968059088889144()
+        return Attr_PdbxChemCompDescriptor_8165333350008740223()
     @property
-    def pdbx_chem_comp_feature(self) -> 'Attr_PdbxChemCompFeature_8190614938889523287':
+    def pdbx_chem_comp_feature(self) -> 'Attr_PdbxChemCompFeature_7212566043513887794':
         """"""
-        return Attr_PdbxChemCompFeature_8190614938889523287()
+        return Attr_PdbxChemCompFeature_7212566043513887794()
     @property
-    def pdbx_chem_comp_identifier(self) -> 'Attr_PdbxChemCompIdentifier_2221885877439484747':
+    def pdbx_chem_comp_identifier(self) -> 'Attr_PdbxChemCompIdentifier_899124100260098404':
         """"""
-        return Attr_PdbxChemCompIdentifier_2221885877439484747()
+        return Attr_PdbxChemCompIdentifier_899124100260098404()
     @property
-    def pdbx_family_prd_audit(self) -> 'Attr_PdbxFamilyPrdAudit_9192156797841897546':
+    def pdbx_family_prd_audit(self) -> 'Attr_PdbxFamilyPrdAudit_7217292151427414505':
         """"""
-        return Attr_PdbxFamilyPrdAudit_9192156797841897546()
+        return Attr_PdbxFamilyPrdAudit_7217292151427414505()
     @property
-    def pdbx_prd_audit(self) -> 'Attr_PdbxPrdAudit_4074847995810896437':
+    def pdbx_prd_audit(self) -> 'Attr_PdbxPrdAudit_8792137596015765379':
         """"""
-        return Attr_PdbxPrdAudit_4074847995810896437()
+        return Attr_PdbxPrdAudit_8792137596015765379()
     @property
-    def pdbx_reference_entity_list(self) -> 'Attr_PdbxReferenceEntityList_3912494578848647478':
+    def pdbx_reference_entity_list(self) -> 'Attr_PdbxReferenceEntityList_204311540709620984':
         """"""
-        return Attr_PdbxReferenceEntityList_3912494578848647478()
+        return Attr_PdbxReferenceEntityList_204311540709620984()
     @property
-    def pdbx_reference_entity_poly(self) -> 'Attr_PdbxReferenceEntityPoly_2945400928924381514':
+    def pdbx_reference_entity_poly(self) -> 'Attr_PdbxReferenceEntityPoly_7169098066816192460':
         """"""
-        return Attr_PdbxReferenceEntityPoly_2945400928924381514()
+        return Attr_PdbxReferenceEntityPoly_7169098066816192460()
     @property
-    def pdbx_reference_entity_poly_link(self) -> 'Attr_PdbxReferenceEntityPolyLink_2718219065170821373':
+    def pdbx_reference_entity_poly_link(self) -> 'Attr_PdbxReferenceEntityPolyLink_224431813990159269':
         """"""
-        return Attr_PdbxReferenceEntityPolyLink_2718219065170821373()
+        return Attr_PdbxReferenceEntityPolyLink_224431813990159269()
     @property
-    def pdbx_reference_entity_poly_seq(self) -> 'Attr_PdbxReferenceEntityPolySeq_7250323542279612639':
+    def pdbx_reference_entity_poly_seq(self) -> 'Attr_PdbxReferenceEntityPolySeq_7656942134377437473':
         """"""
-        return Attr_PdbxReferenceEntityPolySeq_7250323542279612639()
+        return Attr_PdbxReferenceEntityPolySeq_7656942134377437473()
     @property
-    def pdbx_reference_entity_sequence(self) -> 'Attr_PdbxReferenceEntitySequence_6357391234383324290':
+    def pdbx_reference_entity_sequence(self) -> 'Attr_PdbxReferenceEntitySequence_258663462686844112':
         """"""
-        return Attr_PdbxReferenceEntitySequence_6357391234383324290()
+        return Attr_PdbxReferenceEntitySequence_258663462686844112()
     @property
-    def pdbx_reference_entity_src_nat(self) -> 'Attr_PdbxReferenceEntitySrcNat_2876680985424041018':
+    def pdbx_reference_entity_src_nat(self) -> 'Attr_PdbxReferenceEntitySrcNat_9197777232563711267':
         """"""
-        return Attr_PdbxReferenceEntitySrcNat_2876680985424041018()
+        return Attr_PdbxReferenceEntitySrcNat_9197777232563711267()
     @property
-    def pdbx_reference_molecule(self) -> 'Attr_PdbxReferenceMolecule_4912259896275957427':
+    def pdbx_reference_molecule(self) -> 'Attr_PdbxReferenceMolecule_3348805787539486343':
         """"""
-        return Attr_PdbxReferenceMolecule_4912259896275957427()
+        return Attr_PdbxReferenceMolecule_3348805787539486343()
     @property
-    def pdbx_reference_molecule_annotation(self) -> 'Attr_PdbxReferenceMoleculeAnnotation_2020513831202979017':
+    def pdbx_reference_molecule_annotation(self) -> 'Attr_PdbxReferenceMoleculeAnnotation_6861830127688493087':
         """"""
-        return Attr_PdbxReferenceMoleculeAnnotation_2020513831202979017()
+        return Attr_PdbxReferenceMoleculeAnnotation_6861830127688493087()
     @property
-    def pdbx_reference_molecule_details(self) -> 'Attr_PdbxReferenceMoleculeDetails_807372167071801516':
+    def pdbx_reference_molecule_details(self) -> 'Attr_PdbxReferenceMoleculeDetails_3289963089318396564':
         """"""
-        return Attr_PdbxReferenceMoleculeDetails_807372167071801516()
+        return Attr_PdbxReferenceMoleculeDetails_3289963089318396564()
     @property
-    def pdbx_reference_molecule_family(self) -> 'Attr_PdbxReferenceMoleculeFamily_7124280782306243342':
+    def pdbx_reference_molecule_family(self) -> 'Attr_PdbxReferenceMoleculeFamily_7157449831430123821':
         """"""
-        return Attr_PdbxReferenceMoleculeFamily_7124280782306243342()
+        return Attr_PdbxReferenceMoleculeFamily_7157449831430123821()
     @property
-    def pdbx_reference_molecule_features(self) -> 'Attr_PdbxReferenceMoleculeFeatures_1239061918715910306':
+    def pdbx_reference_molecule_features(self) -> 'Attr_PdbxReferenceMoleculeFeatures_5296501186132973139':
         """"""
-        return Attr_PdbxReferenceMoleculeFeatures_1239061918715910306()
+        return Attr_PdbxReferenceMoleculeFeatures_5296501186132973139()
     @property
-    def pdbx_reference_molecule_list(self) -> 'Attr_PdbxReferenceMoleculeList_3692725220274837356':
+    def pdbx_reference_molecule_list(self) -> 'Attr_PdbxReferenceMoleculeList_2277510819959982360':
         """"""
-        return Attr_PdbxReferenceMoleculeList_3692725220274837356()
+        return Attr_PdbxReferenceMoleculeList_2277510819959982360()
     @property
-    def pdbx_reference_molecule_related_structures(self) -> 'Attr_PdbxReferenceMoleculeRelatedStructures_7247307662272204701':
+    def pdbx_reference_molecule_related_structures(self) -> 'Attr_PdbxReferenceMoleculeRelatedStructures_9073505792247736227':
         """"""
-        return Attr_PdbxReferenceMoleculeRelatedStructures_7247307662272204701()
+        return Attr_PdbxReferenceMoleculeRelatedStructures_9073505792247736227()
     @property
-    def pdbx_reference_molecule_synonyms(self) -> 'Attr_PdbxReferenceMoleculeSynonyms_8329023609879337615':
+    def pdbx_reference_molecule_synonyms(self) -> 'Attr_PdbxReferenceMoleculeSynonyms_6274343213998229299':
         """"""
-        return Attr_PdbxReferenceMoleculeSynonyms_8329023609879337615()
+        return Attr_PdbxReferenceMoleculeSynonyms_6274343213998229299()
     @property
-    def rcsb_bird_citation(self) -> 'Attr_RcsbBirdCitation_3082875522391372230':
+    def rcsb_bird_citation(self) -> 'Attr_RcsbBirdCitation_8833900631817255721':
         """"""
-        return Attr_RcsbBirdCitation_3082875522391372230()
+        return Attr_RcsbBirdCitation_8833900631817255721()
     @property
-    def rcsb_chem_comp_annotation(self) -> 'Attr_RcsbChemCompAnnotation_1785513099937289401':
+    def rcsb_chem_comp_annotation(self) -> 'Attr_RcsbChemCompAnnotation_269053631677586994':
         """"""
-        return Attr_RcsbChemCompAnnotation_1785513099937289401()
+        return Attr_RcsbChemCompAnnotation_269053631677586994()
     @property
-    def rcsb_chem_comp_container_identifiers(self) -> 'Attr_RcsbChemCompContainerIdentifiers_7516196247036509009':
+    def rcsb_chem_comp_container_identifiers(self) -> 'Attr_RcsbChemCompContainerIdentifiers_837129368622060180':
         """"""
-        return Attr_RcsbChemCompContainerIdentifiers_7516196247036509009()
+        return Attr_RcsbChemCompContainerIdentifiers_837129368622060180()
     @property
-    def rcsb_chem_comp_descriptor(self) -> 'Attr_RcsbChemCompDescriptor_6889313453460966309':
+    def rcsb_chem_comp_descriptor(self) -> 'Attr_RcsbChemCompDescriptor_3654501847416307440':
         """"""
-        return Attr_RcsbChemCompDescriptor_6889313453460966309()
+        return Attr_RcsbChemCompDescriptor_3654501847416307440()
     @property
-    def rcsb_chem_comp_info(self) -> 'Attr_RcsbChemCompInfo_1744261852316425743':
+    def rcsb_chem_comp_info(self) -> 'Attr_RcsbChemCompInfo_5203675968611806049':
         """"""
-        return Attr_RcsbChemCompInfo_1744261852316425743()
+        return Attr_RcsbChemCompInfo_5203675968611806049()
     @property
-    def rcsb_chem_comp_related(self) -> 'Attr_RcsbChemCompRelated_2786406660131289156':
+    def rcsb_chem_comp_related(self) -> 'Attr_RcsbChemCompRelated_5191047975564710578':
         """"""
-        return Attr_RcsbChemCompRelated_2786406660131289156()
+        return Attr_RcsbChemCompRelated_5191047975564710578()
     @property
-    def rcsb_chem_comp_synonyms(self) -> 'Attr_RcsbChemCompSynonyms_4947219619584882965':
+    def rcsb_chem_comp_synonyms(self) -> 'Attr_RcsbChemCompSynonyms_3578776482846477893':
         """"""
-        return Attr_RcsbChemCompSynonyms_4947219619584882965()
+        return Attr_RcsbChemCompSynonyms_3578776482846477893()
     @property
-    def rcsb_chem_comp_target(self) -> 'Attr_RcsbChemCompTarget_2581811362766048879':
+    def rcsb_chem_comp_target(self) -> 'Attr_RcsbChemCompTarget_3222058763920425965':
         """"""
-        return Attr_RcsbChemCompTarget_2581811362766048879()
+        return Attr_RcsbChemCompTarget_3222058763920425965()
     @property
-    def rcsb_schema_container_identifiers(self) -> 'Attr_RcsbSchemaContainerIdentifiers_844393008111346727':
+    def rcsb_schema_container_identifiers(self) -> 'Attr_RcsbSchemaContainerIdentifiers_5641603716241949274':
         """"""
-        return Attr_RcsbSchemaContainerIdentifiers_844393008111346727()
+        return Attr_RcsbSchemaContainerIdentifiers_5641603716241949274()
     @property
-    def pdbx_struct_assembly(self) -> 'Attr_PdbxStructAssembly_2381645677990954548':
+    def pdbx_struct_assembly(self) -> 'Attr_PdbxStructAssembly_703564290223986309':
         """"""
-        return Attr_PdbxStructAssembly_2381645677990954548()
+        return Attr_PdbxStructAssembly_703564290223986309()
     @property
-    def pdbx_struct_assembly_auth_evidence(self) -> 'Attr_PdbxStructAssemblyAuthEvidence_7913503673973608827':
+    def pdbx_struct_assembly_auth_evidence(self) -> 'Attr_PdbxStructAssemblyAuthEvidence_5061756690102684975':
         """"""
-        return Attr_PdbxStructAssemblyAuthEvidence_7913503673973608827()
+        return Attr_PdbxStructAssemblyAuthEvidence_5061756690102684975()
     @property
-    def pdbx_struct_assembly_gen(self) -> 'Attr_PdbxStructAssemblyGen_6470401641335724751':
+    def pdbx_struct_assembly_gen(self) -> 'Attr_PdbxStructAssemblyGen_4272902833996845268':
         """"""
-        return Attr_PdbxStructAssemblyGen_6470401641335724751()
+        return Attr_PdbxStructAssemblyGen_4272902833996845268()
     @property
-    def pdbx_struct_assembly_prop(self) -> 'Attr_PdbxStructAssemblyProp_3993174094418456771':
+    def pdbx_struct_assembly_prop(self) -> 'Attr_PdbxStructAssemblyProp_3154725563526501713':
         """"""
-        return Attr_PdbxStructAssemblyProp_3993174094418456771()
+        return Attr_PdbxStructAssemblyProp_3154725563526501713()
     @property
-    def pdbx_struct_oper_list(self) -> 'Attr_PdbxStructOperList_4844878683754627088':
+    def pdbx_struct_oper_list(self) -> 'Attr_PdbxStructOperList_7035933640400315999':
         """"""
-        return Attr_PdbxStructOperList_4844878683754627088()
+        return Attr_PdbxStructOperList_7035933640400315999()
     @property
-    def rcsb_assembly_annotation(self) -> 'Attr_RcsbAssemblyAnnotation_7954324389823569616':
+    def rcsb_assembly_annotation(self) -> 'Attr_RcsbAssemblyAnnotation_9053785517176427790':
         """"""
-        return Attr_RcsbAssemblyAnnotation_7954324389823569616()
+        return Attr_RcsbAssemblyAnnotation_9053785517176427790()
     @property
-    def rcsb_assembly_container_identifiers(self) -> 'Attr_RcsbAssemblyContainerIdentifiers_982132704003139265':
+    def rcsb_assembly_container_identifiers(self) -> 'Attr_RcsbAssemblyContainerIdentifiers_9054065776222651931':
         """"""
-        return Attr_RcsbAssemblyContainerIdentifiers_982132704003139265()
+        return Attr_RcsbAssemblyContainerIdentifiers_9054065776222651931()
     @property
-    def rcsb_assembly_feature(self) -> 'Attr_RcsbAssemblyFeature_4965543272494843277':
+    def rcsb_assembly_feature(self) -> 'Attr_RcsbAssemblyFeature_4749503318323216510':
         """"""
-        return Attr_RcsbAssemblyFeature_4965543272494843277()
+        return Attr_RcsbAssemblyFeature_4749503318323216510()
     @property
-    def rcsb_assembly_info(self) -> 'Attr_RcsbAssemblyInfo_7946652866867479068':
+    def rcsb_assembly_info(self) -> 'Attr_RcsbAssemblyInfo_4544557843341229985':
         """"""
-        return Attr_RcsbAssemblyInfo_7946652866867479068()
+        return Attr_RcsbAssemblyInfo_4544557843341229985()
     @property
-    def rcsb_struct_symmetry(self) -> 'Attr_RcsbStructSymmetry_480717809273166659':
+    def rcsb_struct_symmetry(self) -> 'Attr_RcsbStructSymmetry_2193396356615419313':
         """"""
-        return Attr_RcsbStructSymmetry_480717809273166659()
+        return Attr_RcsbStructSymmetry_2193396356615419313()
     @property
-    def rcsb_struct_symmetry_lineage(self) -> 'Attr_RcsbStructSymmetryLineage_5233526057982287321':
+    def rcsb_struct_symmetry_lineage(self) -> 'Attr_RcsbStructSymmetryLineage_4624568028408236038':
         """"""
-        return Attr_RcsbStructSymmetryLineage_5233526057982287321()
+        return Attr_RcsbStructSymmetryLineage_4624568028408236038()
     @property
     def rcsb_struct_symmetry_provenance_code(self) -> Attribute:
         """The title and version of software package used for symmetry calculations."""
         return Attribute('rcsb_struct_symmetry_provenance_code')
     @property
-    def rcsb_repository_holdings_current(self) -> 'Attr_RcsbRepositoryHoldingsCurrent_6224735890330439763':
+    def rcsb_repository_holdings_current(self) -> 'Attr_RcsbRepositoryHoldingsCurrent_3329757381338026847':
         """"""
-        return Attr_RcsbRepositoryHoldingsCurrent_6224735890330439763()
+        return Attr_RcsbRepositoryHoldingsCurrent_3329757381338026847()
     @property
-    def rcsb_repository_holdings_current_entry_container_identifiers(self) -> 'Attr_RcsbRepositoryHoldingsCurrentEntryContainerIdentifiers_4771463229172293332':
+    def rcsb_repository_holdings_current_entry_container_identifiers(self) -> 'Attr_RcsbRepositoryHoldingsCurrentEntryContainerIdentifiers_1898297126802180291':
         """"""
-        return Attr_RcsbRepositoryHoldingsCurrentEntryContainerIdentifiers_4771463229172293332()
+        return Attr_RcsbRepositoryHoldingsCurrentEntryContainerIdentifiers_1898297126802180291()
     @property
-    def pdbx_struct_special_symmetry(self) -> 'Attr_PdbxStructSpecialSymmetry_4505405662830501930':
+    def pdbx_struct_special_symmetry(self) -> 'Attr_PdbxStructSpecialSymmetry_6087921664744743229':
         """"""
-        return Attr_PdbxStructSpecialSymmetry_4505405662830501930()
+        return Attr_PdbxStructSpecialSymmetry_6087921664744743229()
     @property
-    def pdbx_vrpt_summary_entity_fit_to_map(self) -> 'Attr_PdbxVrptSummaryEntityFitToMap_3524667515874290':
+    def pdbx_vrpt_summary_entity_fit_to_map(self) -> 'Attr_PdbxVrptSummaryEntityFitToMap_5562603566507373917':
         """"""
-        return Attr_PdbxVrptSummaryEntityFitToMap_3524667515874290()
+        return Attr_PdbxVrptSummaryEntityFitToMap_5562603566507373917()
     @property
-    def pdbx_vrpt_summary_entity_geometry(self) -> 'Attr_PdbxVrptSummaryEntityGeometry_5453465947742705650':
+    def pdbx_vrpt_summary_entity_geometry(self) -> 'Attr_PdbxVrptSummaryEntityGeometry_8970685578449791126':
         """"""
-        return Attr_PdbxVrptSummaryEntityGeometry_5453465947742705650()
+        return Attr_PdbxVrptSummaryEntityGeometry_8970685578449791126()
     @property
-    def rcsb_nonpolymer_entity_instance_container_identifiers(self) -> 'Attr_RcsbNonpolymerEntityInstanceContainerIdentifiers_6808155340922085051':
+    def rcsb_nonpolymer_entity_instance_container_identifiers(self) -> 'Attr_RcsbNonpolymerEntityInstanceContainerIdentifiers_8612523117560488692':
         """"""
-        return Attr_RcsbNonpolymerEntityInstanceContainerIdentifiers_6808155340922085051()
+        return Attr_RcsbNonpolymerEntityInstanceContainerIdentifiers_8612523117560488692()
     @property
-    def rcsb_nonpolymer_instance_annotation(self) -> 'Attr_RcsbNonpolymerInstanceAnnotation_9076118420185218144':
+    def rcsb_nonpolymer_instance_annotation(self) -> 'Attr_RcsbNonpolymerInstanceAnnotation_4087821495222919068':
         """"""
-        return Attr_RcsbNonpolymerInstanceAnnotation_9076118420185218144()
+        return Attr_RcsbNonpolymerInstanceAnnotation_4087821495222919068()
     @property
-    def rcsb_nonpolymer_instance_feature(self) -> 'Attr_RcsbNonpolymerInstanceFeature_5106011960417871022':
+    def rcsb_nonpolymer_instance_feature(self) -> 'Attr_RcsbNonpolymerInstanceFeature_292752362579250494':
         """"""
-        return Attr_RcsbNonpolymerInstanceFeature_5106011960417871022()
+        return Attr_RcsbNonpolymerInstanceFeature_292752362579250494()
     @property
-    def rcsb_nonpolymer_instance_feature_summary(self) -> 'Attr_RcsbNonpolymerInstanceFeatureSummary_7917053153818383854':
+    def rcsb_nonpolymer_instance_feature_summary(self) -> 'Attr_RcsbNonpolymerInstanceFeatureSummary_1490783941311560859':
         """"""
-        return Attr_RcsbNonpolymerInstanceFeatureSummary_7917053153818383854()
+        return Attr_RcsbNonpolymerInstanceFeatureSummary_1490783941311560859()
     @property
-    def rcsb_nonpolymer_instance_validation_score(self) -> 'Attr_RcsbNonpolymerInstanceValidationScore_258037444227706434':
+    def rcsb_nonpolymer_instance_validation_score(self) -> 'Attr_RcsbNonpolymerInstanceValidationScore_8082392368989342376':
         """"""
-        return Attr_RcsbNonpolymerInstanceValidationScore_258037444227706434()
+        return Attr_RcsbNonpolymerInstanceValidationScore_8082392368989342376()
     @property
-    def rcsb_nonpolymer_struct_conn(self) -> 'Attr_RcsbNonpolymerStructConn_2620109448886716225':
+    def rcsb_nonpolymer_struct_conn(self) -> 'Attr_RcsbNonpolymerStructConn_641919607703277397':
         """"""
-        return Attr_RcsbNonpolymerStructConn_2620109448886716225()
+        return Attr_RcsbNonpolymerStructConn_641919607703277397()
     @property
-    def rcsb_target_neighbors(self) -> 'Attr_RcsbTargetNeighbors_2644649369999586502':
+    def rcsb_target_neighbors(self) -> 'Attr_RcsbTargetNeighbors_6737179543503453423':
         """"""
-        return Attr_RcsbTargetNeighbors_2644649369999586502()
+        return Attr_RcsbTargetNeighbors_6737179543503453423()
     @property
-    def struct_asym(self) -> 'Attr_StructAsym_3719344311517918061':
+    def struct_asym(self) -> 'Attr_StructAsym_761177677697118704':
         """"""
-        return Attr_StructAsym_3719344311517918061()
+        return Attr_StructAsym_761177677697118704()
     @property
-    def rcsb_uniprot_container_identifiers(self) -> 'Attr_RcsbUniprotContainerIdentifiers_1874709646992285474':
+    def rcsb_uniprot_container_identifiers(self) -> 'Attr_RcsbUniprotContainerIdentifiers_7215950315951267989':
         """"""
-        return Attr_RcsbUniprotContainerIdentifiers_1874709646992285474()
+        return Attr_RcsbUniprotContainerIdentifiers_7215950315951267989()
     @property
     def rcsb_uniprot_accession(self) -> Attribute:
         """List of UniProtKB accession numbers where original accession numbers are retained as ‘secondary’ accession numbers."""
@@ -9145,493 +9145,493 @@ class AttributesRoot_0:
         """A list of unique identifiers (former IDs), often containing biologically relevant information."""
         return Attribute('rcsb_uniprot_entry_name')
     @property
-    def rcsb_uniprot_keyword(self) -> 'Attr_RcsbUniprotKeyword_5072613036028656313':
+    def rcsb_uniprot_keyword(self) -> 'Attr_RcsbUniprotKeyword_4083104558730868246':
         """Keywords constitute a controlled vocabulary that summarises the content of a UniProtKB entry."""
-        return Attr_RcsbUniprotKeyword_5072613036028656313()
+        return Attr_RcsbUniprotKeyword_4083104558730868246()
     @property
-    def rcsb_uniprot_protein(self) -> 'Attr_RcsbUniprotProtein_942395084172911206':
+    def rcsb_uniprot_protein(self) -> 'Attr_RcsbUniprotProtein_712376359387944200':
         """"""
-        return Attr_RcsbUniprotProtein_942395084172911206()
+        return Attr_RcsbUniprotProtein_712376359387944200()
     @property
-    def rcsb_uniprot_feature(self) -> 'Attr_RcsbUniprotFeature_922620791709686828':
+    def rcsb_uniprot_feature(self) -> 'Attr_RcsbUniprotFeature_8229504720380640115':
         """"""
-        return Attr_RcsbUniprotFeature_922620791709686828()
+        return Attr_RcsbUniprotFeature_8229504720380640115()
     @property
-    def rcsb_uniprot_annotation(self) -> 'Attr_RcsbUniprotAnnotation_7864982906956526686':
+    def rcsb_uniprot_annotation(self) -> 'Attr_RcsbUniprotAnnotation_1120806278942873227':
         """"""
-        return Attr_RcsbUniprotAnnotation_7864982906956526686()
+        return Attr_RcsbUniprotAnnotation_1120806278942873227()
     @property
-    def rcsb_uniprot_external_reference(self) -> 'Attr_RcsbUniprotExternalReference_3995150960325609862':
+    def rcsb_uniprot_external_reference(self) -> 'Attr_RcsbUniprotExternalReference_6350468129366082366':
         """"""
-        return Attr_RcsbUniprotExternalReference_3995150960325609862()
+        return Attr_RcsbUniprotExternalReference_6350468129366082366()
     @property
-    def rcsb_uniprot_alignments(self) -> 'Attr_RcsbUniprotAlignments_2287199412576271378':
+    def rcsb_uniprot_alignments(self) -> 'Attr_RcsbUniprotAlignments_1598308639055843450':
         """UniProt pairwise sequence alignments."""
-        return Attr_RcsbUniprotAlignments_2287199412576271378()
+        return Attr_RcsbUniprotAlignments_1598308639055843450()
     @property
-    def rcsb_branched_entity_instance_container_identifiers(self) -> 'Attr_RcsbBranchedEntityInstanceContainerIdentifiers_1088925439055323321':
+    def rcsb_branched_entity_instance_container_identifiers(self) -> 'Attr_RcsbBranchedEntityInstanceContainerIdentifiers_1012785612807861268':
         """"""
-        return Attr_RcsbBranchedEntityInstanceContainerIdentifiers_1088925439055323321()
+        return Attr_RcsbBranchedEntityInstanceContainerIdentifiers_1012785612807861268()
     @property
-    def rcsb_branched_instance_annotation(self) -> 'Attr_RcsbBranchedInstanceAnnotation_655963564198702346':
+    def rcsb_branched_instance_annotation(self) -> 'Attr_RcsbBranchedInstanceAnnotation_6935516299445140427':
         """"""
-        return Attr_RcsbBranchedInstanceAnnotation_655963564198702346()
+        return Attr_RcsbBranchedInstanceAnnotation_6935516299445140427()
     @property
-    def rcsb_branched_instance_feature(self) -> 'Attr_RcsbBranchedInstanceFeature_677288135180205825':
+    def rcsb_branched_instance_feature(self) -> 'Attr_RcsbBranchedInstanceFeature_7687961882648588041':
         """"""
-        return Attr_RcsbBranchedInstanceFeature_677288135180205825()
+        return Attr_RcsbBranchedInstanceFeature_7687961882648588041()
     @property
-    def rcsb_branched_instance_feature_summary(self) -> 'Attr_RcsbBranchedInstanceFeatureSummary_5461018462382448863':
+    def rcsb_branched_instance_feature_summary(self) -> 'Attr_RcsbBranchedInstanceFeatureSummary_6959582486731508466':
         """"""
-        return Attr_RcsbBranchedInstanceFeatureSummary_5461018462382448863()
+        return Attr_RcsbBranchedInstanceFeatureSummary_6959582486731508466()
     @property
-    def rcsb_branched_struct_conn(self) -> 'Attr_RcsbBranchedStructConn_242678123995734240':
+    def rcsb_branched_struct_conn(self) -> 'Attr_RcsbBranchedStructConn_7060155313320707976':
         """"""
-        return Attr_RcsbBranchedStructConn_242678123995734240()
+        return Attr_RcsbBranchedStructConn_7060155313320707976()
     @property
-    def rcsb_ligand_neighbors(self) -> 'Attr_RcsbLigandNeighbors_8985162696604088994':
+    def rcsb_ligand_neighbors(self) -> 'Attr_RcsbLigandNeighbors_571556483140723556':
         """"""
-        return Attr_RcsbLigandNeighbors_8985162696604088994()
+        return Attr_RcsbLigandNeighbors_571556483140723556()
     @property
-    def pdbx_entity_branch(self) -> 'Attr_PdbxEntityBranch_2760054082613238023':
+    def pdbx_entity_branch(self) -> 'Attr_PdbxEntityBranch_8830568513783890182':
         """"""
-        return Attr_PdbxEntityBranch_2760054082613238023()
+        return Attr_PdbxEntityBranch_8830568513783890182()
     @property
-    def pdbx_entity_branch_descriptor(self) -> 'Attr_PdbxEntityBranchDescriptor_1625757948179387454':
+    def pdbx_entity_branch_descriptor(self) -> 'Attr_PdbxEntityBranchDescriptor_2768978210527465682':
         """"""
-        return Attr_PdbxEntityBranchDescriptor_1625757948179387454()
+        return Attr_PdbxEntityBranchDescriptor_2768978210527465682()
     @property
-    def rcsb_branched_entity(self) -> 'Attr_RcsbBranchedEntity_1949550517724702782':
+    def rcsb_branched_entity(self) -> 'Attr_RcsbBranchedEntity_1818803414812355310':
         """"""
-        return Attr_RcsbBranchedEntity_1949550517724702782()
+        return Attr_RcsbBranchedEntity_1818803414812355310()
     @property
-    def rcsb_branched_entity_annotation(self) -> 'Attr_RcsbBranchedEntityAnnotation_4525198682484869588':
+    def rcsb_branched_entity_annotation(self) -> 'Attr_RcsbBranchedEntityAnnotation_432089665275081375':
         """"""
-        return Attr_RcsbBranchedEntityAnnotation_4525198682484869588()
+        return Attr_RcsbBranchedEntityAnnotation_432089665275081375()
     @property
-    def rcsb_branched_entity_container_identifiers(self) -> 'Attr_RcsbBranchedEntityContainerIdentifiers_3695924230236651680':
+    def rcsb_branched_entity_container_identifiers(self) -> 'Attr_RcsbBranchedEntityContainerIdentifiers_7281915781068144509':
         """"""
-        return Attr_RcsbBranchedEntityContainerIdentifiers_3695924230236651680()
+        return Attr_RcsbBranchedEntityContainerIdentifiers_7281915781068144509()
     @property
-    def rcsb_branched_entity_feature(self) -> 'Attr_RcsbBranchedEntityFeature_2906918833558014934':
+    def rcsb_branched_entity_feature(self) -> 'Attr_RcsbBranchedEntityFeature_3403605832502688234':
         """"""
-        return Attr_RcsbBranchedEntityFeature_2906918833558014934()
+        return Attr_RcsbBranchedEntityFeature_3403605832502688234()
     @property
-    def rcsb_branched_entity_feature_summary(self) -> 'Attr_RcsbBranchedEntityFeatureSummary_1341187641879165565':
+    def rcsb_branched_entity_feature_summary(self) -> 'Attr_RcsbBranchedEntityFeatureSummary_2538627494425573003':
         """"""
-        return Attr_RcsbBranchedEntityFeatureSummary_1341187641879165565()
+        return Attr_RcsbBranchedEntityFeatureSummary_2538627494425573003()
     @property
-    def rcsb_branched_entity_keywords(self) -> 'Attr_RcsbBranchedEntityKeywords_70545455072425985':
+    def rcsb_branched_entity_keywords(self) -> 'Attr_RcsbBranchedEntityKeywords_7919927991720842502':
         """"""
-        return Attr_RcsbBranchedEntityKeywords_70545455072425985()
+        return Attr_RcsbBranchedEntityKeywords_7919927991720842502()
     @property
-    def rcsb_branched_entity_name_com(self) -> 'Attr_RcsbBranchedEntityNameCom_4728984605819421436':
+    def rcsb_branched_entity_name_com(self) -> 'Attr_RcsbBranchedEntityNameCom_8094746212063114520':
         """"""
-        return Attr_RcsbBranchedEntityNameCom_4728984605819421436()
+        return Attr_RcsbBranchedEntityNameCom_8094746212063114520()
     @property
-    def rcsb_branched_entity_name_sys(self) -> 'Attr_RcsbBranchedEntityNameSys_2435328334044629541':
+    def rcsb_branched_entity_name_sys(self) -> 'Attr_RcsbBranchedEntityNameSys_7406705464748206371':
         """"""
-        return Attr_RcsbBranchedEntityNameSys_2435328334044629541()
+        return Attr_RcsbBranchedEntityNameSys_7406705464748206371()
     @property
-    def rcsb_polymer_entity_instance_container_identifiers(self) -> 'Attr_RcsbPolymerEntityInstanceContainerIdentifiers_8002464718805964039':
+    def rcsb_polymer_entity_instance_container_identifiers(self) -> 'Attr_RcsbPolymerEntityInstanceContainerIdentifiers_3932774019959730111':
         """"""
-        return Attr_RcsbPolymerEntityInstanceContainerIdentifiers_8002464718805964039()
+        return Attr_RcsbPolymerEntityInstanceContainerIdentifiers_3932774019959730111()
     @property
-    def rcsb_polymer_instance_annotation(self) -> 'Attr_RcsbPolymerInstanceAnnotation_7331669832188828985':
+    def rcsb_polymer_instance_annotation(self) -> 'Attr_RcsbPolymerInstanceAnnotation_5610514455392018610':
         """"""
-        return Attr_RcsbPolymerInstanceAnnotation_7331669832188828985()
+        return Attr_RcsbPolymerInstanceAnnotation_5610514455392018610()
     @property
-    def rcsb_polymer_instance_feature(self) -> 'Attr_RcsbPolymerInstanceFeature_2247806877419020795':
+    def rcsb_polymer_instance_feature(self) -> 'Attr_RcsbPolymerInstanceFeature_402373187293303688':
         """"""
-        return Attr_RcsbPolymerInstanceFeature_2247806877419020795()
+        return Attr_RcsbPolymerInstanceFeature_402373187293303688()
     @property
-    def rcsb_polymer_instance_feature_summary(self) -> 'Attr_RcsbPolymerInstanceFeatureSummary_4145198667231587096':
+    def rcsb_polymer_instance_feature_summary(self) -> 'Attr_RcsbPolymerInstanceFeatureSummary_8584421886405298320':
         """"""
-        return Attr_RcsbPolymerInstanceFeatureSummary_4145198667231587096()
+        return Attr_RcsbPolymerInstanceFeatureSummary_8584421886405298320()
     @property
-    def rcsb_polymer_instance_info(self) -> 'Attr_RcsbPolymerInstanceInfo_541826668490189617':
+    def rcsb_polymer_instance_info(self) -> 'Attr_RcsbPolymerInstanceInfo_7514771769707903990':
         """"""
-        return Attr_RcsbPolymerInstanceInfo_541826668490189617()
+        return Attr_RcsbPolymerInstanceInfo_7514771769707903990()
     @property
-    def rcsb_polymer_struct_conn(self) -> 'Attr_RcsbPolymerStructConn_5495524305308370256':
+    def rcsb_polymer_struct_conn(self) -> 'Attr_RcsbPolymerStructConn_5653146273978122279':
         """"""
-        return Attr_RcsbPolymerStructConn_5495524305308370256()
+        return Attr_RcsbPolymerStructConn_5653146273978122279()
     @property
-    def audit_author(self) -> 'Attr_AuditAuthor_63722436409328871':
+    def audit_author(self) -> 'Attr_AuditAuthor_3056663480409571195':
         """"""
-        return Attr_AuditAuthor_63722436409328871()
+        return Attr_AuditAuthor_3056663480409571195()
     @property
-    def cell(self) -> 'Attr_Cell_3351400556800308213':
+    def cell(self) -> 'Attr_Cell_6887224620345939199':
         """"""
-        return Attr_Cell_3351400556800308213()
+        return Attr_Cell_6887224620345939199()
     @property
-    def citation(self) -> 'Attr_Citation_8420317153486285983':
+    def citation(self) -> 'Attr_Citation_1164976226442513674':
         """"""
-        return Attr_Citation_8420317153486285983()
+        return Attr_Citation_1164976226442513674()
     @property
-    def database_2(self) -> 'Attr_Database2_6727259016000648739':
+    def database_2(self) -> 'Attr_Database2_3084565995207687571':
         """"""
-        return Attr_Database2_6727259016000648739()
+        return Attr_Database2_3084565995207687571()
     @property
-    def diffrn(self) -> 'Attr_Diffrn_8756492336276331415':
+    def diffrn(self) -> 'Attr_Diffrn_5629305596746318891':
         """"""
-        return Attr_Diffrn_8756492336276331415()
+        return Attr_Diffrn_5629305596746318891()
     @property
-    def diffrn_detector(self) -> 'Attr_DiffrnDetector_4867092093861873244':
+    def diffrn_detector(self) -> 'Attr_DiffrnDetector_6806478461283951806':
         """"""
-        return Attr_DiffrnDetector_4867092093861873244()
+        return Attr_DiffrnDetector_6806478461283951806()
     @property
-    def diffrn_radiation(self) -> 'Attr_DiffrnRadiation_5523608241699150468':
+    def diffrn_radiation(self) -> 'Attr_DiffrnRadiation_6162708843445927207':
         """"""
-        return Attr_DiffrnRadiation_5523608241699150468()
+        return Attr_DiffrnRadiation_6162708843445927207()
     @property
-    def diffrn_source(self) -> 'Attr_DiffrnSource_5599640620259479535':
+    def diffrn_source(self) -> 'Attr_DiffrnSource_1176446210877166441':
         """"""
-        return Attr_DiffrnSource_5599640620259479535()
+        return Attr_DiffrnSource_1176446210877166441()
     @property
-    def em_2d_crystal_entity(self) -> 'Attr_Em2dCrystalEntity_8097955435067972619':
+    def em_2d_crystal_entity(self) -> 'Attr_Em2dCrystalEntity_4058685056711295543':
         """"""
-        return Attr_Em2dCrystalEntity_8097955435067972619()
+        return Attr_Em2dCrystalEntity_4058685056711295543()
     @property
-    def em_3d_crystal_entity(self) -> 'Attr_Em3dCrystalEntity_8433693029710381941':
+    def em_3d_crystal_entity(self) -> 'Attr_Em3dCrystalEntity_8597290932712966093':
         """"""
-        return Attr_Em3dCrystalEntity_8433693029710381941()
+        return Attr_Em3dCrystalEntity_8597290932712966093()
     @property
-    def em_3d_fitting(self) -> 'Attr_Em3dFitting_2513420153760158456':
+    def em_3d_fitting(self) -> 'Attr_Em3dFitting_2952920837309131989':
         """"""
-        return Attr_Em3dFitting_2513420153760158456()
+        return Attr_Em3dFitting_2952920837309131989()
     @property
-    def em_3d_fitting_list(self) -> 'Attr_Em3dFittingList_8851000138926155448':
+    def em_3d_fitting_list(self) -> 'Attr_Em3dFittingList_4906268258637101592':
         """"""
-        return Attr_Em3dFittingList_8851000138926155448()
+        return Attr_Em3dFittingList_4906268258637101592()
     @property
-    def em_3d_reconstruction(self) -> 'Attr_Em3dReconstruction_588265537487966435':
+    def em_3d_reconstruction(self) -> 'Attr_Em3dReconstruction_3923949401804268329':
         """"""
-        return Attr_Em3dReconstruction_588265537487966435()
+        return Attr_Em3dReconstruction_3923949401804268329()
     @property
-    def em_ctf_correction(self) -> 'Attr_EmCtfCorrection_4130729762737365440':
+    def em_ctf_correction(self) -> 'Attr_EmCtfCorrection_6234616916682996051':
         """"""
-        return Attr_EmCtfCorrection_4130729762737365440()
+        return Attr_EmCtfCorrection_6234616916682996051()
     @property
-    def em_diffraction(self) -> 'Attr_EmDiffraction_4986023670877978194':
+    def em_diffraction(self) -> 'Attr_EmDiffraction_204203166905746388':
         """"""
-        return Attr_EmDiffraction_4986023670877978194()
+        return Attr_EmDiffraction_204203166905746388()
     @property
-    def em_diffraction_shell(self) -> 'Attr_EmDiffractionShell_7925876586921583036':
+    def em_diffraction_shell(self) -> 'Attr_EmDiffractionShell_9168447502094461557':
         """"""
-        return Attr_EmDiffractionShell_7925876586921583036()
+        return Attr_EmDiffractionShell_9168447502094461557()
     @property
-    def em_diffraction_stats(self) -> 'Attr_EmDiffractionStats_4098070371349062730':
+    def em_diffraction_stats(self) -> 'Attr_EmDiffractionStats_7090834112870589391':
         """"""
-        return Attr_EmDiffractionStats_4098070371349062730()
+        return Attr_EmDiffractionStats_7090834112870589391()
     @property
-    def em_embedding(self) -> 'Attr_EmEmbedding_8927504212148225961':
+    def em_embedding(self) -> 'Attr_EmEmbedding_8815723620964716955':
         """"""
-        return Attr_EmEmbedding_8927504212148225961()
+        return Attr_EmEmbedding_8815723620964716955()
     @property
-    def em_entity_assembly(self) -> 'Attr_EmEntityAssembly_8074739511142292930':
+    def em_entity_assembly(self) -> 'Attr_EmEntityAssembly_3078979783533241970':
         """"""
-        return Attr_EmEntityAssembly_8074739511142292930()
+        return Attr_EmEntityAssembly_3078979783533241970()
     @property
-    def em_experiment(self) -> 'Attr_EmExperiment_5426263616668936392':
+    def em_experiment(self) -> 'Attr_EmExperiment_4015586154885282807':
         """"""
-        return Attr_EmExperiment_5426263616668936392()
+        return Attr_EmExperiment_4015586154885282807()
     @property
-    def em_helical_entity(self) -> 'Attr_EmHelicalEntity_7668494486474232598':
+    def em_helical_entity(self) -> 'Attr_EmHelicalEntity_8899148380282082496':
         """"""
-        return Attr_EmHelicalEntity_7668494486474232598()
+        return Attr_EmHelicalEntity_8899148380282082496()
     @property
-    def em_image_recording(self) -> 'Attr_EmImageRecording_633092020661328079':
+    def em_image_recording(self) -> 'Attr_EmImageRecording_4831875945020634420':
         """"""
-        return Attr_EmImageRecording_633092020661328079()
+        return Attr_EmImageRecording_4831875945020634420()
     @property
-    def em_imaging(self) -> 'Attr_EmImaging_4200062910022697388':
+    def em_imaging(self) -> 'Attr_EmImaging_7865016832518639188':
         """"""
-        return Attr_EmImaging_4200062910022697388()
+        return Attr_EmImaging_7865016832518639188()
     @property
-    def em_particle_selection(self) -> 'Attr_EmParticleSelection_3761487756813915266':
+    def em_particle_selection(self) -> 'Attr_EmParticleSelection_7816965957874680359':
         """"""
-        return Attr_EmParticleSelection_3761487756813915266()
+        return Attr_EmParticleSelection_7816965957874680359()
     @property
-    def em_single_particle_entity(self) -> 'Attr_EmSingleParticleEntity_4098908020413115628':
+    def em_single_particle_entity(self) -> 'Attr_EmSingleParticleEntity_3566910682910487708':
         """"""
-        return Attr_EmSingleParticleEntity_4098908020413115628()
+        return Attr_EmSingleParticleEntity_3566910682910487708()
     @property
-    def em_software(self) -> 'Attr_EmSoftware_2960513041248834289':
+    def em_software(self) -> 'Attr_EmSoftware_7163900376409465999':
         """"""
-        return Attr_EmSoftware_2960513041248834289()
+        return Attr_EmSoftware_7163900376409465999()
     @property
-    def em_specimen(self) -> 'Attr_EmSpecimen_2783360130929211224':
+    def em_specimen(self) -> 'Attr_EmSpecimen_8966591325912657395':
         """"""
-        return Attr_EmSpecimen_2783360130929211224()
+        return Attr_EmSpecimen_8966591325912657395()
     @property
-    def em_staining(self) -> 'Attr_EmStaining_8821517721788522148':
+    def em_staining(self) -> 'Attr_EmStaining_5323773765966123041':
         """"""
-        return Attr_EmStaining_8821517721788522148()
+        return Attr_EmStaining_5323773765966123041()
     @property
-    def em_vitrification(self) -> 'Attr_EmVitrification_7230092428944675988':
+    def em_vitrification(self) -> 'Attr_EmVitrification_8552823616079487652':
         """"""
-        return Attr_EmVitrification_7230092428944675988()
+        return Attr_EmVitrification_8552823616079487652()
     @property
-    def entry(self) -> 'Attr_Entry_249313201875189282':
+    def entry(self) -> 'Attr_Entry_187364646265366243':
         """"""
-        return Attr_Entry_249313201875189282()
+        return Attr_Entry_187364646265366243()
     @property
-    def exptl(self) -> 'Attr_Exptl_2577994854232257417':
+    def exptl(self) -> 'Attr_Exptl_1743988733070483860':
         """"""
-        return Attr_Exptl_2577994854232257417()
+        return Attr_Exptl_1743988733070483860()
     @property
-    def exptl_crystal(self) -> 'Attr_ExptlCrystal_2492601876769177010':
+    def exptl_crystal(self) -> 'Attr_ExptlCrystal_6047932736014032469':
         """"""
-        return Attr_ExptlCrystal_2492601876769177010()
+        return Attr_ExptlCrystal_6047932736014032469()
     @property
-    def exptl_crystal_grow(self) -> 'Attr_ExptlCrystalGrow_24055614248573572':
+    def exptl_crystal_grow(self) -> 'Attr_ExptlCrystalGrow_500284744151992417':
         """"""
-        return Attr_ExptlCrystalGrow_24055614248573572()
+        return Attr_ExptlCrystalGrow_500284744151992417()
     @property
-    def ihm_entry_collection_mapping(self) -> 'Attr_IhmEntryCollectionMapping_1196474109113488933':
+    def ihm_entry_collection_mapping(self) -> 'Attr_IhmEntryCollectionMapping_7737360100215193647':
         """"""
-        return Attr_IhmEntryCollectionMapping_1196474109113488933()
+        return Attr_IhmEntryCollectionMapping_7737360100215193647()
     @property
-    def ihm_external_reference_info(self) -> 'Attr_IhmExternalReferenceInfo_4400232963713642743':
+    def ihm_external_reference_info(self) -> 'Attr_IhmExternalReferenceInfo_594089794853559570':
         """"""
-        return Attr_IhmExternalReferenceInfo_4400232963713642743()
+        return Attr_IhmExternalReferenceInfo_594089794853559570()
     @property
-    def ma_data(self) -> 'Attr_MaData_5067041056157757073':
+    def ma_data(self) -> 'Attr_MaData_8276884892940562163':
         """"""
-        return Attr_MaData_5067041056157757073()
+        return Attr_MaData_8276884892940562163()
     @property
-    def pdbx_SG_project(self) -> 'Attr_PdbxSgProject_615833800478860367':
+    def pdbx_SG_project(self) -> 'Attr_PdbxSgProject_7882781496751297744':
         """"""
-        return Attr_PdbxSgProject_615833800478860367()
+        return Attr_PdbxSgProject_7882781496751297744()
     @property
-    def pdbx_audit_revision_category(self) -> 'Attr_PdbxAuditRevisionCategory_9200246221093572489':
+    def pdbx_audit_revision_category(self) -> 'Attr_PdbxAuditRevisionCategory_4295164898291872093':
         """"""
-        return Attr_PdbxAuditRevisionCategory_9200246221093572489()
+        return Attr_PdbxAuditRevisionCategory_4295164898291872093()
     @property
-    def pdbx_audit_revision_details(self) -> 'Attr_PdbxAuditRevisionDetails_2778996470369263751':
+    def pdbx_audit_revision_details(self) -> 'Attr_PdbxAuditRevisionDetails_2543399536317023909':
         """"""
-        return Attr_PdbxAuditRevisionDetails_2778996470369263751()
+        return Attr_PdbxAuditRevisionDetails_2543399536317023909()
     @property
-    def pdbx_audit_revision_group(self) -> 'Attr_PdbxAuditRevisionGroup_8435143480492072231':
+    def pdbx_audit_revision_group(self) -> 'Attr_PdbxAuditRevisionGroup_8813241038383338302':
         """"""
-        return Attr_PdbxAuditRevisionGroup_8435143480492072231()
+        return Attr_PdbxAuditRevisionGroup_8813241038383338302()
     @property
-    def pdbx_audit_revision_history(self) -> 'Attr_PdbxAuditRevisionHistory_4106018200925450655':
+    def pdbx_audit_revision_history(self) -> 'Attr_PdbxAuditRevisionHistory_3721319971401938837':
         """"""
-        return Attr_PdbxAuditRevisionHistory_4106018200925450655()
+        return Attr_PdbxAuditRevisionHistory_3721319971401938837()
     @property
-    def pdbx_audit_revision_item(self) -> 'Attr_PdbxAuditRevisionItem_8756855347603551834':
+    def pdbx_audit_revision_item(self) -> 'Attr_PdbxAuditRevisionItem_2078477589686360674':
         """"""
-        return Attr_PdbxAuditRevisionItem_8756855347603551834()
+        return Attr_PdbxAuditRevisionItem_2078477589686360674()
     @property
-    def pdbx_audit_support(self) -> 'Attr_PdbxAuditSupport_7236908831126071533':
+    def pdbx_audit_support(self) -> 'Attr_PdbxAuditSupport_5826118427556082364':
         """"""
-        return Attr_PdbxAuditSupport_7236908831126071533()
+        return Attr_PdbxAuditSupport_5826118427556082364()
     @property
-    def pdbx_database_PDB_obs_spr(self) -> 'Attr_PdbxDatabasePdbObsSpr_3078505969471866877':
+    def pdbx_database_PDB_obs_spr(self) -> 'Attr_PdbxDatabasePdbObsSpr_4920913424878324324':
         """"""
-        return Attr_PdbxDatabasePdbObsSpr_3078505969471866877()
+        return Attr_PdbxDatabasePdbObsSpr_4920913424878324324()
     @property
-    def pdbx_database_related(self) -> 'Attr_PdbxDatabaseRelated_7270692482929859897':
+    def pdbx_database_related(self) -> 'Attr_PdbxDatabaseRelated_5853697772193198670':
         """"""
-        return Attr_PdbxDatabaseRelated_7270692482929859897()
+        return Attr_PdbxDatabaseRelated_5853697772193198670()
     @property
-    def pdbx_database_status(self) -> 'Attr_PdbxDatabaseStatus_7708797135404904486':
+    def pdbx_database_status(self) -> 'Attr_PdbxDatabaseStatus_6248353506742585334':
         """"""
-        return Attr_PdbxDatabaseStatus_7708797135404904486()
+        return Attr_PdbxDatabaseStatus_6248353506742585334()
     @property
-    def pdbx_deposit_group(self) -> 'Attr_PdbxDepositGroup_8918272729051789535':
+    def pdbx_deposit_group(self) -> 'Attr_PdbxDepositGroup_7316454735873834530':
         """"""
-        return Attr_PdbxDepositGroup_8918272729051789535()
+        return Attr_PdbxDepositGroup_7316454735873834530()
     @property
-    def pdbx_initial_refinement_model(self) -> 'Attr_PdbxInitialRefinementModel_3050577672082287174':
+    def pdbx_initial_refinement_model(self) -> 'Attr_PdbxInitialRefinementModel_8485509901477860672':
         """"""
-        return Attr_PdbxInitialRefinementModel_3050577672082287174()
+        return Attr_PdbxInitialRefinementModel_8485509901477860672()
     @property
-    def pdbx_molecule_features(self) -> 'Attr_PdbxMoleculeFeatures_3788044988414527016':
+    def pdbx_molecule_features(self) -> 'Attr_PdbxMoleculeFeatures_7554931741704576331':
         """"""
-        return Attr_PdbxMoleculeFeatures_3788044988414527016()
+        return Attr_PdbxMoleculeFeatures_7554931741704576331()
     @property
-    def pdbx_nmr_details(self) -> 'Attr_PdbxNmrDetails_7402216008610390392':
+    def pdbx_nmr_details(self) -> 'Attr_PdbxNmrDetails_7347076114960152227':
         """"""
-        return Attr_PdbxNmrDetails_7402216008610390392()
+        return Attr_PdbxNmrDetails_7347076114960152227()
     @property
-    def pdbx_nmr_ensemble(self) -> 'Attr_PdbxNmrEnsemble_7257573293688150377':
+    def pdbx_nmr_ensemble(self) -> 'Attr_PdbxNmrEnsemble_2030315065343878121':
         """"""
-        return Attr_PdbxNmrEnsemble_7257573293688150377()
+        return Attr_PdbxNmrEnsemble_2030315065343878121()
     @property
-    def pdbx_nmr_exptl(self) -> 'Attr_PdbxNmrExptl_6844054667631134669':
+    def pdbx_nmr_exptl(self) -> 'Attr_PdbxNmrExptl_7915527056814715523':
         """"""
-        return Attr_PdbxNmrExptl_6844054667631134669()
+        return Attr_PdbxNmrExptl_7915527056814715523()
     @property
-    def pdbx_nmr_exptl_sample_conditions(self) -> 'Attr_PdbxNmrExptlSampleConditions_236548912813021886':
+    def pdbx_nmr_exptl_sample_conditions(self) -> 'Attr_PdbxNmrExptlSampleConditions_139546370674424550':
         """"""
-        return Attr_PdbxNmrExptlSampleConditions_236548912813021886()
+        return Attr_PdbxNmrExptlSampleConditions_139546370674424550()
     @property
-    def pdbx_nmr_refine(self) -> 'Attr_PdbxNmrRefine_7835203930382094838':
+    def pdbx_nmr_refine(self) -> 'Attr_PdbxNmrRefine_2363544443195592659':
         """"""
-        return Attr_PdbxNmrRefine_7835203930382094838()
+        return Attr_PdbxNmrRefine_2363544443195592659()
     @property
-    def pdbx_nmr_representative(self) -> 'Attr_PdbxNmrRepresentative_2528152134631145175':
+    def pdbx_nmr_representative(self) -> 'Attr_PdbxNmrRepresentative_2227918216658776118':
         """"""
-        return Attr_PdbxNmrRepresentative_2528152134631145175()
+        return Attr_PdbxNmrRepresentative_2227918216658776118()
     @property
-    def pdbx_nmr_sample_details(self) -> 'Attr_PdbxNmrSampleDetails_7067737795432304503':
+    def pdbx_nmr_sample_details(self) -> 'Attr_PdbxNmrSampleDetails_3863624502773822582':
         """"""
-        return Attr_PdbxNmrSampleDetails_7067737795432304503()
+        return Attr_PdbxNmrSampleDetails_3863624502773822582()
     @property
-    def pdbx_nmr_software(self) -> 'Attr_PdbxNmrSoftware_7550527801390781357':
+    def pdbx_nmr_software(self) -> 'Attr_PdbxNmrSoftware_1959928567996197734':
         """"""
-        return Attr_PdbxNmrSoftware_7550527801390781357()
+        return Attr_PdbxNmrSoftware_1959928567996197734()
     @property
-    def pdbx_nmr_spectrometer(self) -> 'Attr_PdbxNmrSpectrometer_8757743467572467663':
+    def pdbx_nmr_spectrometer(self) -> 'Attr_PdbxNmrSpectrometer_5458489887174802748':
         """"""
-        return Attr_PdbxNmrSpectrometer_8757743467572467663()
+        return Attr_PdbxNmrSpectrometer_5458489887174802748()
     @property
-    def pdbx_reflns_twin(self) -> 'Attr_PdbxReflnsTwin_8328635900780687457':
+    def pdbx_reflns_twin(self) -> 'Attr_PdbxReflnsTwin_4037752409029675986':
         """"""
-        return Attr_PdbxReflnsTwin_8328635900780687457()
+        return Attr_PdbxReflnsTwin_4037752409029675986()
     @property
-    def pdbx_related_exp_data_set(self) -> 'Attr_PdbxRelatedExpDataSet_2211793775679300391':
+    def pdbx_related_exp_data_set(self) -> 'Attr_PdbxRelatedExpDataSet_7917067086386007233':
         """"""
-        return Attr_PdbxRelatedExpDataSet_2211793775679300391()
+        return Attr_PdbxRelatedExpDataSet_7917067086386007233()
     @property
-    def pdbx_serial_crystallography_data_reduction(self) -> 'Attr_PdbxSerialCrystallographyDataReduction_8349433284770910571':
+    def pdbx_serial_crystallography_data_reduction(self) -> 'Attr_PdbxSerialCrystallographyDataReduction_7878553571290629474':
         """"""
-        return Attr_PdbxSerialCrystallographyDataReduction_8349433284770910571()
+        return Attr_PdbxSerialCrystallographyDataReduction_7878553571290629474()
     @property
-    def pdbx_serial_crystallography_measurement(self) -> 'Attr_PdbxSerialCrystallographyMeasurement_7699881008694967590':
+    def pdbx_serial_crystallography_measurement(self) -> 'Attr_PdbxSerialCrystallographyMeasurement_754944129397010777':
         """"""
-        return Attr_PdbxSerialCrystallographyMeasurement_7699881008694967590()
+        return Attr_PdbxSerialCrystallographyMeasurement_754944129397010777()
     @property
-    def pdbx_serial_crystallography_sample_delivery(self) -> 'Attr_PdbxSerialCrystallographySampleDelivery_4130556062886871314':
+    def pdbx_serial_crystallography_sample_delivery(self) -> 'Attr_PdbxSerialCrystallographySampleDelivery_8108543925829297757':
         """"""
-        return Attr_PdbxSerialCrystallographySampleDelivery_4130556062886871314()
+        return Attr_PdbxSerialCrystallographySampleDelivery_8108543925829297757()
     @property
-    def pdbx_serial_crystallography_sample_delivery_fixed_target(self) -> 'Attr_PdbxSerialCrystallographySampleDeliveryFixedTarget_839165532902339679':
+    def pdbx_serial_crystallography_sample_delivery_fixed_target(self) -> 'Attr_PdbxSerialCrystallographySampleDeliveryFixedTarget_5531139374288099551':
         """"""
-        return Attr_PdbxSerialCrystallographySampleDeliveryFixedTarget_839165532902339679()
+        return Attr_PdbxSerialCrystallographySampleDeliveryFixedTarget_5531139374288099551()
     @property
-    def pdbx_serial_crystallography_sample_delivery_injection(self) -> 'Attr_PdbxSerialCrystallographySampleDeliveryInjection_3006012783879424058':
+    def pdbx_serial_crystallography_sample_delivery_injection(self) -> 'Attr_PdbxSerialCrystallographySampleDeliveryInjection_1829405205823216092':
         """"""
-        return Attr_PdbxSerialCrystallographySampleDeliveryInjection_3006012783879424058()
+        return Attr_PdbxSerialCrystallographySampleDeliveryInjection_1829405205823216092()
     @property
-    def pdbx_soln_scatter(self) -> 'Attr_PdbxSolnScatter_7245722276953617459':
+    def pdbx_soln_scatter(self) -> 'Attr_PdbxSolnScatter_6317071013510243568':
         """"""
-        return Attr_PdbxSolnScatter_7245722276953617459()
+        return Attr_PdbxSolnScatter_6317071013510243568()
     @property
-    def pdbx_soln_scatter_model(self) -> 'Attr_PdbxSolnScatterModel_8197817684443298122':
+    def pdbx_soln_scatter_model(self) -> 'Attr_PdbxSolnScatterModel_607788190178462496':
         """"""
-        return Attr_PdbxSolnScatterModel_8197817684443298122()
+        return Attr_PdbxSolnScatterModel_607788190178462496()
     @property
-    def pdbx_vrpt_summary(self) -> 'Attr_PdbxVrptSummary_2050827109889505606':
+    def pdbx_vrpt_summary(self) -> 'Attr_PdbxVrptSummary_1162852109722710037':
         """"""
-        return Attr_PdbxVrptSummary_2050827109889505606()
+        return Attr_PdbxVrptSummary_1162852109722710037()
     @property
-    def pdbx_vrpt_summary_diffraction(self) -> 'Attr_PdbxVrptSummaryDiffraction_5194791084085302813':
+    def pdbx_vrpt_summary_diffraction(self) -> 'Attr_PdbxVrptSummaryDiffraction_5327416310012881293':
         """"""
-        return Attr_PdbxVrptSummaryDiffraction_5194791084085302813()
+        return Attr_PdbxVrptSummaryDiffraction_5327416310012881293()
     @property
-    def pdbx_vrpt_summary_em(self) -> 'Attr_PdbxVrptSummaryEm_758391848767787623':
+    def pdbx_vrpt_summary_em(self) -> 'Attr_PdbxVrptSummaryEm_7471504669843550707':
         """"""
-        return Attr_PdbxVrptSummaryEm_758391848767787623()
+        return Attr_PdbxVrptSummaryEm_7471504669843550707()
     @property
-    def pdbx_vrpt_summary_geometry(self) -> 'Attr_PdbxVrptSummaryGeometry_3826771082827238154':
+    def pdbx_vrpt_summary_geometry(self) -> 'Attr_PdbxVrptSummaryGeometry_3619245359311038647':
         """"""
-        return Attr_PdbxVrptSummaryGeometry_3826771082827238154()
+        return Attr_PdbxVrptSummaryGeometry_3619245359311038647()
     @property
-    def pdbx_vrpt_summary_nmr(self) -> 'Attr_PdbxVrptSummaryNmr_6006387455028530532':
+    def pdbx_vrpt_summary_nmr(self) -> 'Attr_PdbxVrptSummaryNmr_5548859660119909229':
         """"""
-        return Attr_PdbxVrptSummaryNmr_6006387455028530532()
+        return Attr_PdbxVrptSummaryNmr_5548859660119909229()
     @property
-    def rcsb_accession_info(self) -> 'Attr_RcsbAccessionInfo_2718500272268289627':
+    def rcsb_accession_info(self) -> 'Attr_RcsbAccessionInfo_8293747943403471078':
         """"""
-        return Attr_RcsbAccessionInfo_2718500272268289627()
+        return Attr_RcsbAccessionInfo_8293747943403471078()
     @property
-    def rcsb_binding_affinity(self) -> 'Attr_RcsbBindingAffinity_850876627997830094':
+    def rcsb_binding_affinity(self) -> 'Attr_RcsbBindingAffinity_7300011394941616615':
         """"""
-        return Attr_RcsbBindingAffinity_850876627997830094()
+        return Attr_RcsbBindingAffinity_7300011394941616615()
     @property
-    def rcsb_comp_model_provenance(self) -> 'Attr_RcsbCompModelProvenance_1066267955885468439':
+    def rcsb_comp_model_provenance(self) -> 'Attr_RcsbCompModelProvenance_8964249889294855174':
         """"""
-        return Attr_RcsbCompModelProvenance_1066267955885468439()
+        return Attr_RcsbCompModelProvenance_8964249889294855174()
     @property
-    def rcsb_entry_container_identifiers(self) -> 'Attr_RcsbEntryContainerIdentifiers_3549125678328229786':
+    def rcsb_entry_container_identifiers(self) -> 'Attr_RcsbEntryContainerIdentifiers_4360046728253197277':
         """"""
-        return Attr_RcsbEntryContainerIdentifiers_3549125678328229786()
+        return Attr_RcsbEntryContainerIdentifiers_4360046728253197277()
     @property
-    def rcsb_entry_group_membership(self) -> 'Attr_RcsbEntryGroupMembership_480705922285483136':
+    def rcsb_entry_group_membership(self) -> 'Attr_RcsbEntryGroupMembership_5845487141021122936':
         """"""
-        return Attr_RcsbEntryGroupMembership_480705922285483136()
+        return Attr_RcsbEntryGroupMembership_5845487141021122936()
     @property
-    def rcsb_entry_info(self) -> 'Attr_RcsbEntryInfo_3072208414852637683':
+    def rcsb_entry_info(self) -> 'Attr_RcsbEntryInfo_7518889686398166852':
         """"""
-        return Attr_RcsbEntryInfo_3072208414852637683()
+        return Attr_RcsbEntryInfo_7518889686398166852()
     @property
-    def rcsb_external_references(self) -> 'Attr_RcsbExternalReferences_123611509675646232':
+    def rcsb_external_references(self) -> 'Attr_RcsbExternalReferences_3592345202349904700':
         """"""
-        return Attr_RcsbExternalReferences_123611509675646232()
+        return Attr_RcsbExternalReferences_3592345202349904700()
     @property
-    def rcsb_ihm_dataset_list(self) -> 'Attr_RcsbIhmDatasetList_8727223721002288469':
+    def rcsb_ihm_dataset_list(self) -> 'Attr_RcsbIhmDatasetList_8639441134678106674':
         """"""
-        return Attr_RcsbIhmDatasetList_8727223721002288469()
+        return Attr_RcsbIhmDatasetList_8639441134678106674()
     @property
-    def rcsb_ihm_dataset_source_db_reference(self) -> 'Attr_RcsbIhmDatasetSourceDbReference_6446994308069145877':
+    def rcsb_ihm_dataset_source_db_reference(self) -> 'Attr_RcsbIhmDatasetSourceDbReference_7806803460585758270':
         """"""
-        return Attr_RcsbIhmDatasetSourceDbReference_6446994308069145877()
+        return Attr_RcsbIhmDatasetSourceDbReference_7806803460585758270()
     @property
-    def rcsb_ma_qa_metric_global(self) -> 'Attr_RcsbMaQaMetricGlobal_677615718054456792':
+    def rcsb_ma_qa_metric_global(self) -> 'Attr_RcsbMaQaMetricGlobal_5024249783086438496':
         """"""
-        return Attr_RcsbMaQaMetricGlobal_677615718054456792()
+        return Attr_RcsbMaQaMetricGlobal_5024249783086438496()
     @property
-    def rcsb_primary_citation(self) -> 'Attr_RcsbPrimaryCitation_2589138073379635388':
+    def rcsb_primary_citation(self) -> 'Attr_RcsbPrimaryCitation_8495689730730368988':
         """"""
-        return Attr_RcsbPrimaryCitation_2589138073379635388()
+        return Attr_RcsbPrimaryCitation_8495689730730368988()
     @property
-    def refine(self) -> 'Attr_Refine_7744573669119126847':
+    def refine(self) -> 'Attr_Refine_2227893954863511976':
         """"""
-        return Attr_Refine_7744573669119126847()
+        return Attr_Refine_2227893954863511976()
     @property
-    def refine_analyze(self) -> 'Attr_RefineAnalyze_9211571284388423736':
+    def refine_analyze(self) -> 'Attr_RefineAnalyze_7241750505646267335':
         """"""
-        return Attr_RefineAnalyze_9211571284388423736()
+        return Attr_RefineAnalyze_7241750505646267335()
     @property
-    def refine_hist(self) -> 'Attr_RefineHist_9221191576897128552':
+    def refine_hist(self) -> 'Attr_RefineHist_8989851675911188851':
         """"""
-        return Attr_RefineHist_9221191576897128552()
+        return Attr_RefineHist_8989851675911188851()
     @property
-    def refine_ls_restr(self) -> 'Attr_RefineLsRestr_8001991327589565592':
+    def refine_ls_restr(self) -> 'Attr_RefineLsRestr_5323145829563317396':
         """"""
-        return Attr_RefineLsRestr_8001991327589565592()
+        return Attr_RefineLsRestr_5323145829563317396()
     @property
-    def reflns(self) -> 'Attr_Reflns_7607562281695705022':
+    def reflns(self) -> 'Attr_Reflns_6603085111978238979':
         """"""
-        return Attr_Reflns_7607562281695705022()
+        return Attr_Reflns_6603085111978238979()
     @property
-    def reflns_shell(self) -> 'Attr_ReflnsShell_2486530081492852863':
+    def reflns_shell(self) -> 'Attr_ReflnsShell_8517297791264857244':
         """"""
-        return Attr_ReflnsShell_2486530081492852863()
+        return Attr_ReflnsShell_8517297791264857244()
     @property
-    def software(self) -> 'Attr_Software_6137019163352523818':
+    def software(self) -> 'Attr_Software_7104985068564282590':
         """"""
-        return Attr_Software_6137019163352523818()
+        return Attr_Software_7104985068564282590()
     @property
-    def struct(self) -> 'Attr_Struct_4911620606329260224':
+    def struct(self) -> 'Attr_Struct_2974294429352065371':
         """"""
-        return Attr_Struct_4911620606329260224()
+        return Attr_Struct_2974294429352065371()
     @property
-    def struct_keywords(self) -> 'Attr_StructKeywords_6309694326895381884':
+    def struct_keywords(self) -> 'Attr_StructKeywords_463349466143378259':
         """"""
-        return Attr_StructKeywords_6309694326895381884()
+        return Attr_StructKeywords_463349466143378259()
     @property
-    def symmetry(self) -> 'Attr_Symmetry_7008832039493893094':
+    def symmetry(self) -> 'Attr_Symmetry_5827422838062099858':
         """"""
-        return Attr_Symmetry_7008832039493893094()
+        return Attr_Symmetry_5827422838062099858()
     @property
-    def rcsb_pubmed_container_identifiers(self) -> 'Attr_RcsbPubmedContainerIdentifiers_6375516999502798455':
+    def rcsb_pubmed_container_identifiers(self) -> 'Attr_RcsbPubmedContainerIdentifiers_2702543507289998750':
         """"""
-        return Attr_RcsbPubmedContainerIdentifiers_6375516999502798455()
+        return Attr_RcsbPubmedContainerIdentifiers_2702543507289998750()
     @property
     def rcsb_pubmed_central_id(self) -> Attribute:
         """Unique integer value assigned to each PubMed Central record."""
@@ -9653,112 +9653,112 @@ class AttributesRoot_0:
         """NLM controlled vocabulary, Medical Subject Headings (MeSH), is used to characterize the content of the articles represented by MEDLINE citations."""
         return Attribute('rcsb_pubmed_mesh_descriptors')
     @property
-    def rcsb_pubmed_mesh_descriptors_lineage(self) -> 'Attr_RcsbPubmedMeshDescriptorsLineage_1229728351658163987':
+    def rcsb_pubmed_mesh_descriptors_lineage(self) -> 'Attr_RcsbPubmedMeshDescriptorsLineage_935951856577311310':
         """Members of the MeSH classification lineage."""
-        return Attr_RcsbPubmedMeshDescriptorsLineage_1229728351658163987()
+        return Attr_RcsbPubmedMeshDescriptorsLineage_935951856577311310()
     @property
-    def entity_poly(self) -> 'Attr_EntityPoly_367486388453993374':
+    def entity_poly(self) -> 'Attr_EntityPoly_8458098235097303839':
         """"""
-        return Attr_EntityPoly_367486388453993374()
+        return Attr_EntityPoly_8458098235097303839()
     @property
-    def entity_src_gen(self) -> 'Attr_EntitySrcGen_3837151472797219853':
+    def entity_src_gen(self) -> 'Attr_EntitySrcGen_1075413165040704262':
         """"""
-        return Attr_EntitySrcGen_3837151472797219853()
+        return Attr_EntitySrcGen_1075413165040704262()
     @property
-    def entity_src_nat(self) -> 'Attr_EntitySrcNat_8246145195750866030':
+    def entity_src_nat(self) -> 'Attr_EntitySrcNat_4260064998081523498':
         """"""
-        return Attr_EntitySrcNat_8246145195750866030()
+        return Attr_EntitySrcNat_4260064998081523498()
     @property
-    def pdbx_entity_src_syn(self) -> 'Attr_PdbxEntitySrcSyn_6767574882184091706':
+    def pdbx_entity_src_syn(self) -> 'Attr_PdbxEntitySrcSyn_850297309431665874':
         """"""
-        return Attr_PdbxEntitySrcSyn_6767574882184091706()
+        return Attr_PdbxEntitySrcSyn_850297309431665874()
     @property
-    def rcsb_cluster_flexibility(self) -> 'Attr_RcsbClusterFlexibility_5414743780810502444':
+    def rcsb_cluster_flexibility(self) -> 'Attr_RcsbClusterFlexibility_8512278110429840217':
         """"""
-        return Attr_RcsbClusterFlexibility_5414743780810502444()
+        return Attr_RcsbClusterFlexibility_8512278110429840217()
     @property
-    def rcsb_cluster_membership(self) -> 'Attr_RcsbClusterMembership_9054129751047273071':
+    def rcsb_cluster_membership(self) -> 'Attr_RcsbClusterMembership_6866817333537718053':
         """"""
-        return Attr_RcsbClusterMembership_9054129751047273071()
+        return Attr_RcsbClusterMembership_6866817333537718053()
     @property
-    def rcsb_entity_host_organism(self) -> 'Attr_RcsbEntityHostOrganism_1000425279408396532':
+    def rcsb_entity_host_organism(self) -> 'Attr_RcsbEntityHostOrganism_1423724622558094168':
         """"""
-        return Attr_RcsbEntityHostOrganism_1000425279408396532()
+        return Attr_RcsbEntityHostOrganism_1423724622558094168()
     @property
-    def rcsb_entity_source_organism(self) -> 'Attr_RcsbEntitySourceOrganism_1178090087809967221':
+    def rcsb_entity_source_organism(self) -> 'Attr_RcsbEntitySourceOrganism_9001017777981291379':
         """"""
-        return Attr_RcsbEntitySourceOrganism_1178090087809967221()
+        return Attr_RcsbEntitySourceOrganism_9001017777981291379()
     @property
-    def rcsb_genomic_lineage(self) -> 'Attr_RcsbGenomicLineage_8808136628837431243':
+    def rcsb_genomic_lineage(self) -> 'Attr_RcsbGenomicLineage_8175647432274520119':
         """"""
-        return Attr_RcsbGenomicLineage_8808136628837431243()
+        return Attr_RcsbGenomicLineage_8175647432274520119()
     @property
-    def rcsb_membrane_lineage(self) -> 'Attr_RcsbMembraneLineage_8402111703242425966':
+    def rcsb_membrane_lineage(self) -> 'Attr_RcsbMembraneLineage_3790024343364131394':
         """"""
-        return Attr_RcsbMembraneLineage_8402111703242425966()
+        return Attr_RcsbMembraneLineage_3790024343364131394()
     @property
-    def rcsb_polymer_entity(self) -> 'Attr_RcsbPolymerEntity_5421152956106328687':
+    def rcsb_polymer_entity(self) -> 'Attr_RcsbPolymerEntity_7194034502569526187':
         """"""
-        return Attr_RcsbPolymerEntity_5421152956106328687()
+        return Attr_RcsbPolymerEntity_7194034502569526187()
     @property
-    def rcsb_polymer_entity_align(self) -> 'Attr_RcsbPolymerEntityAlign_5963234002480728832':
+    def rcsb_polymer_entity_align(self) -> 'Attr_RcsbPolymerEntityAlign_7206211704046071894':
         """"""
-        return Attr_RcsbPolymerEntityAlign_5963234002480728832()
+        return Attr_RcsbPolymerEntityAlign_7206211704046071894()
     @property
-    def rcsb_polymer_entity_annotation(self) -> 'Attr_RcsbPolymerEntityAnnotation_5980044332760432062':
+    def rcsb_polymer_entity_annotation(self) -> 'Attr_RcsbPolymerEntityAnnotation_644964178023672671':
         """"""
-        return Attr_RcsbPolymerEntityAnnotation_5980044332760432062()
+        return Attr_RcsbPolymerEntityAnnotation_644964178023672671()
     @property
-    def rcsb_polymer_entity_container_identifiers(self) -> 'Attr_RcsbPolymerEntityContainerIdentifiers_9068062384755872854':
+    def rcsb_polymer_entity_container_identifiers(self) -> 'Attr_RcsbPolymerEntityContainerIdentifiers_5678289769802624529':
         """"""
-        return Attr_RcsbPolymerEntityContainerIdentifiers_9068062384755872854()
+        return Attr_RcsbPolymerEntityContainerIdentifiers_5678289769802624529()
     @property
-    def rcsb_polymer_entity_feature(self) -> 'Attr_RcsbPolymerEntityFeature_8243252581169715439':
+    def rcsb_polymer_entity_feature(self) -> 'Attr_RcsbPolymerEntityFeature_3650419600679477204':
         """"""
-        return Attr_RcsbPolymerEntityFeature_8243252581169715439()
+        return Attr_RcsbPolymerEntityFeature_3650419600679477204()
     @property
-    def rcsb_polymer_entity_feature_summary(self) -> 'Attr_RcsbPolymerEntityFeatureSummary_7444095901013901317':
+    def rcsb_polymer_entity_feature_summary(self) -> 'Attr_RcsbPolymerEntityFeatureSummary_9187527300679702617':
         """"""
-        return Attr_RcsbPolymerEntityFeatureSummary_7444095901013901317()
+        return Attr_RcsbPolymerEntityFeatureSummary_9187527300679702617()
     @property
-    def rcsb_polymer_entity_group_membership(self) -> 'Attr_RcsbPolymerEntityGroupMembership_3729216098428661129':
+    def rcsb_polymer_entity_group_membership(self) -> 'Attr_RcsbPolymerEntityGroupMembership_7938195433105953246':
         """"""
-        return Attr_RcsbPolymerEntityGroupMembership_3729216098428661129()
+        return Attr_RcsbPolymerEntityGroupMembership_7938195433105953246()
     @property
-    def rcsb_polymer_entity_keywords(self) -> 'Attr_RcsbPolymerEntityKeywords_1714974568738106594':
+    def rcsb_polymer_entity_keywords(self) -> 'Attr_RcsbPolymerEntityKeywords_3161332854173536742':
         """"""
-        return Attr_RcsbPolymerEntityKeywords_1714974568738106594()
+        return Attr_RcsbPolymerEntityKeywords_3161332854173536742()
     @property
-    def rcsb_polymer_entity_name_com(self) -> 'Attr_RcsbPolymerEntityNameCom_917101132350903206':
+    def rcsb_polymer_entity_name_com(self) -> 'Attr_RcsbPolymerEntityNameCom_3842076325708154092':
         """"""
-        return Attr_RcsbPolymerEntityNameCom_917101132350903206()
+        return Attr_RcsbPolymerEntityNameCom_3842076325708154092()
     @property
-    def rcsb_polymer_entity_name_sys(self) -> 'Attr_RcsbPolymerEntityNameSys_7669584117686705920':
+    def rcsb_polymer_entity_name_sys(self) -> 'Attr_RcsbPolymerEntityNameSys_7480085878278364382':
         """"""
-        return Attr_RcsbPolymerEntityNameSys_7669584117686705920()
+        return Attr_RcsbPolymerEntityNameSys_7480085878278364382()
     @property
-    def rcsb_related_target_references(self) -> 'Attr_RcsbRelatedTargetReferences_6236053491568576839':
+    def rcsb_related_target_references(self) -> 'Attr_RcsbRelatedTargetReferences_5881875290868236752':
         """"""
-        return Attr_RcsbRelatedTargetReferences_6236053491568576839()
+        return Attr_RcsbRelatedTargetReferences_5881875290868236752()
     @property
-    def rcsb_target_cofactors(self) -> 'Attr_RcsbTargetCofactors_3310181653869243849':
+    def rcsb_target_cofactors(self) -> 'Attr_RcsbTargetCofactors_8472537642467997329':
         """"""
-        return Attr_RcsbTargetCofactors_3310181653869243849()
+        return Attr_RcsbTargetCofactors_8472537642467997329()
     @property
     def rcsb_membrane_lineage_provenance_code(self) -> Attribute:
         """Mpstruc keyword denotes original annotation, Homology keyword denotes annotation inferred by homology."""
         return Attribute('rcsb_membrane_lineage_provenance_code')
     @property
-    def drugbank_container_identifiers(self) -> 'Attr_DrugbankContainerIdentifiers_9173243926554205325':
+    def drugbank_container_identifiers(self) -> 'Attr_DrugbankContainerIdentifiers_6385510197979959444':
         """"""
-        return Attr_DrugbankContainerIdentifiers_9173243926554205325()
+        return Attr_DrugbankContainerIdentifiers_6385510197979959444()
     @property
-    def drugbank_info(self) -> 'Attr_DrugbankInfo_4994912303796727713':
+    def drugbank_info(self) -> 'Attr_DrugbankInfo_8686328852938542459':
         """"""
-        return Attr_DrugbankInfo_4994912303796727713()
+        return Attr_DrugbankInfo_8686328852938542459()
     @property
-    def drugbank_target(self) -> 'Attr_DrugbankTarget_4863314656293444378':
+    def drugbank_target(self) -> 'Attr_DrugbankTarget_8247844805210609329':
         """"""
-        return Attr_DrugbankTarget_4863314656293444378()
+        return Attr_DrugbankTarget_8247844805210609329()
 
 attrs = AttributesRoot_0()
