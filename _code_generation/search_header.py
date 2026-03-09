@@ -116,7 +116,7 @@ def ChemicalQuery(value: str, type: Literal["formula", "descriptor"] = "formula"
 
 class SearchRequest:
     """Wrapper to construct the final JSON payload for the Search API."""
-    def __init__(self, query: SearchNode, return_type: ReturnType = "entry"):
+    def __init__(self, query: SearchNode, return_type = "entry"):
         self.query = query
         self.return_type = return_type
         self.options = {}

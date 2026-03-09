@@ -75,7 +75,7 @@ def run_generator():
                     lines.append(f"        return {child_cls}()")
             else:
                 lines.append(f"    @property")
-                lines.append(f"    def {key}(self) -> Attribute:")
+                lines.append(f"    def {key}(self):")
                 lines.append(f"        \"\"\"{doc}\"\"\"")
                 lines.append(f"        return Attribute('{full_path}')")
 
